@@ -9,6 +9,12 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-plugin-react-redux`,
+      options: {
+        pathToCreateStoreModule: './src/state/createStore',
+      }
+    },
+    {
       resolve: `gatsby-plugin-sass`,
       options: {
         importer: globImporter(),
