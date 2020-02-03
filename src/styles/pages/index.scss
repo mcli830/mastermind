@@ -3,5 +3,15 @@
 }
 
 .index-controls {
-  padding: 1rem;
+
+  .user-actions {
+    padding: 1rem;
+    .column {
+      @extend %flex-center;
+    }
+  }
+
+  .number-pad {
+    padding: 1rem;
+  }
 }
