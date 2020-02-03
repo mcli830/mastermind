@@ -5,10 +5,14 @@
   .Layout-main {
     flex-grow: 1;
     flex-shrink: 1;
+    @extend %flex-column;
   }
 
   .Layout-footer {
     flex: 0 0 auto;
     text-align: center;
+    background-color: $text;
+    color: rgba($text-invert, 0.5);
+    padding: 0.3rem;
   }
 }

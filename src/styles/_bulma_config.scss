@@ -19,6 +19,10 @@
 // $widescreen-enabled: true;
 // $fullhd-enabled: true;
 
+// Colors
+$black: #222;
+$white: #fafafa;
+
 // Update some of Bulma's component variables
 // base vars
 // $background: #0A1026;
@@ -26,7 +30,7 @@
 // $background-dark: darken($background, 4%);
 // $body-background-color: $background;
 // $body-background-color: $scheme-invert-ter;
-// $text: #BEDFEA;
+$text: $black;
 
 // title
 // $title-color: $text;

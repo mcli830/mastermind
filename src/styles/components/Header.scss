@@ -1,0 +1,10 @@
+.Header {
+  text-align: center;
+  padding: 1rem;
+  background-color: $text;
+
+  h1 {
+    text-transform: uppercase;
+    color: $text-invert
+  }
+}

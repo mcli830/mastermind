@@ -8,6 +8,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import Header from '../components/Header'
+
 import "../styles/app.scss"
 
 const Layout = ({ children }) => {
@@ -15,6 +17,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <div className="Layout">
+        <Header />
         <main className="Layout-main">
           {children}
         </main>

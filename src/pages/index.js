@@ -6,8 +6,14 @@ import SEO from "../components/SEO"
 const IndexPage = (props) => (
   <Layout>
     <SEO title="Home" />
-    <h1>Home</h1>
-    <p>This is the index page.</p>
+    <div className='container flex-column flex-fluid'>
+      <div className='index-display flex-fluid'>
+        Display
+      </div>
+      <div className='index-controls'>
+        Controls
+      </div>
+    </div>
   </Layout>
 )
 
