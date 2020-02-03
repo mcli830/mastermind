@@ -1,18 +1,1 @@
-%flex {
-  display: flex;
-}
-
-%flex-row {
-  @extend %flex;
-  flex-direction: row;
-}
-
-%flex-column {
-  @extend %flex;
-  flex-direction: column;
-}
-
-%flex-center {
-  @extend %flex-column;
-  justify-content: center;
-}
+$controls-height: 6rem;

@@ -5,6 +5,7 @@
 @import 'reset'; // from gatsby starter
 @import 'bulma_config';
 @import 'custom_variables';
+@import 'mixins';
 
 @import 'base';
 @import 'components/**/*';
