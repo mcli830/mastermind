@@ -1,0 +1,91 @@
+@import "bulma/sass/utilities/initial-variables";
+@import "bulma/sass/utilities/functions";
+
+// Typograhy
+// $family-sans-serif: 'Quicksand', sans-serif;
+// $family-monospace: 'Inconsolata', monospace;
+//
+// $family-primary: $family-sans-serif;
+// $family-secondary: 'Poppins', sans-serif;
+//
+// $family-brand: 'Aclonica', 'Exo 2', serif;
+// $family-display: $family-secondary;
+// $family-subdisplay: $family-primary;
+// $family-subheading: $family-primary;
+
+// Update Bulma's global variables
+// $primary: #45BDD8;
+// $secondary: #E88046;
+// $widescreen-enabled: true;
+// $fullhd-enabled: true;
+
+// Update some of Bulma's component variables
+// base vars
+// $background: #0A1026;
+// $background-light: lighten($background, 4%);
+// $background-dark: darken($background, 4%);
+// $body-background-color: $background;
+// $body-background-color: $scheme-invert-ter;
+// $text: #BEDFEA;
+
+// title
+// $title-color: $text;
+// $title-family: $family-display;
+
+// function colors
+// $info: $secondary;
+
+// forms
+// $control-border-width: 2px;
+// $input-border-color: transparent;
+// $input-shadow: none;
+
+// links, anchors
+// $link: $text;
+// $link-hover: $secondary;
+
+// buttons
+// $button-background-color: transparent;
+// $button-hover-border-color: $primary;
+
+// navbar
+// $navbar-breakpoint: 0;
+// $navbar-background-color: transparent;
+
+// box
+// $box-color: $text;
+// $box-background-color: $background-light;
+// $box-radius: $radius-small;
+
+// card
+// $card-background-color: $background-light;
+// $card-color: $text;
+
+// $menu-item-color: $grey-light;
+// $menu-item-hover-background-color: transparent;
+// $menu-item-hover-color: $primary;
+
+// 5. Add new color variables to the color map.
+@import "bulma/sass/utilities/derived-variables";
+// $addColors: (
+//   "twitter":($twitter, $twitter-invert),
+//   "linkedin": ($linkedin, $linkedin-invert),
+//   "github": ($github, $github-invert)
+// );
+// $colors: map-merge($colors, $addColors);
+
+// Import only what you need from Bulma
+@import 'bulma';
+// @import "bulma/sass/utilities/_all.sass";
+// @import "bulma/sass/base/_all.sass";
+// @import "bulma/sass/elements/button.sass";
+// @import "bulma/sass/elements/container.sass";
+// @import "bulma/sass/elements/title.sass";
+// @import "bulma/sass/form/_all.sass";
+// @import "bulma/sass/components/navbar.sass";
+// @import "bulma/sass/layout/hero.sass";
+// @import "bulma/sass/layout/section.sass";
+// @import "bulma/sass/components/level.sass";
+
+// Install bulma-extensions
+// @import '~bulma-extensions'

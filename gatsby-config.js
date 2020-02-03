@@ -1,11 +1,19 @@
+var globImporter = require('node-sass-glob-importer')
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Mastermind`,
+    description: `Guess the right combination of numbers`,
+    author: `@mcli830`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        importer: globImporter(),
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
