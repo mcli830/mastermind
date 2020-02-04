@@ -36,3 +36,12 @@
 %glyph-sized {
   @include square-glyph($glyph-size-md, $glyph-font-fac);
 }
+
+@mixin glyph-container($n) {
+  $size-sm: ($glyph-size-md*$n) + ($glyph-gap*($n+1));
+  width: $size-sm;
+  @include tablet {
+    $size-lg: ($glyph-size-lg*$n) + ($glyph-gap*($n+1));
+    width: $size-lg;
+  }
+}

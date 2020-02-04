@@ -6,6 +6,7 @@
   background-color: $box-background-color;
   width: $glyph-size-sm;
   height: $glyph-size-sm;
+  margin: 0;
   &.round {
     border-radius: 50%;
   }

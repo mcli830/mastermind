@@ -1,15 +1,21 @@
 .Pool {
-  @extend %fill;
-  padding: $glyph-margin;
+  height: 100%;
+  padding: $glyph-gap;
   border: 1px solid $text;
+  @include glyph-container(2);
+  @extend %flex-row;
 
-  .column:not(:first-of-type) {
-    padding-left: 0;
+  .Pool-column {
+    &:not(:first-of-type) {
+      padding-left: $glyph-gap;
+    }
   }
 
   .Pool-item {
+    margin: 0;
     &:not(:first-child) {
-      margin-top: $glyph-margin;
+      margin-top: $glyph-gap;
     }
   }
+
 }
