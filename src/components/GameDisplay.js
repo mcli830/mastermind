@@ -10,7 +10,13 @@ const GameDisplay = (props) => {
 
   return (
     <div className='GameDisplay'>
-      <div className='GameDisplay-visuals'></div>
+
+      <div className='GameDisplay-visuals'>
+        <figure className="title is-2">
+          <FA icon="brain" />
+        </figure>
+      </div>
+
       <div className='GameDisplay-stage'>
         {guess.map((n,i) => (
           <div key={i} className='stage-item'>
@@ -23,6 +29,7 @@ const GameDisplay = (props) => {
           </div>
         </div>
       </div>
+
     </div>
   )
 }
