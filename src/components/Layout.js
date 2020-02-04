@@ -10,6 +10,8 @@ import PropTypes from "prop-types"
 
 import Header from '../components/Header'
 
+import '../lib/prototype.js'
+
 import "../styles/app.scss"
 
 const Layout = ({ children }) => {

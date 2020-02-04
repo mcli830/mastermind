@@ -3,6 +3,10 @@
   padding: $glyph-margin;
   border: 1px solid $text;
 
+  .column:not(:first-of-type) {
+    padding-left: 0;
+  }
+
   .Pool-item {
     &:not(:first-child) {
       margin-top: $glyph-margin;
