@@ -10,9 +10,14 @@ import PropTypes from "prop-types"
 
 import Header from '../components/Header'
 
+// import local files
 import '../lib/prototype.js'
-
 import "../styles/app.scss"
+
+// add fontawesome icons
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faBrain, faKey, faArrowAltCircleUp, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
+library.add(faBrain, faKey, faArrowAltCircleUp, faArrowAltCircleRight)
 
 const Layout = ({ children }) => {
 

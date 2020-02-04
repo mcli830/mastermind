@@ -10,6 +10,7 @@ $glyph-margin: $p1;
 $glyph-size-sm: 30px;
 $glyph-size-md: 40px;
 $glyph-size-lg: 60px;
+$glyph-font-fac: .5;
 
 // height = (n)(glyph-size) + (n+1)(glyph-margin)
 $gameboard-height-mobile: ($glyph-size-md * 5) + ($glyph-margin * 6);

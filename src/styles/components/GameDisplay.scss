@@ -15,5 +15,9 @@
     .stage-item:not(:first-child) {
       margin-left: $stage-gap;
     }
+    .button {
+      margin-left: $p2;
+      @extend %glyph-sized;
+    }
   }
 }

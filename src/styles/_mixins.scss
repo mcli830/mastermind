@@ -32,3 +32,7 @@
   @include square($n);
   font-size: $n * $f;
 }
+
+%glyph-sized {
+  @include square-glyph($glyph-size-md, $glyph-font-fac);
+}

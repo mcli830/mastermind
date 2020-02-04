@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Glyph from './Glyph'
+import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
 
 const GameDisplay = (props) => {
 
@@ -18,7 +19,7 @@ const GameDisplay = (props) => {
         ))}
         <div className='stage-item'>
           <div className='button is-primary is-outlined'>
-            Submit
+            <FA icon="key" />
           </div>
         </div>
       </div>

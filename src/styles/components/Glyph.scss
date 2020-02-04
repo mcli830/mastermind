@@ -1,7 +1,5 @@
-$font-factor: .5;
-
 .Glyph {
-  @include square-glyph($glyph-size-sm, $font-factor);
+  @include square-glyph($glyph-size-sm, $glyph-font-fac);
   @extend %flex-center;
   box-shadow: $box-shadow;
   border-radius: $box-radius;
@@ -12,14 +10,14 @@ $font-factor: .5;
     border-radius: 50%;
   }
   &.large {
-    @include square-glyph($glyph-size-md, $font-factor);
+    @include square-glyph($glyph-size-md, $glyph-font-fac);
   }
 
   @include tablet {
-    @include square-glyph($glyph-size-md, $font-factor);
+    @include square-glyph($glyph-size-md, $glyph-font-fac);
 
     &.large {
-      @include square-glyph($glyph-size-lg, $font-factor);
+      @include square-glyph($glyph-size-lg, $glyph-font-fac);
     }
   }
 }
