@@ -1,0 +1,21 @@
+.Attempt {
+  width: 100%;
+  @extend %flex-row;
+  border: 1px solid black;
+  padding: $p1;
+
+  .Attempt-code {
+    @extend %flex-row;
+
+    .code-item {
+      margin-left: $glyph-margin;
+    }
+
+  }
+
+  .Attempt-result {
+    flex: 1 1 auto;
+    @extend %flex-center;
+    background-color: $info;
+  }
+}

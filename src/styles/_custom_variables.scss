@@ -1,1 +1,9 @@
-$controls-height: 6rem;
+// general
+$p1: 8px;
+$p2: $p1 * 2;
+$p3: $p1 * 3;
+$p4: $p1 * 4;
+
+// components
+$glyph-margin: $p1;
+$glyph-size: 40px;

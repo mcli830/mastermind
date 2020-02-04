@@ -1,17 +1,4 @@
-.index-display {
-
-}
-
-.index-controls {
-
-  .user-actions {
-    padding: 1rem;
-    .column {
-      @extend %flex-center;
-    }
-  }
-
-  .number-pad {
-    padding: 1rem;
-  }
+.Index {
+  flex: 1 1 auto;
+  display: flex;
 }

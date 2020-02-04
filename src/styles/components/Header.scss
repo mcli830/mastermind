@@ -2,9 +2,11 @@
   text-align: center;
   padding: 1rem;
   background-color: $text;
+  @extend %flex-center;
 
   h1 {
     text-transform: uppercase;
-    color: $text-invert
+    color: $text-invert;
+    white-space: nowrap;
   }
 }

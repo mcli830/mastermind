@@ -1,0 +1,12 @@
+.GameBoard {
+  flex: 1 1 auto;
+  @extend %flex-row;
+
+  .GameBoard-sheet {
+    flex: 1 1 auto;
+  }
+
+  .Gameboard-pool {
+    flex: 0 0 auto;
+  }
+}

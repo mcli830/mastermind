@@ -1,0 +1,11 @@
+.Pool {
+  @extend %fill;
+  padding: $glyph-margin;
+  border: 1px solid $text;
+
+  .Pool-item {
+    &:not(:first-child) {
+      margin-top: $glyph-margin;
+    }
+  }
+}

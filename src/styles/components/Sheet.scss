@@ -1,0 +1,4 @@
+.Sheet {
+  @extend %fill;
+  background-color: lighten($text, 8%);
+}
