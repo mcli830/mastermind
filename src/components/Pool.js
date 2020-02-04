@@ -6,6 +6,7 @@ import Glyph from './Glyph'
 const Pool = (props) => {
 
   const pool = [1,2,3,4,5,6,7,8]
+  
 
   return (
     <div className="Pool">
