@@ -1,7 +1,13 @@
+$carbon-fiber: #474747;
+
 html, body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background:
+    url("https://www.transparenttextures.com/patterns/carbon-fibre.png"),
+    linear-gradient(lighten($carbon-fiber, 4%), darken($carbon-fiber, 4%));
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 
