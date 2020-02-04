@@ -15,7 +15,7 @@ const Glyph = ({ value, round, large }) => {
 }
 
 Glyph.propTypes = {
-  value: PropTypes.number,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   round: PropTypes.bool,
   large: PropTypes.bool,
 }

@@ -11,7 +11,7 @@ const Pool = (props) => {
   return (
     <div className="Pool">
       <div className='columns is-mobile'>
-        {pool.chunk(2).map((g,ia) => (
+        {Array.chunk(pool, 2).map((g,ia) => (
           <div key={ia} className='Pool-column column'>
             {g.map((n,ib) => (
               <div key={ib} className="Pool-item">

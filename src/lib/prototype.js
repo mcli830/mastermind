@@ -1,13 +1,14 @@
 // split array into array of n chunks
-Array.prototype.chunk = function(n = 2) {
-  var chunkSize = Math.round(this.length / n)
+Array.chunk = function(arr, n = 2) {
+  if (!arr) return null;
+  var chunkSize = Math.round(arr.length / n)
   var set = [], i = 0, p = 0;
   while(i < n-1) {
-    set.push(this.slice(p, p + chunkSize))
+    set.push(arr.slice(p, p + chunkSize))
     i++
     p = chunkSize * i
   }
-  set.push(this.slice(p))
+  set.push(arr.slice(p))
   return set;
 }
 
@@ -15,22 +16,23 @@ Array.prototype.chunk = function(n = 2) {
 // n = number of samples
 // contiguous = if n > 1 and true,
 //   get a contiguous subarray sample of length n
-Array.prototype.sample = function(n = 1, contiguous = false) {
+Array.sample = function(arr, n = 1, contiguous = false) {
+  if (!arr) return null;
   // return copy of array if too small to sample
-  if (this.length <= 1) return this.slice();
-  var length = this.length
+  if (this.length <= 1) return arr.slice();
+  var length = arr.length
   var ri = num => Math.floor(Math.random() * num)
 
   if (n <= 1) {
-    return this[ri(length)]
+    return arr[ri(length)]
   } else {
     if (contiguous) {
-      var i = ri(length - n + 1)
-      return this.slice(i, i+n)
+      let i = ri(length - n + 1)
+      return arr.slice(i, i+n)
     } else {
-      var copy = this.slice()
-      var set = []
-      for(var i = 0; i < n; i++) {
+      let copy = arr.slice()
+      let set = []
+      for(let i = 0; i < n; i++) {
         set.push(copy.splice(ri(copy.length), 1)[0])
       }
       return set
