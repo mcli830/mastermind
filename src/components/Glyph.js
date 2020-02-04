@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Glyph = ({ value, round, small }) => {
+const Glyph = ({ value, round, large }) => {
 
-  const rootClass = `Glyph ${round ? 'round' : ''} ${small ? 'small' : ''}`
+  const rootClass = `Glyph ${round ? 'round' : ''} ${large ? 'large' : ''}`
 
   return (
     <div className={rootClass}>
@@ -17,13 +17,13 @@ const Glyph = ({ value, round, small }) => {
 Glyph.propTypes = {
   value: PropTypes.number,
   round: PropTypes.bool,
-  small: PropTypes.bool,
+  large: PropTypes.bool,
 }
 
 Glyph.defaultProps = {
   value: '_',
   round: false,
-  small: false,
+  large: false,
 }
 
 export default Glyph

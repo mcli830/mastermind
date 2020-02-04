@@ -11,7 +11,7 @@ const Pool = (props) => {
     <div className="Pool">
       {pool.map((n, i) => (
         <div key={i} className="Pool-item">
-          <Glyph value={n} />
+          <Glyph value={n} large />
         </div>
       ))}
     </div>

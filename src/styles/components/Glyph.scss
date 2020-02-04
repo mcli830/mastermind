@@ -1,16 +1,19 @@
 .Glyph {
-  width: $glyph-size;
-  height: $glyph-size;
-  font-size: $glyph-size * .5;
+  width: $glyph-size-sm;
+  height: $glyph-size-sm;
+  font-size: $glyph-size-sm * .5;
   @extend %flex-center;
   box-shadow: $box-shadow;
   border-radius: $box-radius;
   background-color: $box-background-color;
+  width: $glyph-size-sm;
+  height: $glyph-size-sm;
   &.round {
     border-radius: 50%;
   }
-  &.small {
-    width: $glyph-size * 0.8;
-    height: $glyph-size * 0.8;
+  &.large {
+    width: $glyph-size-lg;
+    height: $glyph-size-lg;
+    font-size: $glyph-size-lg * .5;
   }
 }
