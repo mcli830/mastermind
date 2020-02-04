@@ -4,22 +4,34 @@ import { connect } from 'react-redux'
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 
-const IndexPage = ({ state }) => (
+const IndexPage = ({ game, ui }) => (
   <Layout>
     <SEO title="Debug" />
-    <h1 style={{padding: '1rem 0'}}>Current State</h1>
-    <ul>
-      {Object.entries(state).map(([k,v], i) => (
-        <li key={i}>
-          <strong>{k}</strong>: {JSON.stringify(v)}
-        </li>
-      ))}
-    </ul>
+    <div style={{color: '#f0f0f0', padding: '1rem', fontFamily: 'monospace'}}>
+      <h2 style={{padding: '1rem 0'}}>Game</h2>
+      <ul>
+        {Object.entries(game).length > 0 ? Object.entries(game).map(([k,v], i) => (
+          <li key={i}>
+            {k}: {JSON.stringify(v)}
+          </li>
+        )) : '-'}
+      </ul>
+      <hr />
+      <h2 style={{padding: '1rem 0'}}>UI</h2>
+      <ul>
+        {Object.entries(ui).length > 0 ? Object.entries(ui).map(([k,v], i) => (
+          <li key={i}>
+            {k}: {JSON.stringify(v)}
+          </li>
+        )) : '-'}
+      </ul>
+    </div>
   </Layout>
 )
 
 const mapState = state => ({
-  state: { ...state }
+  game: {...state.game},
+  ui: {...state.ui}
 })
 
 export default connect(mapState)(IndexPage)
