@@ -5,6 +5,12 @@ $p3: $p1 * 3;
 $p4: $p1 * 4;
 
 // components
+
 $glyph-margin: $p1;
-$glyph-size-sm: 40px;
+$glyph-size-sm: 30px;
+$glyph-size-md: 40px;
 $glyph-size-lg: 60px;
+
+// height = (n)(glyph-size) + (n+1)(glyph-margin)
+$gameboard-height-mobile: ($glyph-size-md * 5) + ($glyph-margin * 6);
+$gameboard-height-tablet: ($glyph-size-lg * 5) + ($glyph-margin * 6);

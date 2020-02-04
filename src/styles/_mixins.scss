@@ -22,3 +22,13 @@
   height: 100%;
   width: 100%;
 }
+
+@mixin square($n) {
+  width: $n;
+  height: $n;
+}
+
+@mixin square-glyph($n, $f) {
+  @include square($n);
+  font-size: $n * $f;
+}

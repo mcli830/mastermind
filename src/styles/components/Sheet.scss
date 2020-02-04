@@ -1,4 +1,6 @@
 .Sheet {
   @extend %fill;
   background-color: lighten($text, 8%);
+  overflow-x: hidden;
+  overflow-y: auto;
 }
