@@ -1,3 +1,19 @@
 .GameDisplay {
-  @extend %fill;
+  width: 100%;
+  @extend %flex-center;
+  justify-content: space-around;
+  align-items: center;
+
+  .GameDisplay-visuals {
+
+  }
+
+  .GameDisplay-stage {
+    $stage-gap: $p1;
+    @extend %flex-row;
+    padding: $stage-gap;
+    .stage-item:not(:first-child) {
+      margin-left: $stage-gap;
+    }
+  }
 }
