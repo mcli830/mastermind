@@ -3,3 +3,10 @@ html, body {
   padding: 0;
   overflow: hidden;
 }
+
+
+// bulma overrides
+
+.container {
+  max-width: $tablet - ($gap * 2);
+}

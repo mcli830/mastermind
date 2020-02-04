@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <div className="Layout container">
+      <div className="Layout container is-tablet">
         <Header />
         <main className="Layout-main">
           {children}
