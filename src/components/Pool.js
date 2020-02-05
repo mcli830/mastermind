@@ -4,14 +4,9 @@ import { connect } from 'react-redux'
 import { fetchPool } from '../state/actions/pool'
 
 import Glyph from './Glyph'
+import Spinner from './Spinner'
 
 const Pool = ({ dispatch, pool, loading, error}) => {
-
-  console.log({
-    pool,
-    loading,
-    error
-  })
 
   React.useEffect(() => {
     console.log('Fetching pool from random.org')
@@ -23,7 +18,7 @@ const Pool = ({ dispatch, pool, loading, error}) => {
       return <p style={{color:'white'}}>Error! {error.message}</p>
     }
     if (loading) {
-      return <p style={{color:'white'}}>Loading...</p>
+      return <Spinner />
     }
     return (
       <>
