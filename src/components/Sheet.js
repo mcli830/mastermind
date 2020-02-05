@@ -1,36 +1,20 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import Record from './Record'
 
-const Sheet = (props) => {
-
-  const maxRecords = 10
-  const emptyData = {
-    code: new Array(4).fill('_'),
-    result: null,
-  }
-
-  const Records = [
-    {
-      code: [1,6,4,5], // array of indices
-      result: [2,1,1,0], // array of enums indicating matches
-    }, {
-      code: [6,4,3,4],
-      result: [1,1,0,0],
-    }
-  ]
-
-  const remaining = new Array(maxRecords - Records.length).fill(0)
+const Sheet = ({ history }) => {
 
   return (
     <div className="Sheet">
-      {Records.map((d,i) => (
-        <Record key={i} data={d} />
-      ))}
-      {remaining.map((n,i) => (
-        <Record key={i} data={emptyData} />
+      {history.map((d,i) => (
+        <Record key={i} sequence={d.sequence} result={d.result} />
       ))}
     </div>
   )
 }
 
-export default Sheet
+const mapState = state => ({
+  history: state.game.history
+})
+
+export default connect(mapState)(Sheet)

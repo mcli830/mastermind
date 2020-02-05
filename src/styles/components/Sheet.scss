@@ -1,6 +1,7 @@
 .Sheet {
   @extend %fill;
-  max-height: 50vh;
+  min-height: $sheet-height;
+  max-height: $sheet-height;
   max-width: 50vw;
   @include carbon-fiber($black-l4);
   @extend %flex-column;

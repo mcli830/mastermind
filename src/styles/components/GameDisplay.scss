@@ -11,15 +11,26 @@
   }
 
   .GameDisplay-stage {
-    $stage-gap: $p1;
-    @extend %flex-row;
-    padding: $stage-gap;
-    .stage-item:not(:first-child) {
-      margin-left: $stage-gap;
-    }
-    .button {
-      margin-left: $p2;
+    @extend %flex-column;
+    justify-content: center;
+    align-items: center;
+    .stage-actions {
+      margin-bottom: $p2;
       @extend %glyph-sized-md;
     }
+
+    .stage-selection {
+      $stage-gap: $p1;
+      @extend %flex-row;
+      padding: $stage-gap;
+      .stage-item:not(:first-child) {
+        margin-left: $stage-gap;
+      }
+      .button {
+        margin-left: $p2;
+        @extend %glyph-sized-md;
+      }
+    }
   }
+
 }

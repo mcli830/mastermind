@@ -31,6 +31,8 @@ $glyph-size-md: 4rem;
 $glyph-size-lg: 5rem;
 $glyph-font-fac: .5;
 
+$sheet-height: 45vh;
+
 // height = (n)(glyph-size) + (n+1)(glyph-margin)
 $gameboard-height-mobile: ($glyph-size-md * 5) + ($glyph-gap * 6);
 $gameboard-height-tablet: ($glyph-size-lg * 5) + ($glyph-gap * 6);

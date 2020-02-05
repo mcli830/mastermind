@@ -6,9 +6,6 @@ const ActionMenu = (props) => {
   return (
     <div className="ActionMenu">
       <div className="ActionMenu-item">
-        <div className='fill button is-primary has-shadow'>
-          <FA icon="key" />
-        </div>
       </div>
     </div>
   )

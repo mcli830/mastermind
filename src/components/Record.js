@@ -3,21 +3,19 @@ import PropTypes from 'prop-types'
 
 import Glyph from './Glyph'
 
-const Record = ({ data }) => {
-
-  const results = [ 2, 1, 1, 0 ]
+const Record = ({ sequence, result }) => {
 
   return (
     <div className="Record">
       <div className="Record-code">
-        {data.code.map((d, i) => (
+        {sequence.map((d, i) => (
           <div key={i} className="code-item">
             <Glyph value={d} round free />
           </div>
         ))}
       </div>
       <div className="Record-result">
-        {results.map((val, i) => (
+        {result.map((val, i) => (
           <div
             key={i}
             className={`result-node ${
@@ -33,11 +31,8 @@ const Record = ({ data }) => {
 }
 
 Record.propTypes = {
-  data: PropTypes.object,
-}
-
-Record.defaultProps = {
-  data: Array(4).fill('_')
+  code: PropTypes.arrayOf(PropTypes.number),
+  result: PropTypes.arrayOf(PropTypes.number),
 }
 
 export default Record

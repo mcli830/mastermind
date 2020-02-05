@@ -1,5 +1,5 @@
 import { FETCH_BEGIN, FETCH_SUCCESS, FETCH_ERROR } from '../actions/random'
-import { ADD_GLYPH, CHANGE_TARGET } from '../actions/game'
+import { ADD_GLYPH, CHANGE_TARGET, SUBMIT_SEQUENCE, createRecord, winningRecord } from '../actions/game'
 import { cycleIndex } from '../../lib/array'
 
 const initialState = {
@@ -9,6 +9,9 @@ const initialState = {
   sequence: [],
   selection: Array(4).fill(null),
   target: 0,
+  history: [],
+  playerWin: false,
+  playerLose: false,
 }
 
 export default function gameReducer(state = initialState, action) {
@@ -25,6 +28,22 @@ export default function gameReducer(state = initialState, action) {
       return {
         ...state,
         target: action.payload.index,
+      }
+    case SUBMIT_SEQUENCE:
+      const newRecord = createRecord({...state}, action.payload.submission)
+      // player wins if result is all perfect (2: matching number and position)
+      const playerWin = newRecord.result.every(n => n === 2)
+      // player loses if this attempt is #10 without correct sequence
+      const playerLose = playerWin ? false : state.history.length >= 9
+      return {
+        ...state,
+        history: [
+          newRecord,
+          ...state.history
+        ],
+        selection: Array(4).fill(null),
+        playerWin,
+        playerLose,
       }
 
     case FETCH_BEGIN:
