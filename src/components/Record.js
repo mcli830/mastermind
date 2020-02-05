@@ -12,7 +12,7 @@ const Record = ({ data }) => {
       <div className="Record-code">
         {data.code.map((d, i) => (
           <div key={i} className="code-item">
-            <Glyph value={d} round />
+            <Glyph value={d} round free />
           </div>
         ))}
       </div>

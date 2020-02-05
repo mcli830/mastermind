@@ -3,7 +3,7 @@
   @extend %flex-column;
 
   .Index-gamedisplay {
-    flex: 1 1 auto;
+    flex: 1 0 auto;
     display: flex;
   }
 
@@ -12,14 +12,16 @@
   }
 
   .Index-gameboard {
-    height: $gameboard-height-mobile;
-    max-height: $gameboard-height-mobile;
+    flex: 0 0 50%;
+    overflow: hidden;
+    // height: $gameboard-height-mobile;
+    // max-height: $gameboard-height-mobile;
   }
 
-  @include tablet {
-    .Index-gameboard {
-      height: $gameboard-height-tablet;
-      max-height: $gameboard-height-tablet;
-    }
-  }
+  // @include tablet {
+  //   .Index-gameboard {
+  //     height: $gameboard-height-tablet;
+  //     max-height: $gameboard-height-tablet;
+  //   }
+  // }
 }

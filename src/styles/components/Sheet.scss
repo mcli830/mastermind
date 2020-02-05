@@ -1,6 +1,8 @@
 .Sheet {
   @extend %fill;
-  background-color: lighten($text, 8%);
+  max-height: 50vh;
+  max-width: 50vw;
+  background-color: $black-l2;
   @extend %flex-column;
   align-items: center;
   overflow-x: hidden;

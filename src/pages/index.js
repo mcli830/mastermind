@@ -13,7 +13,6 @@ const IndexPage = (props) => (
       <div className='Index-gamedisplay'>
         <GameDisplay />
       </div>
-      <ActionMenu />
       <div className='Index-gameboard'>
         <GameBoard />
       </div>

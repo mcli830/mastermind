@@ -20,7 +20,14 @@
 // $fullhd-enabled: true;
 
 // Colors
+$color-increment: 4%;
 $black: #222;
+$black-l1: lighten($black, $color-increment);
+$black-l2: lighten($black, $color-increment * 2);
+$black-l3: lighten($black, $color-increment * 3);
+$black-l4: lighten($black, $color-increment * 4);
+$black-d1: darken($black, $color-increment);
+$black-d2: darken($black, $color-increment * 2);
 $white: #fafafa;
 
 // Update some of Bulma's component variables

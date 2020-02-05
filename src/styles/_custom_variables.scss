@@ -10,22 +10,26 @@ $transition-default: 200ms $bezier-bounce;
 
 // more color
 $alpha-level: 0.6;
+$alpha-level-sm: 0.15;
 $alpha-black: rgba(black,$alpha-level);
 $alpha-white: rgba(white,$alpha-level);
+$alpha-black-sm: rgba(black,$alpha-level-sm);
+$alpha-white-sm: rgba(white,$alpha-level-sm);
 $carbon-fiber: #474747;
-$inset-shadow:
-  inset 4px 3px 27px -1px $alpha-black,
-  inset -3px 3px 27px -1px $alpha-black;
+$inset-shadow: inset .1em .1em .4em -1px $alpha-black;
+$inset-shadow-lg:
+  inset -.2em .3em .8em -1px $alpha-black,
+  inset .25em .3em .8em -1px $alpha-black;
 
 $shadow:
   0 0.5em 1em -0.3em $alpha-black,
-  0 0 0 1px $alpha-black;
+  0 0 0 1px rgba(black, 0.1);
 
 // components
 $glyph-gap: $p1;
 $glyph-size-sm: 2rem;
-$glyph-size-md: 3rem;
-$glyph-size-lg: 4rem;
+$glyph-size-md: 4rem;
+$glyph-size-lg: 5rem;
 $glyph-font-fac: .5;
 $glyph-highlight-width: .2rem;
 

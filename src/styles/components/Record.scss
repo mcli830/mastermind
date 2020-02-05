@@ -4,17 +4,15 @@
   align-items: center;
   padding: $p1;
   @include glyph-sm-container-height(1);
+  @extend %inset-shadow;
+  @extend %sink;
 
   .Record-code {
     @extend %flex-row;
-
-    .code-item {
-      margin-right: $glyph-gap;
-    }
-
   }
 
   .Record-result {
+    margin-left: $p1;
     @extend %glyph-sized-sm;
     position: relative;
     .result-node {

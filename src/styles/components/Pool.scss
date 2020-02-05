@@ -1,11 +1,13 @@
 .Pool {
   margin: 0;
-  @extend %fill;
   min-width: 100%;
   max-width: 100%;
+  @extend %fill;
   padding: $glyph-gap;
   @include glyph-container-width(2);
   @extend %flex-row;
+  @extend %carbon-fiber;
+  background-color: $black-l1;
 
   .Pool-column {
     flex: 0 0 50%;
