@@ -1,3 +1,5 @@
+import { glyphDictionary } from '../../lib/glyph'
+
 export const FETCH_BEGIN = 'FETCH_BEGIN'
 export const FETCH_SUCCESS = 'FETCH_SUCCESS'
 export const FETCH_ERROR = 'FETCH_ERROR'
@@ -17,7 +19,7 @@ export const fetchError = error => ({
 })
 
 // async fetch action for random api
-const endpoint = 'https://www.random.org/integers/?num=8&min=0&max=9&col=1&base=10&format=plain&rnd=new'
+const endpoint = `https://www.random.org/integers/?num=8&min=0&max=${glyphDictionary.length-1}&col=1&base=10&format=plain&rnd=new`
 
 // fetch doesn't handle http errors
 function handleErrors(response) {

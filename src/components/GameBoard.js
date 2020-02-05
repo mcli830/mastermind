@@ -1,10 +1,9 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import Sheet from './Sheet'
 import Pool from './Pool'
 
-const GameBoard = (props) => {
+const GameBoard = () => {
   return (
     <div className="GameBoard">
       <div className="GameBoard-sheet">

@@ -2,6 +2,11 @@
   position: relative;
   margin: 0;
   border-radius: $box-radius;
+  border: 1px solid transparent;
+  transition: $transition-default;
+  * {
+    transition: inherit;
+  }
 
   .Glyph-underlay {
     @extend %overlay;
@@ -22,7 +27,6 @@
     box-shadow: $shadow;
     background-color: $black-l2;
     color: $text-invert;
-    transition: $transition-default;
     cursor: pointer;
   }
 
@@ -47,9 +51,8 @@
     touch-action: none;
     cursor: auto;
   }
-  &.highlight .Glyph-content {
-    border-top: $glyph-highlight-width solid $primary;
-    border-bottom: $glyph-highlight-width solid $primary;
+  &.highlight {
+    @include underglow($primary);
   }
   &.free {
     .Glyph-underlay {

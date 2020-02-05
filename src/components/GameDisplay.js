@@ -17,7 +17,7 @@ const GameDisplay = ({ selection, target, changeTarget }) => {
       </div>
 
       <div className='GameDisplay-stage'>
-        {selection.map((n,i) => (
+        {selection.map((n,i,arr) => (
           <div key={i} className='stage-item'>
             <Glyph
               value={n}
@@ -33,6 +33,12 @@ const GameDisplay = ({ selection, target, changeTarget }) => {
 
     </div>
   )
+}
+
+GameDisplay.propTypes = {
+  selection: PropTypes.arrayOf(PropTypes.number),
+  target: PropTypes.number,
+  changeTarget: PropTypes.func,
 }
 
 const mapState = state => ({

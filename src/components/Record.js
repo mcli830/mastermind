@@ -18,11 +18,26 @@ const Record = ({ data }) => {
       </div>
       <div className="Record-result">
         {results.map((val, i) => (
-          <div className={`result-node ${val > 1 ? 'correct-position' : val > 0 ? 'correct-number' : ''}`} />
+          <div
+            key={i}
+            className={`result-node ${
+              val > 1
+              ? 'correct-position' : val > 0
+              ? 'correct-number' : ''
+            }`}
+          />
         ))}
       </div>
     </div>
   )
+}
+
+Record.propTypes = {
+  data: PropTypes.object,
+}
+
+Record.defaultProps = {
+  data: Array(4).fill('_')
 }
 
 export default Record

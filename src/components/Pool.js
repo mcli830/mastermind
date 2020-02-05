@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Glyph from './Glyph'
 import Spinner from './Spinner'
@@ -12,14 +11,17 @@ const Pool = ({
   loading,
   error,
   selection,
-  fetchRandomApi,
   addGlyph,
+  fetchRandom,
 }) => {
+
+  // function stabilizers
+  const stableFetchRandom = React.useCallback(fetchRandom, [])
 
   React.useEffect(() => {
     console.log('Fetching pool from random.org')
-    fetchRandomApi()
-  }, [])
+    stableFetchRandom()
+  }, [stableFetchRandom])
 
   const isSelected = (i) => {
     return selection.indexOf(i) >= 0
@@ -67,8 +69,8 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  fetchRandomApi: () => dispatch(fetchRandomApi()),
-  addGlyph: (id) => dispatch(addGlyph(id))
+  addGlyph: (id) => dispatch(addGlyph(id)),
+  fetchRandom: () => dispatch(fetchRandomApi()),
 })
 
 export default connect(mapState, mapDispatch)(Pool)

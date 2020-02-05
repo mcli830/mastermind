@@ -108,3 +108,9 @@
   color: $text;
   text-shadow: 1px 1px 1px rgba(white, 0.1);
 }
+
+@mixin underglow($color) {
+  // border-right: 1px solid rgba($color, 0.8);
+  border-bottom: 1px solid rgba($color, 0.8);
+  box-shadow: .12em .2em .4em -.2em $color;
+}

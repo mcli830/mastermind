@@ -1,22 +1,28 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { glyphDictionary, validGlyph } from '../lib/glyph'
 
 const Glyph = ({ value, round, size, hide, highlight, engraved, free, onClick }) => {
 
   const rootClass = `Glyph
     ${size} ${round ? ' round' : ''}
-    ${hide ? ' hide' : ''}
+    ${hide || !validGlyph(value) ? ' hide' : ''}
     ${highlight ? ' highlight' : ''}
     ${engraved ? ' engraved' : ''}
     ${free ? ' free' : ''}
   `
 
+  const handlers = {}
+  if (!hide && onClick) {
+    handlers.onClick = onClick
+  }
+
   return (
     <div className={rootClass}>
       <div className="Glyph-underlay" />
-      <div className="Glyph-content" onClick={onClick}>
+      <div className="Glyph-content" {...handlers}>
         <span className="hax-text-centered">
-          {value}
+          {glyphDictionary[value]}
         </span>
       </div>
     </div>
