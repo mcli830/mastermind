@@ -17,7 +17,7 @@
     @include square-glyph($glyph-size-sm, $glyph-font-fac);
     text-align: center;
     border-radius: inherit;
-    box-shadow: $box-shadow;
+    box-shadow: $shadow;
     background-color: $box-background-color;
     transition: $transition-default;
     cursor: pointer;
@@ -26,8 +26,11 @@
   &.round {
     border-radius: 50%;
   }
-  &.large .Glyph-content {
+  &.md .Glyph-content {
     @include square-glyph($glyph-size-md, $glyph-font-fac);
+  }
+  &.lg .Glyph-content {
+    @include square-glyph($glyph-size-lg, $glyph-font-fac);
   }
   &.hide .Glyph-content {
     opacity: 0;
@@ -39,13 +42,5 @@
   &.highlight .Glyph-content {
     border-top: $glyph-highlight-width solid $primary;
     border-bottom: $glyph-highlight-width solid $primary;
-  }
-
-  @include tablet {
-    @include square-glyph($glyph-size-md, $glyph-font-fac);
-
-    &.large {
-      @include square-glyph($glyph-size-lg, $glyph-font-fac);
-    }
   }
 }

@@ -2,7 +2,7 @@
   height: 100%;
   padding: $glyph-gap;
   border: 1px solid $text;
-  @include glyph-container(2);
+  @include glyph-container-width(2);
   @extend %flex-row;
 
   .Pool-column {

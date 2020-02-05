@@ -42,18 +42,18 @@
 
 %glyph-sized {
   @include square-glyph($glyph-size-md, $glyph-font-fac);
-  @include tablet {
-    @include square-glyph($glyph-size-lg, $glyph-font-fac);
-  }
 }
 
-@mixin glyph-container($n) {
-  $size-sm: ($glyph-size-md*$n) + ($glyph-gap*($n+1));
-  width: $size-sm;
-  @include tablet {
-    $size-lg: ($glyph-size-lg*$n) + ($glyph-gap*($n+1));
-    width: $size-lg;
-  }
+@mixin glyph-container-width($n) {
+  width: ($glyph-size-md * $n) + ($glyph-gap * ($n + 1));
+}
+@mixin glyph-container-height($n) {
+  height: ($glyph-size-md * $n) + ($glyph-gap * ($n + 1));
+}
+
+@mixin glyph-container($nw, $nh) {
+  @include glyph-container-width($nw);
+  @include glyph-container-height($nh);
 }
 
 %carbon-fiber {
@@ -63,7 +63,11 @@
 }
 
 %inset-shadow {
-  box-shadow:
-    inset 4px 3px 27px -1px rgba(0,0,0,0.4),
-    inset -3px 3px 27px -1px rgba(0,0,0,0.4);
+  box-shadow: $inset-shadow;
+}
+
+%emboss {
+  color: transparent;
+  text-shadow: $inset-shadow;
+  background-clip: text;
 }

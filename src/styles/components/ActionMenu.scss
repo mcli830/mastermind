@@ -1,0 +1,12 @@
+.ActionMenu {
+  @extend %fill;
+  @extend %flex-row;
+  justify-content: center;
+  padding: $p2;
+
+  .ActionMenu-item {
+    @extend %glyph-sized;
+    font-size: $glyph-size-md * .8;
+    @extend %emboss;
+  }
+}

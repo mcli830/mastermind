@@ -7,6 +7,10 @@
     display: flex;
   }
 
+  .Index-actionmenu {
+    flex: 0 0 auto;
+  }
+
   .Index-gameboard {
     height: $gameboard-height-mobile;
     max-height: $gameboard-height-mobile;

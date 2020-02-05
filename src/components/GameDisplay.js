@@ -21,16 +21,13 @@ const GameDisplay = ({ selection, target, changeTarget }) => {
           <div key={i} className='stage-item'>
             <Glyph
               value={n}
-              large
+              size="lg"
               highlight={(target === i)}
               onClick={() => changeTarget(i)}
             />
           </div>
         ))}
         <div className='stage-item'>
-          <div className='button is-primary is-outlined has-shadow'>
-            <FA icon="key" />
-          </div>
         </div>
       </div>
 

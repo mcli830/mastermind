@@ -40,7 +40,7 @@ const Pool = ({
               <div key={ib} className="Pool-item">
                 <Glyph
                   value={item.value}
-                  large
+                  size="md"
                   hide={isSelected(item.id)}
                   onClick={() => addGlyph(item.id)}
                 />

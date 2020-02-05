@@ -1,10 +1,9 @@
-.Attempt {
+.Record {
   width: 100%;
   @extend %flex-row;
-  border: 1px solid black;
   padding: $p1;
 
-  .Attempt-code {
+  .Record-code {
     @extend %flex-row;
 
     .code-item {
@@ -13,7 +12,7 @@
 
   }
 
-  .Attempt-result {
+  .Record-result {
     flex: 1 1 auto;
     @extend %flex-center;
     background-color: $info;

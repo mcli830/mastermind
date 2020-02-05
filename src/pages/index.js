@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../components/Layout"
 import SEO from "../components/SEO"
 import GameDisplay from '../components/GameDisplay'
+import ActionMenu from '../components/ActionMenu'
 import GameBoard from '../components/GameBoard'
 
 const IndexPage = (props) => (
@@ -12,6 +13,7 @@ const IndexPage = (props) => (
       <div className='Index-gamedisplay'>
         <GameDisplay />
       </div>
+      <ActionMenu />
       <div className='Index-gameboard'>
         <GameBoard />
       </div>

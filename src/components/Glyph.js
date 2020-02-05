@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Glyph = ({ value, round, large, hide, highlight, onClick }) => {
+const Glyph = ({ value, round, size, hide, highlight, onClick }) => {
 
-  const rootClass = `Glyph ${round ? 'round' : ''} ${large ? 'large' : ''} ${hide ? 'hide' : ''} ${highlight ? 'highlight' : ''}`
+  const rootClass = `Glyph ${size} ${round ? 'round' : ''} ${hide ? 'hide' : ''} ${highlight ? 'highlight' : ''}`
 
   return (
     <div className={rootClass}>
@@ -19,14 +19,14 @@ const Glyph = ({ value, round, large, hide, highlight, onClick }) => {
 
 Glyph.propTypes = {
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  size: PropTypes.string,
   round: PropTypes.bool,
-  large: PropTypes.bool,
 }
 
 Glyph.defaultProps = {
   value: '_',
+  size: 'sm',
   round: false,
-  large: false,
 }
 
 export default Glyph

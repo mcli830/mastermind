@@ -1,7 +1,7 @@
 .GameBoard {
   @extend %fill;
   @extend %flex-row;
-  border-top: 1px solid darken($text, 12%);
+  box-shadow: 0 -3px 8px $alpha-black;
 
   .GameBoard-sheet {
     flex: 1 1 auto;
