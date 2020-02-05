@@ -1,29 +1,42 @@
 .Glyph {
-  @include square-glyph($glyph-size-sm, $glyph-font-fac);
-  @extend %flex-center;
-  box-shadow: $box-shadow;
-  border-radius: $box-radius;
-  background-color: $box-background-color;
-  width: $glyph-size-sm;
-  height: $glyph-size-sm;
+  position: relative;
   margin: 0;
-  transition: $transition-default;
-  cursor: pointer;
+  border-radius: $box-radius;
+
+  .Glyph-underlay {
+    @extend %overlay;
+    z-index: 1;
+    border-radius: inherit;
+    @extend %inset-shadow;
+  }
+
+  .Glyph-content {
+    position: relative;
+    z-index: 2;
+    @extend %flex-center;
+    @include square-glyph($glyph-size-sm, $glyph-font-fac);
+    text-align: center;
+    border-radius: inherit;
+    box-shadow: $box-shadow;
+    background-color: $box-background-color;
+    transition: $transition-default;
+    cursor: pointer;
+  }
 
   &.round {
     border-radius: 50%;
   }
-  &.large {
+  &.large .Glyph-content {
     @include square-glyph($glyph-size-md, $glyph-font-fac);
   }
-  &.hide {
+  &.hide .Glyph-content {
     opacity: 0;
     transform: scale(0.1);
     pointer-events: none;
     touch-action: none;
     cursor: auto;
   }
-  &.highlight {
+  &.highlight .Glyph-content {
     border-top: $glyph-highlight-width solid $primary;
     border-bottom: $glyph-highlight-width solid $primary;
   }

@@ -22,7 +22,6 @@ const Pool = ({
   }, [])
 
   const isSelected = (i) => {
-    console.log({i, selection})
     return selection.indexOf(i) >= 0
   }
 

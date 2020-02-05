@@ -3,18 +3,15 @@ import PropTypes from 'prop-types'
 
 const Glyph = ({ value, round, large, hide, highlight, onClick }) => {
 
-  const rootClass = `
-    Glyph
-    ${round ? 'round' : ''}
-    ${large ? 'large' : ''}
-    ${hide ? 'hide' : ''}
-    ${highlight ? 'highlight' : ''}
-  `
+  const rootClass = `Glyph ${round ? 'round' : ''} ${large ? 'large' : ''} ${hide ? 'hide' : ''} ${highlight ? 'highlight' : ''}`
 
   return (
-    <div className={rootClass} onClick={onClick}>
-      <div className="has-text-centered">
-        {value}
+    <div className={rootClass}>
+      <div className="Glyph-underlay" />
+      <div className="Glyph-content" onClick={onClick}>
+        <div className="hax-text-centered">
+          {value}
+        </div>
       </div>
     </div>
   )

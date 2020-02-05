@@ -28,7 +28,7 @@ const GameDisplay = ({ selection, target, changeTarget }) => {
           </div>
         ))}
         <div className='stage-item'>
-          <div className='button is-primary is-outlined'>
+          <div className='button is-primary is-outlined has-shadow'>
             <FA icon="key" />
           </div>
         </div>

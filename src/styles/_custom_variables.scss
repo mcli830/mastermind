@@ -8,8 +8,10 @@ $p4: $p1 * 4;
 $bezier-bounce: cubic-bezier(.21,1.11,.6,1.15);
 $transition-default: 200ms $bezier-bounce;
 
-// components
+// more color
+$carbon-fiber: #474747;
 
+// components
 $glyph-gap: $p1;
 $glyph-size-sm: 30px;
 $glyph-size-md: 40px;

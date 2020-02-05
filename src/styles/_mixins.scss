@@ -23,6 +23,13 @@
   width: 100%;
 }
 
+%overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @extend %fill;
+}
+
 @mixin square($n) {
   width: $n;
   height: $n;
@@ -47,4 +54,16 @@
     $size-lg: ($glyph-size-lg*$n) + ($glyph-gap*($n+1));
     width: $size-lg;
   }
+}
+
+%carbon-fiber {
+  background:
+    url("https://www.transparenttextures.com/patterns/carbon-fibre.png"),
+    linear-gradient(lighten($carbon-fiber, 4%), darken($carbon-fiber, 4%));
+}
+
+%inset-shadow {
+  box-shadow:
+    inset 4px 3px 27px -1px rgba(0,0,0,0.4),
+    inset -3px 3px 27px -1px rgba(0,0,0,0.4);
 }
