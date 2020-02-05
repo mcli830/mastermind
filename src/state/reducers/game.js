@@ -1,5 +1,6 @@
 import {
-  ADD_GLYPH
+  ADD_GLYPH,
+  CHANGE_TARGET
 } from '../actions/game'
 import { cycleIndex } from '../../lib/array'
 
@@ -17,6 +18,11 @@ export default function gameReducer(state = initialState, action) {
         ...state,
         selection: updated,
         target: cycleIndex(state.target, state.selection.length),
+      }
+    case CHANGE_TARGET:
+      return {
+        ...state,
+        target: action.payload.index,
       }
     default:
       return state
