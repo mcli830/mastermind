@@ -1,6 +1,8 @@
 .Sheet {
   @extend %fill;
   background-color: lighten($text, 8%);
+  @extend %flex-column;
+  align-items: center;
   overflow-x: hidden;
   overflow-y: auto;
 }

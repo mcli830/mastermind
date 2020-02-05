@@ -5,8 +5,7 @@
   padding: $p2;
 
   .ActionMenu-item {
-    @extend %glyph-sized;
-    font-size: $glyph-size-md * .8;
+    @extend %glyph-sized-md;
     @extend %emboss;
   }
 }

@@ -5,6 +5,8 @@ import Glyph from './Glyph'
 
 const Record = ({ data }) => {
 
+  const results = [ 2, 1, 1, 0 ]
+
   return (
     <div className="Record">
       <div className="Record-code">
@@ -15,6 +17,9 @@ const Record = ({ data }) => {
         ))}
       </div>
       <div className="Record-result">
+        {results.map((val, i) => (
+          <div className={`result-node ${val > 1 ? 'correct-position' : val > 0 ? 'correct-number' : ''}`} />
+        ))}
       </div>
     </div>
   )

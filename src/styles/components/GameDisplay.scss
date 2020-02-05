@@ -19,7 +19,7 @@
     }
     .button {
       margin-left: $p2;
-      @extend %glyph-sized;
+      @extend %glyph-sized-md;
     }
   }
 }

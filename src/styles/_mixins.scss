@@ -40,8 +40,26 @@
   font-size: $n * $f;
 }
 
-%glyph-sized {
+%glyph-sized-sm {
+  @include square-glyph($glyph-size-sm, $glyph-font-fac);
+}
+%glyph-sized-md {
   @include square-glyph($glyph-size-md, $glyph-font-fac);
+}
+%glyph-sized-lg {
+  @include square-glyph($glyph-size-lg, $glyph-font-fac);
+}
+
+@mixin glyph-sm-container-width($n) {
+  width: ($glyph-size-sm * $n) + ($glyph-gap * ($n + 1));
+}
+@mixin glyph-sm-container-height($n) {
+  height: ($glyph-size-sm * $n) + ($glyph-gap * ($n + 1));
+}
+
+@mixin glyph-sm-container($nw, $nh) {
+  @include glyph-container-width($nw);
+  @include glyph-container-height($nh);
 }
 
 @mixin glyph-container-width($n) {

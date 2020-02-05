@@ -1,7 +1,9 @@
 .Record {
-  width: 100%;
+  width: auto;
   @extend %flex-row;
+  align-items: center;
   padding: $p1;
+  @include glyph-sm-container-height(1);
 
   .Record-code {
     @extend %flex-row;
@@ -13,8 +15,36 @@
   }
 
   .Record-result {
-    flex: 1 1 auto;
-    @extend %flex-center;
-    background-color: $info;
+    @extend %glyph-sized-sm;
+    position: relative;
+    .result-node {
+      position: absolute;
+      height: 50%;
+      width: 50%;
+      border-radius: 50%;
+      transform: scale(0.2);
+      background-color: $black;
+      &:first-child, &:nth-child(2) {
+        top: 0;
+      }
+      &:first-child, &:nth-child(3) {
+        left: 0;
+      }
+      &:nth-child(2), &:nth-child(4) {
+        right: 0;
+      }
+      &:nth-child(3), &:nth-child(4) {
+        bottom: 0;
+      }
+      &.correct-number, &.correct-position {
+        transform: scale(0.8);
+      }
+      &.correct-number {
+        background-color: $white;
+      }
+      &.correct-position {
+        background-color: $danger;
+      }
+    }
   }
 }
