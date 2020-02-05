@@ -6,9 +6,9 @@ export const fetchBegin = () => ({
   type: FETCH_BEGIN
 })
 
-export const fetchSuccess = data => ({
+export const fetchSuccess = ({pool, sequence}) => ({
   type: FETCH_SUCCESS,
-  payload: { data }
+  payload: { pool, sequence }
 })
 
 export const fetchError = error => ({
@@ -31,7 +31,7 @@ function handleErrors(response) {
 // dispatch and functions in actions.
 // Call this function with dispatch
 // in react components (props.dispatch)
-export function fetchPool() {
+export function fetchRandomApi() {
 
   return dispatch => {
     dispatch(fetchBegin());
@@ -40,9 +40,18 @@ export function fetchPool() {
       .then(handleErrors)
       .then(res => res.text())
       .then(text => {
-        const data = text.split(/\n+/).filter(str => !!str).map(str => parseInt(str, 10))
-        dispatch(fetchSuccess(data))
-        return data
+        const numbers = text.split(/\n+/).filter(str => !!str).map(str => parseInt(str, 10))
+        const sequence = numbers.slice(0,4)
+        const pool = []
+        while(numbers.length > 0) {
+          let next = Math.floor(Math.random()*numbers.length)
+          pool.push(numbers.splice(next, 1)[0])
+        }
+        dispatch(fetchSuccess({
+          pool,
+          sequence
+        }))
+        return { pool, sequence }
       })
       .catch(error => dispatch(fetchError(error)))
   }

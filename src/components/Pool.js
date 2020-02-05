@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Glyph from './Glyph'
 import Spinner from './Spinner'
 import { addGlyph } from '../state/actions/game'
-import { fetchPool } from '../state/actions/pool'
+import { fetchRandomApi } from '../state/actions/random'
 
 const Pool = ({
   dispatch,
@@ -12,13 +12,13 @@ const Pool = ({
   loading,
   error,
   selection,
-  fetchPool,
+  fetchRandomApi,
   addGlyph,
 }) => {
 
   React.useEffect(() => {
     console.log('Fetching pool from random.org')
-    fetchPool()
+    fetchRandomApi()
   }, [])
 
   const isSelected = (i) => {
@@ -61,14 +61,14 @@ const Pool = ({
 }
 
 const mapState = state => ({
-  pool: state.pool.items,
-  loading: state.pool.loading,
-  error: state.pool.error,
+  pool: state.game.pool,
+  loading: state.game.loading,
+  error: state.game.error,
   selection: state.game.selection,
 })
 
 const mapDispatch = dispatch => ({
-  fetchPool: () => dispatch(fetchPool()),
+  fetchRandomApi: () => dispatch(fetchRandomApi()),
   addGlyph: (id) => dispatch(addGlyph(id))
 })
 
