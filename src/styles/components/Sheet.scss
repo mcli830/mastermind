@@ -2,7 +2,7 @@
   @extend %fill;
   max-height: 50vh;
   max-width: 50vw;
-  background-color: $black-l2;
+  @include carbon-fiber($black-l4);
   @extend %flex-column;
   align-items: center;
   overflow-x: hidden;

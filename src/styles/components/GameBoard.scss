@@ -1,8 +1,6 @@
 .GameBoard {
   @extend %fill;
   @extend %flex-row;
-  border-top: 2px solid $black-l3;
-  box-shadow: 0 -1em 1em $alpha-black;
 
   .GameBoard-sheet {
     @include glyph-sm-container-width(5);

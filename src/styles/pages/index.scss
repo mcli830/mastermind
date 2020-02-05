@@ -14,14 +14,8 @@
   .Index-gameboard {
     flex: 0 0 50%;
     overflow: hidden;
-    // height: $gameboard-height-mobile;
-    // max-height: $gameboard-height-mobile;
+    box-shadow: 0 -.1em .5em -1px $alpha-black;
+    border-top: 1px solid $black-l2;
   }
 
-  // @include tablet {
-  //   .Index-gameboard {
-  //     height: $gameboard-height-tablet;
-  //     max-height: $gameboard-height-tablet;
-  //   }
-  // }
 }

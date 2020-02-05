@@ -74,10 +74,15 @@
   @include glyph-container-height($nh);
 }
 
-%carbon-fiber {
+%carbon-fiber-gradient {
   background:
     url("https://www.transparenttextures.com/patterns/carbon-fibre.png"),
     linear-gradient(lighten($carbon-fiber, 4%), darken($carbon-fiber, 4%));
+}
+
+@mixin carbon-fiber($color) {
+  background: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+  background-color: $color;
 }
 
 %inset-shadow {
