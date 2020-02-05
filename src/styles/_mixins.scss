@@ -35,6 +35,9 @@
 
 %glyph-sized {
   @include square-glyph($glyph-size-md, $glyph-font-fac);
+  @include tablet {
+    @include square-glyph($glyph-size-lg, $glyph-font-fac);
+  }
 }
 
 @mixin glyph-container($n) {
