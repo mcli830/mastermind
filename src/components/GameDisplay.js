@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 
 import Glyph from './Glyph'
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
 
-const GameDisplay = (props) => {
-
-  const guess = [2,6,4,3]
+const GameDisplay = ({ selection, target }) => {
 
   return (
     <div className='GameDisplay'>
@@ -18,9 +17,9 @@ const GameDisplay = (props) => {
       </div>
 
       <div className='GameDisplay-stage'>
-        {guess.map((n,i) => (
+        {selection.map((n,i) => (
           <div key={i} className='stage-item'>
-            <Glyph value={n} large />
+            <Glyph value={n} large highlight={(target === i)} />
           </div>
         ))}
         <div className='stage-item'>
@@ -34,4 +33,9 @@ const GameDisplay = (props) => {
   )
 }
 
-export default GameDisplay
+const mapState = state => ({
+  selection: state.game.selection,
+  target: state.game.target,
+})
+
+export default connect(mapState)(GameDisplay)

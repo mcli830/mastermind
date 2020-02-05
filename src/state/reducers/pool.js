@@ -22,7 +22,10 @@ export default function poolReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        items: action.payload.data,
+        items: action.payload.data.map((n,i) => ({
+          id: i,
+          value: n,
+        }))
       }
     case FETCH_ERROR:
       return {

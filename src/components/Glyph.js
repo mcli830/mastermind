@@ -1,12 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Glyph = ({ value, round, large }) => {
+const Glyph = ({ value, round, large, hide, highlight, onClick }) => {
 
-  const rootClass = `Glyph ${round ? 'round' : ''} ${large ? 'large' : ''}`
+  const rootClass = `
+    Glyph
+    ${round ? 'round' : ''}
+    ${large ? 'large' : ''}
+    ${hide ? 'hide' : ''}
+    ${highlight ? 'highlight' : ''}
+  `
 
   return (
-    <div className={rootClass}>
+    <div className={rootClass} onClick={onClick}>
       <div className="has-text-centered">
         {value}
       </div>

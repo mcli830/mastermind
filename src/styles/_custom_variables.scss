@@ -4,6 +4,10 @@ $p2: $p1 * 2;
 $p3: $p1 * 3;
 $p4: $p1 * 4;
 
+// animation
+$bezier-bounce: cubic-bezier(.21,1.11,.6,1.15);
+$transition-default: 200ms $bezier-bounce;
+
 // components
 
 $glyph-gap: $p1;
@@ -11,6 +15,7 @@ $glyph-size-sm: 30px;
 $glyph-size-md: 40px;
 $glyph-size-lg: 60px;
 $glyph-font-fac: .5;
+$glyph-highlight-width: .2rem;
 
 // height = (n)(glyph-size) + (n+1)(glyph-margin)
 $gameboard-height-mobile: ($glyph-size-md * 5) + ($glyph-gap * 6);
