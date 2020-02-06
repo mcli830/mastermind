@@ -2,8 +2,8 @@
   position: relative;
   margin: 0;
   border-radius: $box-radius;
-  border: 1px solid transparent;
   transition: $transition-bounce;
+  user-select: none;
   * {
     transition: inherit;
   }
@@ -44,12 +44,12 @@
   &.lg .Glyph-content {
     @include square-glyph($glyph-size-lg, $glyph-font-fac);
   }
-  &.hide .Glyph-content {
-    opacity: 0;
-    transform: scale(0.1);
-    pointer-events: none;
-    touch-action: none;
-    cursor: auto;
+  &.hide {
+    .Glyph-content {
+      opacity: 0;
+      transform: scale(0.1);
+      cursor: auto;
+    }
   }
   &.highlight {
     &.hide .Glyph-underlay {
@@ -69,4 +69,14 @@
       @extend %raise;
     }
   }
+
+  &:active {
+    color: $primary;
+    transform: scale(0.9);
+  }
+}
+
+.Pool .Glyph.hide {
+  pointer-events: none;
+  touch-action: none;
 }
