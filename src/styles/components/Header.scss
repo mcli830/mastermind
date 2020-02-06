@@ -5,8 +5,8 @@
   @extend %flex-center;
 
   h1 {
-    text-transform: uppercase;
     color: $text-invert;
     white-space: nowrap;
+    font-family: $family-display;
   }
 }

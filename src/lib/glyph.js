@@ -1,12 +1,12 @@
 export const glyphDictionary = [
-  0,
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
+  'Ω', // omega
+  'β', // beta
+  'Ϩ', // coptic hori
+  'Ϫ', // coptic gangia
+  'Ψ', // psi
+  'Ϟ', // koppa
+  'λ', // lambda
+  'ξ', // xi
 ]
 
 export const validGlyph = (val) => {
