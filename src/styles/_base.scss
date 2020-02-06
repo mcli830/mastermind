@@ -19,6 +19,20 @@ body {
 
 * {
   -webkit-tap-highlight-color: transparent;
+  ::-webkit-scrollbar {
+    height: 0.2rem;
+    width: 0.2rem;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: $black;
+  }
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-track-piece {
+    background-color: $black-d2;
+  }
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
 }
 
 button {
