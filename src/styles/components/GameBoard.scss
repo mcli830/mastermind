@@ -2,7 +2,7 @@
   @extend %fill;
   @extend %flex-row;
 
-  .GameBoard-sheet {
+  .GameBoard-history {
     @include glyph-sm-container-width(5);
     flex: 0 1 50%;
   }

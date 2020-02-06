@@ -29,3 +29,15 @@
 .circle {
   border-radius: 50%;
 }
+
+.overlay {
+  @extend %overlay;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.letterpress {
+  @extend %letterpress;
+}

@@ -1,11 +1,12 @@
-.Sheet {
+.History {
   @extend %fill;
-  min-height: $sheet-height;
-  max-height: $sheet-height;
+  min-height: $history-height;
+  max-height: $history-height;
   max-width: 50vw;
   @include carbon-fiber($black-l4);
   @extend %flex-column;
   align-items: center;
   overflow-x: hidden;
   overflow-y: auto;
+  position: relative;
 }
