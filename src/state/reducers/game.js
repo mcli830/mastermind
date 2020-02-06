@@ -42,6 +42,7 @@ export default function gameReducer(state = initialState, action) {
           ...state.history
         ],
         selection: Array(4).fill(null),
+        target: 0,
         playerWin,
         playerLose,
       }
