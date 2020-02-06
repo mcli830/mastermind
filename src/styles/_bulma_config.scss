@@ -14,8 +14,8 @@
 // $family-subheading: $family-primary;
 
 // Update Bulma's global variables
-// $primary: #45BDD8;
-// $secondary: #E88046;
+$primary: #26C485;
+$secondary: #F2DC5D;
 // $widescreen-enabled: true;
 // $fullhd-enabled: true;
 
@@ -43,17 +43,9 @@ $text: $black;
 // $title-color: $text;
 // $title-family: $family-display;
 
-// function colors
-// $info: $secondary;
-
-// forms
-// $control-border-width: 2px;
-// $input-border-color: transparent;
-// $input-shadow: none;
-
 // links, anchors
-// $link: $text;
-// $link-hover: $secondary;
+$link: $text;
+$link-hover: $primary;
 
 // buttons
 // $button-background-color: transparent;
