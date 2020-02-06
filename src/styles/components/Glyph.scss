@@ -2,10 +2,13 @@
   position: relative;
   margin: 0;
   border-radius: $box-radius;
-  transition: $transition-bounce;
   user-select: none;
-  * {
-    transition: inherit;
+  transform-origin: 50% 80%;
+  &, * {
+    transition: $transition-bounce;
+    &:active {
+      transition: 50ms ease-out;
+    }
   }
 
   .Glyph-underlay {
