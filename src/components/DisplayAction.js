@@ -31,12 +31,8 @@ DisplayAction.propTypes = {
   submitSequence: PropTypes.func,
 }
 
-const mapState = state => ({
-  selection: state.game.selection,
-})
-
 const mapDispatch = dispatch => ({
   submitSequence: (submission) => dispatch(submitSequence(submission)),
 })
 
-export default connect(mapDispatch)(DisplayAction)
+export default connect(null, mapDispatch)(DisplayAction)

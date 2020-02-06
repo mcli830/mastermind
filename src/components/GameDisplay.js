@@ -12,7 +12,7 @@ const GameDisplay = ({ selection, target, pool, changeTarget }) => {
 
       <div className="GameDisplay-content">
 
-        <DisplayAction />
+        <DisplayAction selection={selection} />
 
         <div className='GameDisplay-selection'>
           {selection.map((n,i,arr) => (
