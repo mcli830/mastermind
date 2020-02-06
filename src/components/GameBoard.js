@@ -1,9 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import BoardMenu from './BoardMenu'
 import History from './History'
 import Pool from './Pool'
 
-const GameBoard = () => {
+const GameBoard = ({lefty}) => {
   return (
     <div className="GameBoard">
 
@@ -11,7 +12,9 @@ const GameBoard = () => {
         <BoardMenu />
       </div>
 
-      <div className='Gameboard-board'>
+      <div className='Gameboard-board' style={{
+        flexDirection: lefty ? 'row-reverse' : 'row',
+      }}>
         <div className="GameBoard-history">
           <History />
         </div>
@@ -24,4 +27,8 @@ const GameBoard = () => {
   )
 }
 
-export default GameBoard
+const mapState = state => ({
+  lefty: state.settings.lefty,
+})
+
+export default connect(mapState)(GameBoard)
