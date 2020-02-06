@@ -2,15 +2,6 @@
   flex: 1 1 auto;
   @extend %flex-column;
 
-  .Index-gamedisplay {
-    flex: 1 0 auto;
-    display: flex;
-  }
-
-  .Index-actionmenu {
-    flex: 0 0 auto;
-  }
-
   .Index-gameboard {
     flex: 0 0 50%;
     overflow: hidden;

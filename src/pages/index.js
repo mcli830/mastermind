@@ -9,9 +9,7 @@ const IndexPage = (props) => (
   <Layout>
     <SEO title="Home" />
     <div className="Index">
-      <div className='Index-gamedisplay'>
-        <GameDisplay />
-      </div>
+      <GameDisplay />
       <div className='Index-gameboard'>
         <GameBoard />
       </div>

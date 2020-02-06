@@ -18,24 +18,17 @@ const GameDisplay = ({ selection, target, pool, changeTarget, submitSequence }) 
   return (
     <div className='GameDisplay'>
 
-      <div className='GameDisplay-visuals'>
-        <figure className="title is-2">
-          <FA icon="brain" />
-        </figure>
-      </div>
-
-      <div className='GameDisplay-stage'>
-
-        <div className='stage-actions'>
+      <div className="GameDisplay-content">
+        <div className='GameDisplay-top'>
           <div
             className='fill button is-primary has-shadow circle'
             onClick={submitHandler}
-          >
+            >
             <FA icon="key" />
           </div>
         </div>
 
-        <div className='stage-selection'>
+        <div className='GameDisplay-bottom'>
           {selection.map((n,i,arr) => (
             <div key={i} className='stage-item'>
               <Glyph
@@ -43,11 +36,10 @@ const GameDisplay = ({ selection, target, pool, changeTarget, submitSequence }) 
                 size="lg"
                 highlight={(target === i)}
                 onClick={() => changeTarget(i)}
-              />
+                />
             </div>
           ))}
         </div>
-
       </div>
 
     </div>
