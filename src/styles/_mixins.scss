@@ -106,7 +106,7 @@
 
 %letterpress {
   color: $text;
-  text-shadow: 1px 1px 1px rgba(white, 0.1);
+  text-shadow: 1px 1px 1px rgba(white, 0.1), inset -1px -1px -1px rgba(black, 0.1);
 }
 
 @mixin underglow($color) {

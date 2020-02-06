@@ -1,0 +1,28 @@
+.BoardMenu {
+  width: 100%;
+  @extend %flex-row;
+  padding: 0;
+
+  .column {
+    padding: 0;
+  }
+
+  .BoardMenu-button {
+    position: relative;
+    width: 100%;
+    @extend %letterpress;
+    font-family: monospace;
+    padding: $p1;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: ($black-l2);
+    box-shadow: $shadow;
+
+    &.on {
+      color: darken($warning, 24%);
+    }
+    &.warn {
+      color: darken($danger, 18%);
+    }
+  }
+}

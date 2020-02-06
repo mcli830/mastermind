@@ -32,7 +32,7 @@ $glyph-size-md: 4rem;
 $glyph-size-lg: 5rem;
 $glyph-font-fac: .5;
 
-$history-height: 45vh;
+$history-height: 50vh;
 
 // height = (n)(glyph-size) + (n+1)(glyph-margin)
 $gameboard-height-mobile: ($glyph-size-md * 5) + ($glyph-gap * 6);
