@@ -52,7 +52,14 @@
     cursor: auto;
   }
   &.highlight {
-    @include underglow($primary);
+    &.hide {
+      .Glyph-underlay {
+        box-shadow: inset .06em .12em .5em -.1em $primary, $inset-shadow-lg;
+      }
+    }
+    &:not(.hide) {
+      @include underglow($primary);
+    }
   }
   &.free {
     .Glyph-underlay {

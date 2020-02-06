@@ -18,9 +18,9 @@ const Glyph = ({ value, round, size, hide, highlight, engraved, free, onClick })
   }
 
   return (
-    <div className={rootClass}>
+    <div className={rootClass}  {...handlers}>
       <div className="Glyph-underlay" />
-      <div className="Glyph-content" {...handlers}>
+      <div className="Glyph-content">
         <span className="hax-text-centered">
           {glyphDictionary[value]}
         </span>

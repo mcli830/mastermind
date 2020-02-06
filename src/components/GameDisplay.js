@@ -24,10 +24,8 @@ const GameDisplay = ({ selection, target, pool, changeTarget, submitSequence }) 
         </figure>
       </div>
 
-      <div className='GameDisplay-center'>
-      </div>
-
       <div className='GameDisplay-stage'>
+
         <div className='stage-actions'>
           <div
             className='fill button is-primary has-shadow circle'
@@ -36,6 +34,7 @@ const GameDisplay = ({ selection, target, pool, changeTarget, submitSequence }) 
             <FA icon="key" />
           </div>
         </div>
+
         <div className='stage-selection'>
           {selection.map((n,i,arr) => (
             <div key={i} className='stage-item'>
@@ -48,6 +47,7 @@ const GameDisplay = ({ selection, target, pool, changeTarget, submitSequence }) 
             </div>
           ))}
         </div>
+
       </div>
 
     </div>

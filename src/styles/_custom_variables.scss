@@ -16,6 +16,7 @@ $alpha-white: rgba(white,$alpha-level);
 $alpha-black-sm: rgba(black,$alpha-level-sm);
 $alpha-white-sm: rgba(white,$alpha-level-sm);
 $carbon-fiber: #474747;
+$inset-shadow-base: inset .1em .1em .4em -1px;
 $inset-shadow: inset .1em .1em .4em -1px $alpha-black;
 $inset-shadow-lg:
   inset -.2em .3em .8em -1px $alpha-black,
