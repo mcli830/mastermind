@@ -1,34 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import DisplayAction from './DisplayAction'
 import Glyph from './Glyph'
-import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
-import { changeTarget, submitSequence } from '../state/actions/game'
+import { changeTarget } from '../state/actions/game'
 
-const GameDisplay = ({ selection, target, pool, changeTarget, submitSequence }) => {
-
-  const submitHandler = () => {
-    if (selection.every(n => typeof n === 'number')) {
-      submitSequence(selection)
-    } else {
-      alert('You must submit a sequence of 4 glyphs');
-    }
-  }
+const GameDisplay = ({ selection, target, pool, changeTarget }) => {
 
   return (
     <div className='GameDisplay'>
 
       <div className="GameDisplay-content">
-        <div className='GameDisplay-top'>
-          <div
-            className='fill button is-primary has-shadow circle'
-            onClick={submitHandler}
-            >
-            <FA icon="key" />
-          </div>
-        </div>
 
-        <div className='GameDisplay-bottom'>
+        <DisplayAction />
+
+        <div className='GameDisplay-selection'>
           {selection.map((n,i,arr) => (
             <div key={i} className='stage-item'>
               <Glyph
@@ -36,7 +22,7 @@ const GameDisplay = ({ selection, target, pool, changeTarget, submitSequence }) 
                 size="lg"
                 highlight={(target === i)}
                 onClick={() => changeTarget(i)}
-                />
+              />
             </div>
           ))}
         </div>
@@ -60,7 +46,6 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
   changeTarget: (index) => dispatch(changeTarget(index)),
-  submitSequence: (submission) => dispatch(submitSequence(submission)),
 })
 
 export default connect(mapState, mapDispatch)(GameDisplay)

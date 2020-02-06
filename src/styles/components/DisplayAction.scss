@@ -1,0 +1,9 @@
+.DisplayAction {
+  @extend %glyph-sized-lg;
+  @extend %flex-row;
+  align-items: center;
+
+  .button {
+    @extend %glyph-sized-md;
+  }
+}

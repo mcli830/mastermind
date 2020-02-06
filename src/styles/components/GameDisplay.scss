@@ -11,15 +11,11 @@
     align-items: center;
     margin: auto;
 
-    .GameDisplay-top {
-      margin-bottom: $display-center-gap;
-      @extend %glyph-sized-md;
-    }
-
-    .GameDisplay-bottom {
+    .GameDisplay-selection {
       $stage-gap: $p1;
       @extend %flex-row;
       padding: $stage-gap;
+      margin-top: $display-center-gap;
       .stage-item:not(:first-child) {
         margin-left: $stage-gap;
       }
