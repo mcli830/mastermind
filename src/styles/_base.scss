@@ -17,6 +17,17 @@ body {
   @extend %carbon-fiber-gradient;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
 // bulma overrides
 
 .container {

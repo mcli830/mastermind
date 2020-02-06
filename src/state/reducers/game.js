@@ -1,5 +1,5 @@
 import { FETCH_BEGIN, FETCH_SUCCESS, FETCH_ERROR } from '../actions/random'
-import { ADD_GLYPH, CHANGE_TARGET, SUBMIT_SEQUENCE, createRecord, winningRecord } from '../actions/game'
+import { ADD_GLYPH, CHANGE_TARGET, SUBMIT_SEQUENCE, createRecord } from '../actions/game'
 import { cycleIndex } from '../../lib/array'
 
 const initialState = {

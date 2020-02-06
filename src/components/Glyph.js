@@ -12,20 +12,15 @@ const Glyph = ({ value, round, size, hide, highlight, engraved, free, onClick })
     ${free ? ' free' : ''}
   `
 
-  const handlers = {}
-  if (!hide && onClick) {
-    handlers.onClick = onClick
-  }
-
   return (
-    <div className={rootClass}  {...handlers}>
+    <button className={rootClass} onClick={onClick}>
       <div className="Glyph-underlay" />
       <div className="Glyph-content">
         <span className="hax-text-centered">
           {glyphDictionary[value]}
         </span>
       </div>
-    </div>
+    </button>
   )
 }
 
