@@ -1,5 +1,6 @@
 export const ADD_GLYPH = 'ADD_GLYPH'
 export const CHANGE_TARGET = 'CHANGE_TARGET'
+export const CLEAR_SELECTION = 'CLEAR_SELECTION'
 export const SUBMIT_SEQUENCE = 'SUBMIT_SEQUENCE'
 
 export const addGlyph = (id) => ({
@@ -10,6 +11,10 @@ export const addGlyph = (id) => ({
 export const changeTarget = (index) => ({
   type: CHANGE_TARGET,
   payload: { index }
+})
+
+export const clearSelection = () => ({
+  type: CLEAR_SELECTION,
 })
 
 export const submitSequence = (submission) => ({

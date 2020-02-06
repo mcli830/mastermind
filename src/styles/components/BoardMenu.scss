@@ -17,12 +17,15 @@
     font-weight: bold;
     background-color: ($black-l2);
     box-shadow: $shadow;
+    transition: $transition-default;
 
     &.on {
-      color: darken($warning, 24%);
+      color: darken($primary, 12%);
     }
-    &.warn {
-      color: darken($danger, 18%);
+
+    &:active {
+      color: $primary;
+      box-shadow: none;
     }
   }
 }

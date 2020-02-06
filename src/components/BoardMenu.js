@@ -2,26 +2,26 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { setLefty } from '../state/actions/settings'
+import { clearSelection } from '../state/actions/game'
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
 
-const BoardMenu = ({ lefty, setLefty }) => {
+const BoardMenu = ({ lefty, setLefty, clearSelection }) => {
 
   const menu = [
     {
       name: 'Lefty',
-      color: lefty ? 'on' : '',
+      color: lefty ? 'on' : null,
       handler: () => setLefty(true),
       z: 1,
     },
     {
       name: 'Clear',
-      color: 'warn',
-      handler: () => null,
+      handler: clearSelection,
       z: 0,
     },
     {
       name: 'Righty',
-      color: lefty ? '' : 'on',
+      color: lefty ? null : 'on',
       handler: () => setLefty(false),
       z: 1,
     },
@@ -50,6 +50,7 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
   setLefty: bool => dispatch(setLefty(bool)),
+  clearSelection: () => dispatch(clearSelection()),
 })
 
-export default connect(mapState)(BoardMenu)
+export default connect(mapState, mapDispatch)(BoardMenu)
