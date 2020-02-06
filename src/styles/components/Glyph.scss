@@ -52,10 +52,8 @@
     cursor: auto;
   }
   &.highlight {
-    &.hide {
-      .Glyph-underlay {
-        box-shadow: inset .06em .12em .5em -.1em $primary, $inset-shadow-lg;
-      }
+    &.hide .Glyph-underlay {
+      box-shadow: inset 0 0 .4em -.1em $primary, $inset-shadow-lg;
     }
     &:not(.hide) {
       @include underglow($primary);
