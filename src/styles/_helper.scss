@@ -39,5 +39,5 @@
 }
 
 .letterpress {
-  @extend %letterpress;
+  @include letterpress($text);
 }

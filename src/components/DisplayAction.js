@@ -16,10 +16,7 @@ const DisplayAction = ({ selection, submitSequence }) => {
 
   return (
     <div className="DisplayAction">
-      <div
-        className='fill button is-primary has-shadow circle'
-        onClick={submitHandler}
-      >
+      <div className='key-button button is-primary' onClick={submitHandler}>
         <FA icon="key" />
       </div>
     </div>

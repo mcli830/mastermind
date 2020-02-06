@@ -10,7 +10,7 @@
   .BoardMenu-button {
     position: relative;
     width: 100%;
-    @extend %letterpress;
+    @include letterpress($text);
     font-family: monospace;
     font-size: 0.9rem;
     padding: $p1 / 2;

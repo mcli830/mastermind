@@ -3,7 +3,7 @@
   margin: 0;
   border-radius: $box-radius;
   user-select: none;
-  transform-origin: 50% 80%;
+  transform-origin: $button-torigin;
   &, * {
     transition: $transition-bounce;
     &:active {
@@ -36,7 +36,7 @@
   &.engraved .Glyph-content {
     // box-shadow: $inset-shadow;
     background-color: $black-l3;
-    @extend %letterpress;
+    @include letterpress($text);
   }
   &.round {
     border-radius: 50%;

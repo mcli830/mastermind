@@ -1,9 +1,23 @@
 .DisplayAction {
   @extend %glyph-sized-lg;
   @extend %flex-row;
+  justify-content: center;
   align-items: center;
 
-  .button {
+  .key-button {
     @extend %glyph-sized-md;
+    @extend %flex-center;
+    // @include carbon-fiber($black-l2);
+    background-color: $primary;
+    @include letterpress(rgba($text, 0.3));
+    box-shadow: $shadow;
+    border-radius: 50%;
+    text-align: center;
+    transform-origin: $button-torigin;
+    transition: color 50ms ease-out, $transition-bounce;
+    &:active {
+      transform: scale(0.9);
+      box-shadow: 0 0 transparent;
+    }
   }
 }
