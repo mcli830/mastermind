@@ -12,7 +12,8 @@
     width: 100%;
     @extend %letterpress;
     font-family: monospace;
-    padding: $p1;
+    font-size: 0.8rem;
+    padding: $p1 / 2;
     text-transform: uppercase;
     font-weight: bold;
     background-color: ($black-l2);
