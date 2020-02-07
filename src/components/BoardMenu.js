@@ -30,7 +30,7 @@ const BoardMenu = ({ lefty, setLefty, clearSelection }) => {
   return (
     <div className="BoardMenu">
       {menu.map((b,i) => (
-        <div className='column'>
+        <div key={i} className='column'>
           <button
             className={`BoardMenu-button ${b.color}`}
             onClick={b.handler}

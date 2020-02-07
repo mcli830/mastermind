@@ -1,6 +1,7 @@
 import { FETCH_BEGIN, FETCH_SUCCESS, FETCH_ERROR } from '../actions/random'
 import { ADD_GLYPH, REMOVE_GLYPH, CHANGE_TARGET, CLEAR_SELECTION, SUBMIT_SEQUENCE, createRecord } from '../actions/game'
 import { cycleIndex } from '../../lib/array'
+import { validSelection } from '../../lib/glyph'
 
 const initialState = {
   loading: false,
@@ -15,33 +16,50 @@ const initialState = {
 }
 
 export default function gameReducer(state = initialState, action) {
+
+  const selectionSize = state.selection.length
+
   switch(action.type) {
+
     case ADD_GLYPH:
-      let updatedAdd = [...state.selection]
-      updatedAdd[state.target] = action.payload.id
-      return {
-        ...state,
-        selection: updatedAdd,
-        target: cycleIndex(state.target, state.selection.length),
+      let selectionAdded = [...state.selection]
+      selectionAdded[state.target] = action.payload.id
+      // automatically select next index, prioritizing next empty slot
+      let nextIndex = cycleIndex(state.target, selectionSize)
+      while(nextIndex !== state.target) {
+        if (selectionAdded[nextIndex] === null) break;
+        nextIndex = cycleIndex(nextIndex, selectionSize)
       }
-    case REMOVE_GLYPH:
-      let updatedRemove = [...state.selection]
-      updatedRemove[action.payload.index] = null
+      if (nextIndex === state.target) {
+        nextIndex = cycleIndex(nextIndex, selectionSize)
+      }
       return {
         ...state,
-        selection: updatedRemove,
+        selection: selectionAdded,
+        target: nextIndex,
+      }
+
+    case REMOVE_GLYPH:
+      let selectionRemoved = [...state.selection]
+      selectionRemoved[action.payload.index] = null
+      return {
+        ...state,
+        selection: selectionRemoved,
         target: action.payload.index,
       }
+
     case CHANGE_TARGET:
       return {
         ...state,
         target: action.payload.index,
       }
+
     case CLEAR_SELECTION:
       return {
         ...state,
         selection: Array(4).fill(null),
       }
+
     case SUBMIT_SEQUENCE:
       const newRecord = createRecord({...state}, action.payload.submission)
       // player wins if result is all perfect (2: matching number and position)
@@ -66,6 +84,7 @@ export default function gameReducer(state = initialState, action) {
         loading: true,
         error: null,
       }
+
     case FETCH_SUCCESS:
       return {
         ...state,
@@ -76,12 +95,14 @@ export default function gameReducer(state = initialState, action) {
           value: n,
         }))
       }
+
     case FETCH_ERROR:
       return {
         ...state,
         loading: false,
         error: action.payload.error,
       }
+
     default:
       return state
   }
