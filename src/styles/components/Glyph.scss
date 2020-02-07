@@ -1,7 +1,7 @@
 .Glyph {
   position: relative;
   margin: 0;
-  border-radius: $box-radius;
+  border-radius: $glyph-radius;
   transform-origin: $button-torigin;
   background: $alpha-black-sm;
   &, * {
@@ -20,16 +20,16 @@
   }
 
   .Glyph-content {
-    $bg: $black-l2;
     font-weight: bold;
     position: relative;
     z-index: 2;
     @extend %flex-center;
     @include square-glyph($glyph-size-sm, $glyph-font-fac);
+    @extend %glyph-surface-texture;
+    @extend %flex-center;
     text-align: center;
     border-radius: inherit;
     box-shadow: $emboss, power-shadow($black-d1, 1.5);
-    @extend %glyph-surface-texture;
     cursor: pointer;
     & > span {
       @include glow($primary);

@@ -2,15 +2,46 @@
   text-align: center;
   padding: 1rem;
   background-color: $text;
-  @extend %flex-center;
+  @extend %flex-row;
+  justify-content: space-between;
   @extend %header-texture;
   box-shadow: $emboss, 0 0 1em $alpha-black;
+  position: relative;
+  z-index: 2;
 
   h1 {
+    font-size: 2rem;
     color: $text-invert;
     white-space: nowrap;
     font-family: $family-display;
     letter-spacing: .1em;
     text-shadow: power-shadow($black-l1), power-shadow($primary, 2);
+    margin: 0;
+  }
+
+  button {
+    @include square-glyph($p4, $glyph-font-fac);
+    @extend %glyph-surface-texture;
+    color: $primary;
+    border-radius: $glyph-radius;
+    @extend %flex-center;
+    box-shadow:
+      $emboss,
+      power-shadow($black-d1, 3),
+      power-shadow(rgba($primary, 0.6), 4);
+
+    &:hover {
+      $c: $white-d4;
+      color: $c;
+      box-shadow:
+        $emboss,
+        power-shadow($black-d1, 3),
+        power-shadow(rgba($c, 0.6), 4);
+    }
+    &:active {
+      transition: none;
+      box-shadow: $emboss, power-shadow($black-d1, 2);
+      transform: translate(.01em, .02em);
+    }
   }
 }

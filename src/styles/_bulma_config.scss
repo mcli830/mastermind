@@ -29,6 +29,10 @@ $black-l4: lighten($black, $color-increment * 4);
 $black-d1: darken($black, $color-increment);
 $black-d2: darken($black, $color-increment * 2);
 $white: #fafafa;
+$white-d1: darken($white, $color-increment);
+$white-d2: darken($white, $color-increment * 2);
+$white-d3: darken($white, $color-increment * 3);
+$white-d4: darken($white, $color-increment * 4);
 
 // Update some of Bulma's component variables
 // base vars

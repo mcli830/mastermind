@@ -1,0 +1,33 @@
+.Modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  margin: 0;
+
+  .Modal-underlay {
+    @extend %overlay;
+    z-index: 0;
+    background-color: $alpha-black;
+  }
+
+  .Modal-content {
+    position: absolute;
+    z-index: 1;
+  }
+
+  @each $dir in ['top', 'left', 'right', 'bottom'] {
+    &.#{$dir} .Modal-content {
+      #{$dir}: 0
+    }
+  }
+  &.center .Modal-content {
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    transform: translate(-50%, -50%);
+  }
+
+}
