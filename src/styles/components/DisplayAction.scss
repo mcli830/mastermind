@@ -5,19 +5,60 @@
   align-items: center;
 
   .key-button {
+    position: relative;
     @extend %glyph-sized-md;
     @extend %flex-center;
-    // @include carbon-fiber($black-l2);
-    background-color: $primary;
-    @include letterpress(rgba($text, 0.3));
-    box-shadow: $shadow;
+    background-color: $black;
     border-radius: 50%;
+    box-shadow: $emboss;
     text-align: center;
     transform-origin: $button-torigin;
-    transition: color 50ms ease-out, $transition-bounce;
-    &:active {
-      transform: scale(0.9);
-      box-shadow: 0 0 transparent;
+    pointer-events: none;
+    touch-action: none;
+    transform: scale(0.95);
+    &, *:not(svg) {
+      transition: $transition-bounce;
+    }
+    svg {
+      transition: 50ms ease-out;
+    }
+    & > * {
+      @include letterpress($black-l2);
+      position: relative;
+      z-index: 1;
+    }
+    &:before {
+      content: '';
+      @extend %overlay;
+      z-index: 0;
+      border-radius: inherit;
+      background-color: $primary;
+      transform: scale(0);
+      opacity: 0;
+      transition: $transition-default;
+    }
+    &.on {
+      pointer-events: auto;
+      touch-action: auto;
+      cursor: pointer;
+      box-shadow: $shadow;
+      transform: scale(1);
+      & > * {
+        @include letterpress($white);
+      }
+      &:before {
+        transform: scale(1);
+        opacity: 1;
+      }
+      &:hover, &:focus, &:active {
+        &:before {
+          animation: pulse-primary 1.6s infinite;
+        }
+      }
+      &:active {
+        transform: scale(0.9);
+        box-shadow: 0 0 transparent;
+      }
     }
   }
 }

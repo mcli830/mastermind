@@ -16,6 +16,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 %fill {
@@ -98,19 +99,48 @@
   border-bottom: 1px solid $black-l3;
 }
 
-%engraved {
-  color: transparent;
-  text-shadow: 1px 1px 2px rgba(255,255,255,0.5);
-  background-clip: text;
+@mixin emboss($color) {
+  color: $color;
+  text-shadow:
+    -.02em -.02em .02em rgba(white, 0.9),
+    .02em .02em .02em rgba(black, 0.5);
 }
 
 @mixin letterpress($color) {
   color: $color;
-  text-shadow: 1px 1px 1px rgba(white, 0.1);
+  text-shadow:
+    -.02em -.02em .02em rgba(black, 0.8),
+    .02em .02em .02em rgba(white, 0.1);
 }
 
 @mixin underglow($color) {
-  // border-right: 1px solid rgba($color, 0.8);
-  // border-bottom: 1px solid rgba($color, 0.8);
   box-shadow: .12em .24em .5em -.2em $color;
+}
+
+@mixin glow($color) {
+  $offset: .006em;
+  $alpha: 0.3;
+  color: $color;
+  text-shadow:
+    0 0 .15em $color,
+    -$offset -$offset 0 rgba(black,$alpha),
+    $offset $offset 0 rgba(white,$alpha);
+}
+
+@mixin engrave($color, $bg) {
+    color: rgba($color,0.4);
+    text-shadow:
+      .02em .04em .02em $bg,
+      0 0 0 #000,
+      .01em .01em .01em lighten($color, 30%);
+}
+
+@mixin inset-clip($color) {
+  $contrast: 30%;
+  background-color: darken($color, $contrast);
+  color: transparent;
+  text-shadow: .008em .014em .01em rgba(lighten($color, $contrast), 0.5);
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
 }

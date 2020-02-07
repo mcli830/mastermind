@@ -12,3 +12,7 @@ export const glyphDictionary = [
 export const validGlyph = (val) => {
   return typeof val === 'number' && val >= 0 && val < glyphDictionary.length;
 }
+
+export const validSelection = (sel) => {
+  return sel.every(n => typeof n === 'number' && validGlyph(n));
+}

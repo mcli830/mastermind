@@ -2,7 +2,6 @@
   position: relative;
   margin: 0;
   border-radius: $box-radius;
-  user-select: none;
   transform-origin: $button-torigin;
   &, * {
     transition: $transition-bounce;
@@ -20,6 +19,7 @@
   }
 
   .Glyph-content {
+    $bg: $black-l2;
     font-weight: bold;
     position: relative;
     z-index: 2;
@@ -28,16 +28,13 @@
     text-align: center;
     border-radius: inherit;
     box-shadow: $shadow;
-    background-color: $black-l2;
-    color: $text-invert;
+    background-color: $bg;
     cursor: pointer;
+    & > span {
+      @include glow($primary);
+    }
   }
 
-  &.engraved .Glyph-content {
-    // box-shadow: $inset-shadow;
-    background-color: $black-l3;
-    @include letterpress($text);
-  }
   &.round {
     border-radius: 50%;
   }
