@@ -3,13 +3,14 @@ import PropTypes from 'prop-types'
 
 const Modal = ({ children, className, center, top, left, right, bottom, onClose }) => {
 
-  if (center) {
-    top = left = right = bottom = false
-  }
   if (top) bottom = false
   if (left) right = false
   if (right) left = false
   if (bottom) top = false
+  if (center) {
+    top = left = right = bottom = false
+  }
+  if (!(top || left || right || bottom)) center = true
 
   const rootClass = 'Modal' +
     (top ? ' top' : '') +
@@ -51,7 +52,7 @@ Modal.defaultProps = {
   left: false,
   right: false,
   bottom: false,
-  center: true,
+  center: false,
 }
 
 export default Modal

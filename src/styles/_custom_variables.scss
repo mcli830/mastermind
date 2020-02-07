@@ -7,6 +7,7 @@ $p4: $p1 * 4;
 // animation
 $bezier-bounce: cubic-bezier(.21,1.11,.6,1.15);
 $timing-default: 200ms;
+$timing-modal: 300ms;
 $transition-default: $timing-default ease-out;
 $transition-bounce: $timing-default $bezier-bounce;
 
