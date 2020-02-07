@@ -13,7 +13,7 @@ const History = ({ history }) => {
       </div>
 
       <div className='overlay flex-center'>
-        <h2 className="title is-3 letterpress uppercase has-text-centered">
+        <h2 className="title is-3 uppercase has-text-centered">
           History
         </h2>
       </div>

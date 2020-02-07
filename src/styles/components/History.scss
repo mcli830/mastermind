@@ -10,6 +10,9 @@
 
   .overlay {
     z-index: 0;
+    h2 {
+      @include letterpress($black);
+    }
   }
 
   .History-records {

@@ -8,7 +8,7 @@
 
 @mixin carbon-fiber($color) {
   background: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
-  background-color: lighten($color, 12%);
+  background-color: lighten($color, 16%);
 }
 @mixin real-carbon-fiber($color) {
   background: url("https://www.transparenttextures.com/patterns/real-carbon-fibre.png");
@@ -49,7 +49,7 @@
   @include gunmetal($black);
 }
 %boardmenu-texture {
-  @include gunmetal($black-l1);
+  @include gunmetal($black-l2);
 }
 %pool-texture {
   @extend %layout-texture;
@@ -64,7 +64,7 @@
   @include twinkle($primary);
 }
 %history-texture {
-  @include dark-matter($black);
+  @include dark-matter($black-l1);
 }
 %record-texture {
   @include hex($black-l1);

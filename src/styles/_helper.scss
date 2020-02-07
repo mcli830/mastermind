@@ -37,7 +37,3 @@
 .uppercase {
   text-transform: uppercase;
 }
-
-.letterpress {
-  @include letterpress($text);
-}
