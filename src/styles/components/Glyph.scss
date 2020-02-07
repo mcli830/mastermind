@@ -27,7 +27,7 @@
     @include square-glyph($glyph-size-sm, $glyph-font-fac);
     text-align: center;
     border-radius: inherit;
-    box-shadow: $shadow;
+    box-shadow: power-shadow($black-d1, 1.5);
     background-color: $bg;
     cursor: pointer;
     & > span {
@@ -56,7 +56,9 @@
       box-shadow: inset 0 0 .4em -.1em $primary, $inset-shadow-lg;
     }
     &:not(.hide) {
-      @include underglow($primary);
+      box-shadow:
+        power-shadow($black-d1, 2),
+        $glyph-underglow;
     }
   }
   &.free {

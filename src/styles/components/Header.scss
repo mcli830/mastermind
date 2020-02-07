@@ -9,8 +9,6 @@
     white-space: nowrap;
     font-family: $family-display;
     letter-spacing: .1em;
-    text-shadow:
-      3px 3px 0px lighten($text, 5%),
-      5px 5px 0px lighten($text, 25%);
+    text-shadow: power-shadow($black-l1), power-shadow($primary, 2);
   }
 }

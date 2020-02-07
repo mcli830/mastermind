@@ -113,10 +113,6 @@
     .02em .02em .02em rgba(white, 0.1);
 }
 
-@mixin underglow($color) {
-  box-shadow: .12em .24em .5em -.2em $color;
-}
-
 @mixin glow($color) {
   $offset: .006em;
   $alpha: 0.3;
@@ -143,4 +139,9 @@
   -webkit-background-clip: text;
      -moz-background-clip: text;
           background-clip: text;
+}
+
+@function power-shadow($color, $d: 1) {
+  $offset: $d * .05em;
+  @return $offset $offset 0 $color;
 }
