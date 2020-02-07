@@ -5,7 +5,7 @@ import ModalMenu from './ModalMenu'
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
 import { openMenu } from '../state/actions/ui'
 
-const Header = ({ menuIsOpen, openMenu }) => {
+const Header = ({ menuIsOpen, openMenu, closeMenu }) => {
 
   return (
     <div className="Header">
@@ -19,7 +19,7 @@ const Header = ({ menuIsOpen, openMenu }) => {
         <FA icon="bars" />
       </button>
       {menuIsOpen && (
-        <Modal>
+        <Modal onClose={closeMenu}>
           <ModalMenu>
             <ul>
               {[1,2,3].map((n,i) => (
@@ -38,7 +38,8 @@ const mapState = state => ({
 })
 
 const mapDispatch = dispatch => ({
-  openMenu: () => dispatch(openMenu(true))
+  openMenu: () => dispatch(openMenu(true)),
+  closeMenu: () => dispatch(openMenu(false))
 })
 
 export default connect(mapState, mapDispatch)(Header)
