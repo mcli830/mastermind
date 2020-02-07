@@ -59,8 +59,9 @@
     &:not(.hide) {
       box-shadow:
         $emboss,
-        power-shadow($black-d1, 2),
-        $glyph-underglow;
+        power-shadow($black-d1, 3),
+        power-shadow(rgba($primary, 0.5), 4);
+        // .12em .24em .5em -.2em $primary;
     }
   }
   &.free {
