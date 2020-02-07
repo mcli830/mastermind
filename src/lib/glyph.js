@@ -1,12 +1,29 @@
 export const glyphDictionary = [
-  'Ω', // omega
-  'β', // beta
-  'Ϩ', // coptic hori
-  'Ϫ', // coptic gangia
-  'Ψ', // psi
-  'Ϟ', // koppa
-  'λ', // lambda
-  'ξ', // xi
+  {
+    char: 'Ω', // omega
+    color: 'white',
+  }, {
+    char: 'β', // beta
+    color: 'green',
+  }, {
+    char: 'Ϩ', // coptic hori
+    color: 'red',
+  }, {
+    char: 'Ϫ', // coptic gangia
+    color: 'blue',
+  }, {
+    char: 'Ψ', // psi
+    color: 'purple',
+  }, {
+    char: 'Ϟ', // koppa
+    color: 'yellow',
+  }, {
+    char: 'λ', // lambda
+    color: 'orange',
+  }, {
+    char: 'ξ', // xi
+    color: 'cyan',
+  },
 ]
 
 export const validGlyph = (val) => {

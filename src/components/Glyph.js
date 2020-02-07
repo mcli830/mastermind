@@ -4,12 +4,14 @@ import { glyphDictionary, validGlyph } from '../lib/glyph'
 
 const Glyph = ({ value, round, size, hide, highlight, free, onClick, onHold }) => {
 
-  const rootClass = `Glyph
-    ${size} ${round ? ' round' : ''}
-    ${hide || !validGlyph(value) ? ' hide' : ''}
-    ${highlight ? ' highlight' : ''}
-    ${free ? ' free' : ''}
-  `
+  const hasGlyph = validGlyph(value)
+
+  const rootClass = `Glyph ${size} `
+    + (hasGlyph ? glyphDictionary[value].color : '')
+    + (round ? ' round' : '')
+    + (hide || !hasGlyph ? ' hide' : '')
+    + (highlight ? ' highlight' : '')
+    + (free ? ' free' : '')
 
   const contextHandler = (e) => {
     e.preventDefault()
@@ -26,7 +28,7 @@ const Glyph = ({ value, round, size, hide, highlight, free, onClick, onHold }) =
       <div className="Glyph-underlay" />
       <div className="Glyph-content">
         <span className="hax-text-centered">
-          {glyphDictionary[value]}
+          {hasGlyph ? glyphDictionary[value].char : null}
         </span>
       </div>
     </button>
