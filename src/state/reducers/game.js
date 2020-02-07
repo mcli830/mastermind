@@ -1,5 +1,5 @@
 import { FETCH_BEGIN, FETCH_SUCCESS, FETCH_ERROR } from '../actions/random'
-import { ADD_GLYPH, CHANGE_TARGET, CLEAR_SELECTION, SUBMIT_SEQUENCE, createRecord } from '../actions/game'
+import { ADD_GLYPH, REMOVE_GLYPH, CHANGE_TARGET, CLEAR_SELECTION, SUBMIT_SEQUENCE, createRecord } from '../actions/game'
 import { cycleIndex } from '../../lib/array'
 
 const initialState = {
@@ -17,12 +17,20 @@ const initialState = {
 export default function gameReducer(state = initialState, action) {
   switch(action.type) {
     case ADD_GLYPH:
-      let updated = [...state.selection]
-      updated[state.target] = action.payload.id
+      let updatedAdd = [...state.selection]
+      updatedAdd[state.target] = action.payload.id
       return {
         ...state,
-        selection: updated,
+        selection: updatedAdd,
         target: cycleIndex(state.target, state.selection.length),
+      }
+    case REMOVE_GLYPH:
+      let updatedRemove = [...state.selection]
+      updatedRemove[action.payload.index] = null
+      return {
+        ...state,
+        selection: updatedRemove,
+        target: action.payload.index,
       }
     case CHANGE_TARGET:
       return {

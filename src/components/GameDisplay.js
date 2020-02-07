@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import DisplayAction from './DisplayAction'
 import Glyph from './Glyph'
-import { changeTarget } from '../state/actions/game'
+import { changeTarget, removeGlyph } from '../state/actions/game'
 
-const GameDisplay = ({ selection, target, pool, changeTarget }) => {
+const GameDisplay = ({ selection, target, pool, changeTarget, removeGlyph }) => {
 
   return (
     <div className='GameDisplay'>
@@ -22,6 +22,7 @@ const GameDisplay = ({ selection, target, pool, changeTarget }) => {
                 size="lg"
                 highlight={(target === i)}
                 onClick={() => changeTarget(i)}
+                onHold={() => removeGlyph(i)}
               />
             </div>
           ))}
@@ -46,6 +47,7 @@ const mapState = state => ({
 
 const mapDispatch = dispatch => ({
   changeTarget: (index) => dispatch(changeTarget(index)),
+  removeGlyph: (index) => dispatch(removeGlyph(index)),
 })
 
 export default connect(mapState, mapDispatch)(GameDisplay)
