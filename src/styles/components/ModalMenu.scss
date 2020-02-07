@@ -5,7 +5,7 @@ $vertical-padding: $p2;
   color: $white-d2;
   top: 0;
   height: 100vh;
-  width: auto;
+  width: 12rem;
   padding-bottom: $vertical-padding;
   @extend %flex-column;
 
@@ -21,6 +21,12 @@ $vertical-padding: $p2;
     box-shadow: $emboss, power-shadow($black, 1), $shadow;
     margin-bottom: $vertical-padding;
     @include glow($white-d4);
+    * {
+      display: inline-block;
+      &:not(:first-child) {
+        margin-left: $p1;
+      }
+    }
   }
 
   li {
@@ -55,6 +61,6 @@ $vertical-padding: $p2;
   @include desktop {
     height: auto;
     transform: translate(0, -30%);
-    min-width: 16rem;
+    width: 16rem;
   }
 }

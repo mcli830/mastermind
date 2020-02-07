@@ -41,7 +41,7 @@ const Header = ({
       >
         {menuIsOpen && (
           <Modal onClose={closeMenu} right>
-            <ModalMenu title="Options">
+            <ModalMenu icon={<FA icon="cogs" />} title="Options">
               <li>
                 Restart
               </li>
