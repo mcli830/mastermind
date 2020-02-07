@@ -10,7 +10,7 @@
     @extend %flex-center;
     background-color: $black;
     border-radius: 50%;
-    box-shadow: $emboss;
+    box-shadow: $emboss, power-shadow($black-d2, 1);
     text-align: center;
     transform-origin: $button-torigin;
     pointer-events: none;
@@ -41,7 +41,7 @@
       pointer-events: auto;
       touch-action: auto;
       cursor: pointer;
-      box-shadow: $shadow;
+      box-shadow: $shadow, .4em .5em .8em -.1em $alpha-black;
       transform: scale(1);
       & > * {
         @include letterpress($white);
