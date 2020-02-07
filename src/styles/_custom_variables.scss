@@ -25,6 +25,7 @@ $inset-shadow-lg:
 
 $shadow-liner: 0 0 0 1px rgba(black, 0.1);
 $shadow: 0 0.5em 1em -0.3em $alpha-black, $shadow-liner;
+$shadow-top: 0 -.1em .5em -1px $alpha-black;
 $emboss: -.01em -.02em .02em rgba(white, 0.1), .01em .02em .02em rgba(black, 0.9);
 
 // components

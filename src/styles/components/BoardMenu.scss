@@ -16,8 +16,8 @@
     padding: $p1 / 2;
     text-transform: uppercase;
     font-weight: bold;
-    background-color: ($black-l2);
     box-shadow: $shadow;
+    background-color: ($black-l2);
     transition: $transition-default;
 
     &.on {
@@ -25,6 +25,7 @@
     }
 
     &:active {
+      transition: 0;
       color: $primary;
       box-shadow: none;
     }
