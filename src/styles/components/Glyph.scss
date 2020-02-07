@@ -3,7 +3,7 @@
   margin: 0;
   border-radius: $box-radius;
   transform-origin: $button-torigin;
-  @extend %glyph-under-texture;
+  background: $alpha-black-sm;
   &, * {
     transition: $transition-bounce;
     &:active {

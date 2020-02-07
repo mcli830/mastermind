@@ -54,9 +54,6 @@
 %pool-texture {
   @extend %layout-texture;
 }
-%glyph-under-texture {
-  @include carbon-fiber($black-d1);
-}
 %glyph-surface-texture {
   @include real-carbon-fiber($black);
 }
