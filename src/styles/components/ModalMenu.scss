@@ -1,10 +1,12 @@
+$vertical-padding: $p2;
+
 .ModalMenu {
   @extend %menu-texture;
   color: $white-d2;
   top: 0;
   height: 100vh;
   width: auto;
-  padding-bottom: $p2;
+  padding-bottom: $vertical-padding;
   @extend %flex-column;
 
   h3, li {
@@ -17,7 +19,7 @@
     padding: $p2 $p3;
     @extend %header-texture;
     box-shadow: $emboss, power-shadow($black, 1), $shadow;
-    margin-bottom: $p1;
+    margin-bottom: $vertical-padding;
     @include glow($white-d4);
   }
 
@@ -25,6 +27,15 @@
     font-size: 1rem;
     padding: $p1 $p3;
     @include letterpress($black-d1);
+    cursor: pointer;
+
+    &:hover, &:focus {
+      @include letterpress($alpha-white);
+    }
+
+    &:active {
+      background-color: $alpha-white-xs;
+    }
 
     &.on {
       @include glow($primary);
