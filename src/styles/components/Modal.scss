@@ -12,9 +12,16 @@
     background-color: $alpha-black;
   }
 
+  .Modal-container {
+    position: relative;
+    height: 100%;
+    padding: 0;
+  }
+
   .Modal-content {
     position: absolute;
     z-index: 1;
+    @extend %flex-center;
   }
 
   @each $dir in ['top', 'left', 'right', 'bottom'] {
@@ -30,7 +37,18 @@
     transform: translate(-50%, -50%);
   }
 
+  @include desktop {
+    .Modal-content {
+      top: 50%;
+      left: 50%;
+      right: auto;
+      bottom: auto;
+      transform: translate(-50%, -50%);
+    }
+  }
 }
+
+
 
 .ModalTransitionGroup {
   position: fixed;

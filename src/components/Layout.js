@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <div className="Layout container is-tablet">
+      <div className="Layout container">
         <Header />
         <main className="Layout-main">
           {children}

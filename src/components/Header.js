@@ -27,12 +27,16 @@ const Header = ({ menuIsOpen, openMenu, closeMenu }) => {
       >
         {menuIsOpen && (
           <Modal onClose={closeMenu} right>
-            <ModalMenu>
-              <ul>
-                {[1,2,3].map((n,i) => (
-                  <li key={i}>Item {n}</li>
-                ))}
-              </ul>
+            <ModalMenu title="Options">
+              <li>
+                Restart
+              </li>
+              <li>
+                Glyphs On
+              </li>
+              <li>
+                Colors On
+              </li>
             </ModalMenu>
           </Modal>
         )}

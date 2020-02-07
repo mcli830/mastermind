@@ -70,5 +70,7 @@
   @include hex($black-l1);
 }
 %menu-texture {
-  @include hex($black-d1);
+  background:
+    url("https://www.transparenttextures.com/patterns/light-honeycomb-dark.png"),
+    linear-gradient($black-l1, $black-d2);
 }
