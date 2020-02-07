@@ -10,7 +10,7 @@ export const addGlyph = (id) => ({
 })
 
 export const removeGlyph = (index) => ({
-  type: ADD_GLYPH,
+  type: REMOVE_GLYPH,
   payload: { index }
 })
 

@@ -13,6 +13,7 @@ const Glyph = ({ value, round, size, hide, highlight, free, onClick, onHold }) =
 
   const contextHandler = (e) => {
     e.preventDefault()
+    e.stopPropagation()
     onHold()
   }
 
