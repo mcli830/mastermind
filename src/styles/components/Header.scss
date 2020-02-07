@@ -3,6 +3,8 @@
   padding: 1rem;
   background-color: $text;
   @extend %flex-center;
+  @extend %header-texture;
+  box-shadow: $emboss, 0 0 1em $alpha-black;
 
   h1 {
     color: $text-invert;

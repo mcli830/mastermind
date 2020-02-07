@@ -10,7 +10,8 @@
   .BoardMenu-button {
     position: relative;
     width: 100%;
-    @include letterpress($text);
+    @extend %boardmenu-texture;
+    @include letterpress($black-d1);
     font-family: monospace;
     font-size: 0.9rem;
     padding: $p1 / 2;
@@ -20,7 +21,6 @@
       $emboss,
       0 .3em .4em -.1em $alpha-black,
       $shadow-liner;
-    background-color: ($black-l2);
     transition: $transition-default;
 
     &.on {

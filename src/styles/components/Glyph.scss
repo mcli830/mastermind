@@ -3,6 +3,7 @@
   margin: 0;
   border-radius: $box-radius;
   transform-origin: $button-torigin;
+  @extend %glyph-under-texture;
   &, * {
     transition: $transition-bounce;
     &:active {
@@ -28,7 +29,7 @@
     text-align: center;
     border-radius: inherit;
     box-shadow: $emboss, power-shadow($black-d1, 1.5);
-    background-color: $bg;
+    @extend %glyph-surface-texture;
     cursor: pointer;
     & > span {
       @include glow($primary);
@@ -67,7 +68,7 @@
       display: none;
     }
     .Glyph-content {
-      background-color: transparent;
+      background-color: $black-l2;
       box-shadow: none;
       @extend %raise;
     }

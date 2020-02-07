@@ -6,23 +6,17 @@
   padding: 0 $glyph-gap;
   @include glyph-container-width(2);
   @extend %flex-row;
-  @include carbon-fiber($black-l3);
+  @extend %pool-texture;
 
   .Pool-column {
     flex: 0 0 50%;
     @extend %flex-column;
     justify-content: space-around;
     align-items: center;
-    // &:not(:first-of-type) {
-    //   padding-left: $glyph-gap;
-    // }
   }
 
   .Pool-item {
     margin: 0;
-    // &:not(:first-child) {
-    //   margin-top: $glyph-gap;
-    // }
   }
 
   @include tablet {

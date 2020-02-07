@@ -3,7 +3,7 @@
   min-height: $history-height;
   max-height: $history-height;
   max-width: 50vw;
-  @include carbon-fiber($black-l4);
+  @extend %history-texture;
   overflow-x: hidden;
   overflow-y: scroll;
   position: relative;
