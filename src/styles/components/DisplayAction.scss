@@ -49,11 +49,7 @@
       &:before {
         transform: scale(1);
         opacity: 1;
-      }
-      &:hover, &:focus, &:active {
-        &:before {
-          animation: pulse-primary 1.6s infinite;
-        }
+        animation: pulse-primary 1.6s infinite;
       }
       &:active {
         transform: scale(0.9);
