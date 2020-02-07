@@ -13,6 +13,7 @@
     @extend %flex-column;
     justify-content: space-around;
     align-items: center;
+    padding: $p1 0;
   }
 
   .Pool-item {
