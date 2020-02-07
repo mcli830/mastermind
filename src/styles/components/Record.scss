@@ -42,9 +42,11 @@
       }
       &.correct-number {
         background-color: $white;
+        box-shadow: $engrave;
       }
       &.correct-position {
         background-color: $danger;
+        box-shadow: $engrave;
       }
     }
   }

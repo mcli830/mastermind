@@ -92,16 +92,16 @@
   border-bottom: 1px solid $black-l3;
 }
 
-@mixin emboss($color) {
-  color: $color;
-  text-shadow:
-    -.02em -.02em .02em rgba(white, 0.9),
-    .02em .02em .02em rgba(black, 0.5);
-}
-
 @mixin letterpress($color) {
   color: $color;
   text-shadow:
+    -.02em -.02em .02em rgba(black, 0.8),
+    .02em .02em .02em rgba(white, 0.1);
+}
+
+@mixin letterpress-box($color) {
+  background-color: $color;
+  box-shadow:
     -.02em -.02em .02em rgba(black, 0.8),
     .02em .02em .02em rgba(white, 0.1);
 }
@@ -117,8 +117,8 @@
 }
 
 @mixin engrave($color, $bg) {
-    color: rgba($color,0.4);
-    text-shadow:
+    background-color: rgba($color,0.4);
+    box-shadow:
       .02em .04em .02em $bg,
       0 0 0 #000,
       .01em .01em .01em lighten($color, 30%);

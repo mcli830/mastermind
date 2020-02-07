@@ -8,7 +8,6 @@ const Glyph = ({ value, round, size, hide, highlight, engraved, free, onClick })
     ${size} ${round ? ' round' : ''}
     ${hide || !validGlyph(value) ? ' hide' : ''}
     ${highlight ? ' highlight' : ''}
-    ${engraved ? ' engraved' : ''}
     ${free ? ' free' : ''}
   `
 
