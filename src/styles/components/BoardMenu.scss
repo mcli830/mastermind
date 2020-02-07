@@ -16,7 +16,10 @@
     padding: $p1 / 2;
     text-transform: uppercase;
     font-weight: bold;
-    box-shadow: $shadow;
+    box-shadow:
+      $emboss,
+      0 .3em .4em -.1em $alpha-black,
+      $shadow-liner;
     background-color: ($black-l2);
     transition: $transition-default;
 
