@@ -6,8 +6,9 @@ $p4: $p1 * 4;
 
 // animation
 $bezier-bounce: cubic-bezier(.21,1.11,.6,1.15);
-$transition-default: 200ms ease-out;
-$transition-bounce: 200ms $bezier-bounce;
+$timing-default: 200ms;
+$transition-default: $timing-default ease-out;
+$transition-bounce: $timing-default $bezier-bounce;
 
 // more color
 $alpha-level: 0.6;

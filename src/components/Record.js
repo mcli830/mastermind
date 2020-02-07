@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import Glyph from './Glyph'
 
 const Record = ({ sequence, result }) => {

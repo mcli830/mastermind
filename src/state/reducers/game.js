@@ -43,8 +43,8 @@ export default function gameReducer(state = initialState, action) {
       return {
         ...state,
         history: [
+          ...state.history,
           newRecord,
-          ...state.history
         ],
         selection: Array(4).fill(null),
         target: 0,

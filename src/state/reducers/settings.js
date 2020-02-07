@@ -1,7 +1,7 @@
 import { SET_LEFTY } from '../actions/settings'
 
 const initialState = {
-  lefty: false
+  lefty: false,
 }
 
 export default function gameReducer(state = initialState, action) {

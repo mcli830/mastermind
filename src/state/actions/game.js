@@ -30,8 +30,6 @@ export const submitSequence = (submission) => ({
 export function createRecord(state, submission) {
   const result = []
   const sequence = submission.map(id => state.pool[id].value)
-  console.log(state.pool)
-  console.log(sequence)
   // data copies
   const player = sequence.slice()
   const key = state.sequence.slice()

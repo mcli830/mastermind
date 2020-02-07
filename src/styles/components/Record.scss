@@ -2,11 +2,20 @@
   width: auto;
   @extend %flex-row;
   align-items: center;
-  padding: $p1;
-  @include glyph-sm-container-height(1);
+  // @include glyph-sm-container-height(1);
   @extend %inset-shadow;
   @extend %sink;
   background-color: $black-l2;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  animation: record-appear $timing-default forwards;
+
+  // @for $i from 1 through 10 {
+  //   &:nth-child(#{$i}) {
+  //     animation-delay: 60ms * ($i - 1);
+  //   }
+  // }
 
   .Record-code {
     @extend %flex-row;

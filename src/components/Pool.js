@@ -34,7 +34,6 @@ const Pool = ({
     if (loading) {
       return <Spinner />
     }
-    console.log(pool)
     return (
       <>
         {Array.chunk(pool, 2).map((column,ia) => (
