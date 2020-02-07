@@ -13,6 +13,6 @@ export const viewGlyphs = toggle => ({
 })
 
 export const viewColors = toggle => ({
-  type: VIEW_GLYPHS,
+  type: VIEW_COLORS,
   payload: { toggle }
 })

@@ -4,8 +4,8 @@ import { VIEW_COLORS } from '../actions/settings'
 
 const initialState = {
   lefty: false,
-  viewGlyphs: true,
-  viewColors: true,
+  glyphsOn: true,
+  colorsOn: true,
 }
 
 export default function gameReducer(state = initialState, action) {
@@ -18,12 +18,12 @@ export default function gameReducer(state = initialState, action) {
     case VIEW_GLYPHS:
       return {
         ...state,
-        viewGlyphs: action.payload.toggle,
+        glyphsOn: action.payload.toggle,
       }
     case VIEW_COLORS:
       return {
         ...state,
-        viewColors: action.payload.toggle,
+        colorsOn: action.payload.toggle,
       }
     default:
       return state

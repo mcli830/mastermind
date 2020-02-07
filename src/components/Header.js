@@ -5,8 +5,22 @@ import ModalMenu from './ModalMenu'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
 import { openMenu } from '../state/actions/ui'
+import { viewGlyphs, viewColors } from '../state/actions/settings'
 
-const Header = ({ menuIsOpen, openMenu, closeMenu }) => {
+const Header = ({
+  menuIsOpen,
+  openMenu,
+  closeMenu,
+  glyphsOn,
+  colorsOn,
+  viewGlyphs,
+  viewColors,
+}) => {
+
+  const handler = {
+    viewGlyphs: () => viewGlyphs(!glyphsOn),
+    viewColors: () => viewColors(!colorsOn),
+  }
 
   return (
     <div className="Header">
@@ -31,11 +45,17 @@ const Header = ({ menuIsOpen, openMenu, closeMenu }) => {
               <li>
                 Restart
               </li>
-              <li>
-                Glyphs On
+              <li
+                onClick={handler.viewGlyphs}
+                className={glyphsOn ? 'on' : ''}
+              >
+                Glyphs {glyphsOn ? 'on' : 'off'}
               </li>
-              <li>
-                Colors On
+              <li
+                onClick={handler.viewColors}
+                className={colorsOn ? 'on' : ''}
+              >
+                Colors {colorsOn ? 'on' : 'off'}
               </li>
             </ModalMenu>
           </Modal>
@@ -47,11 +67,15 @@ const Header = ({ menuIsOpen, openMenu, closeMenu }) => {
 
 const mapState = state => ({
   menuIsOpen: state.ui.menuOpen,
+  glyphsOn: state.settings.glyphsOn,
+  colorsOn: state.settings.colorsOn,
 })
 
 const mapDispatch = dispatch => ({
   openMenu: () => dispatch(openMenu(true)),
-  closeMenu: () => dispatch(openMenu(false))
+  closeMenu: () => dispatch(openMenu(false)),
+  viewGlyphs: (toggle) => dispatch(viewGlyphs(toggle)),
+  viewColors: (toggle) => dispatch(viewColors(toggle)),
 })
 
 export default connect(mapState, mapDispatch)(Header)

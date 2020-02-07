@@ -1,13 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { glyphDictionary, validGlyph } from '../lib/glyph'
 
-const Glyph = ({ value, round, size, hide, highlight, free, onClick, onHold }) => {
+const Glyph = ({ value, round, size, hide, highlight, free, onClick, onHold, glyphsOn, colorsOn }) => {
 
   const hasGlyph = validGlyph(value)
 
+  const glyphData = { char: null, color: 'primary' }
+  if (hasGlyph) {
+    glyphData.char = glyphsOn ? glyphDictionary[value].char : value
+    if (colorsOn) glyphData.color = glyphDictionary[value].color
+  }
+
   const rootClass = `Glyph ${size} `
-    + (hasGlyph ? glyphDictionary[value].color : '')
+    + glyphData.color
     + (round ? ' round' : '')
     + (hide || !hasGlyph ? ' hide' : '')
     + (highlight ? ' highlight' : '')
@@ -28,7 +35,7 @@ const Glyph = ({ value, round, size, hide, highlight, free, onClick, onHold }) =
       <div className="Glyph-underlay" />
       <div className="Glyph-content">
         <span className="hax-text-centered">
-          {hasGlyph ? glyphDictionary[value].char : null}
+          {glyphData.char}
         </span>
       </div>
     </button>
@@ -54,4 +61,9 @@ Glyph.defaultProps = {
   free: false,
 }
 
-export default Glyph
+const mapState = state => ({
+  glyphsOn: state.settings.glyphsOn,
+  colorsOn: state.settings.colorsOn,
+})
+
+export default connect(mapState)(Glyph)
