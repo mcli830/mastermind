@@ -13,7 +13,7 @@ const Header = ({ infoIsOpen, openInfo, menuIsOpen, openMenu }) => {
   return (
     <div className="Header">
       <button onClick={openInfo}>
-        <FA icon="info" />
+        <FA icon="question" />
       </button>
       <h1>
         MASTERMiND

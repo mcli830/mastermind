@@ -16,8 +16,8 @@ import "../styles/app.scss"
 
 // add fontawesome icons
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBrain, faBars, faInfo, faCogs, faKey, faArrowAltCircleUp, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
-library.add(faBrain, faBars, faInfo, faCogs, faKey, faArrowAltCircleUp, faArrowAltCircleRight)
+import { faBrain, faBars, faInfoCircle, faQuestion, faCogs, faKey, faArrowAltCircleUp, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
+library.add(faBrain, faBars, faInfoCircle, faQuestion, faCogs, faKey, faArrowAltCircleUp, faArrowAltCircleRight)
 
 const Layout = ({ children }) => {
 

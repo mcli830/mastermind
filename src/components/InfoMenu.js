@@ -9,31 +9,40 @@ import { glyphDictionary } from '../lib/glyph'
 const InfoMenu = ({ closeInfo }) => {
   return (
     <Modal onClose={closeInfo} left>
-      <ModalMenu icon={<FA icon="info" />} title="About">
+      <ModalMenu icon={<FA icon="info-circle" />} title="About">
         <a href="https://en.wikipedia.org/wiki/Mastermind_(board_game)" target="_blank" rel="noopener noreferrer">
           <li>
-            <span>About the game</span>
+            <span className="subheader">About the game</span>
             <span>Mastermind</span>
           </li>
         </a>
 
         <a href="https://github.com/mcli830" target="_blank" rel="noopener noreferrer">
           <li>
-            <span>Developer</span>
+            <span className="subheader">Developer</span>
             <span>Michael Li</span>
           </li>
         </a>
 
-        <li>
-          <span>Glyphs</span>
-        </li>
+        <li className="subsection noclick">Controls</li>
+        {[
+          ['Click/Tap', 'Add/Select Glyph'],
+          ['Right Click/Hold', 'Remove Glyph'],
+        ].map(([action, func], i) => (
+          <li className="noclick">
+            <span className='subheader'>{action}</span>
+            <span>{func}</span>
+          </li>
+        ))}
+
+        <li className="subsection noclick">Glyphs</li>
         {glyphDictionary.map((item, i) => (
           <a href={item.href} target="_blank" rel="noopener noreferrer">
             <li key={i}>
-              <span />
-              <span>
-                <strong style={{textTransform: 'none'}}>{item.char}</strong> &mdash; {item.name} ({item.origin})
+              <span className="subheader">
+                <strong style={{textTransform: 'none'}}>{item.char}</strong>
               </span>
+              <span>{item.name}</span>
             </li>
           </a>
         ))}
