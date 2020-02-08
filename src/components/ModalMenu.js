@@ -3,13 +3,15 @@ import PropTypes from 'prop-types'
 
 const ModalMenu = ({ children, title, icon }) => {
   return (
-    <ul className='ModalMenu'>
+    <div className='ModalMenu'>
       <h3>
         {icon && (<span>{icon}</span>)}
         {title && (<span>{title}</span>)}
       </h3>
-      {children}
-    </ul>
+      <ul className="ModalMenu-content">
+        {children}
+      </ul>
+    </div>
   )
 }
 

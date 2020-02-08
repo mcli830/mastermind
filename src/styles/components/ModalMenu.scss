@@ -1,12 +1,8 @@
-$vertical-padding: $p2;
-
 .ModalMenu {
-  @extend %menu-texture;
   color: $white-d2;
   top: 0;
   height: 100vh;
   width: 12rem;
-  padding-bottom: $vertical-padding;
   @extend %flex-column;
   overflow-x: hidden;
   overflow-y: auto;
@@ -24,7 +20,6 @@ $vertical-padding: $p2;
     padding: $p2 $p3;
     @extend %header-texture;
     box-shadow: $emboss, power-shadow($black, 1), $shadow;
-    margin-bottom: $vertical-padding;
     @include glow($white-d4);
     position: sticky;
     top: 0;
@@ -37,71 +32,82 @@ $vertical-padding: $p2;
     }
   }
 
-  li {
-    font-size: 1rem;
-    padding: $p1 $p3;
-    cursor: pointer;
-    @include letterpress($black-d1);
+  .ModalMenu-content {
+    padding: $p2 0;
+    @extend %menu-texture;
+    flex: 1 1 auto;
 
-    span {
-      display: block;
-      font-size: .8em;
-      @include letterpress($alpha-white);
-      &.subheader {
-        text-align: left;
-        @include letterpress($black-d1);
+    li {
+      font-size: 1rem;
+      padding: $p1 $p3;
+      cursor: pointer;
+      @include letterpress($black-d1);
+
+      span {
+        display: block;
+        font-size: .8em;
+        @include letterpress($alpha-white);
+        &.subheader {
+          text-align: left;
+          @include letterpress($black-d1);
+        }
+      }
+
+      &.subsection {
+        font-weight: bold;
+        margin-top: $p2;
+        font-family: $family-display;
+      }
+
+      &.on {
+        @include glow($primary);
+      }
+
+      @media not all and (pointer: coarse) {
+        &:hover {
+          &:not(.noclick), span:not(.subheader) {
+            @include glow($alpha-white);
+          }
+        }
+      }
+
+      &:active:not(.noclick) {
+        background-color: $alpha-white-xs;
+      }
+
+      &.noclick {
+        pointer-events: none;
+        touch-action: none;
       }
     }
 
-    &.subsection {
-      font-weight: bold;
-      margin-top: $p2;
-      font-family: $family-display;
+    &.left {
+      left: 0;
+      right: auto;
     }
 
-    &.on {
-      @include glow($primary);
+    &.right {
+      right: 0;
+      left: auto;
     }
 
-    &:hover, &:focus {
-      &:not(.noclick), * {
-        @include glow($alpha-white);
+    .column {
+      &:first-of-type {
+        padding-right: 0;
+      }
+      &:not(:first-of-type) {
+        padding-left: 0;
       }
     }
-
-    &:active:not(.noclick) {
-      background-color: $alpha-white-xs;
-    }
-
-    &.noclick {
-      pointer-events: none;
-      touch-action: none;
-    }
   }
 
-  &.left {
-    left: 0;
-    right: auto;
-  }
 
-  &.right {
-    right: 0;
-    left: auto;
-  }
-
-  .column {
-    &:first-of-type {
-      padding-right: 0;
-    }
-    &:not(:first-of-type) {
-      padding-left: 0;
-    }
-  }
 
   @include desktop {
     height: auto;
     width: 18rem;
     max-height: 80vh;
+    border-radius: 4px;
     &::-webkit-scrollbar {
       display: initial;
     }
