@@ -91,17 +91,7 @@
       left: auto;
     }
 
-    .column {
-      &:first-of-type {
-        padding-right: 0;
-      }
-      &:not(:first-of-type) {
-        padding-left: 0;
-      }
-    }
   }
-
-
 
   @include desktop {
     height: auto;
@@ -110,6 +100,14 @@
     border-radius: $glyph-radius;
     &::-webkit-scrollbar {
       display: initial;
+    }
+    .column {
+      &:first-of-type {
+        padding-right: 0;
+      }
+      &:not(:first-of-type) {
+        padding-left: 0;
+      }
     }
   }
 }

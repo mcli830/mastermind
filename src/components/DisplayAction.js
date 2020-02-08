@@ -18,7 +18,7 @@ const DisplayAction = ({ playerWin, playerLose, selection, submitSequence, resta
     if (playerWin || playerLose) {
       return (
         <div className="key-button on" onClick={restart}>
-          <FA icon="wifi" />
+          <FA icon="plug" />
         </div>
       )
     }
