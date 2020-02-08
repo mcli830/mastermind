@@ -6,10 +6,10 @@ import Header from '../components/Header'
 import GameDisplay from '../components/GameDisplay'
 import GameBoard from '../components/GameBoard'
 import AllDialogues from '../components/AllDialogues'
-
+import { openDialogue } from '../state/actions/ui'
 import { fetchRandomApi } from '../state/actions/random'
 
-const IndexPage = ({ fetchPool, dialogueIsOpen, closeDialogue }) => {
+const IndexPage = ({ sequence, fetchPool, playerWin, playerLose, openDialogue }) => {
 
   // function stabilizer
   const stableFetchPool = React.useCallback(fetchPool, [])
@@ -19,6 +19,17 @@ const IndexPage = ({ fetchPool, dialogueIsOpen, closeDialogue }) => {
     console.log('Fetching pool from random.org')
     stableFetchPool()
   }, [stableFetchPool])
+
+  React.useEffect(() => {
+    // only do something if win or lose
+    if (playerWin) {
+      openDialogue(true, 'win')
+    } else if (playerLose) {
+      openDialogue(true, 'lose')
+    }
+  }, [playerWin, playerLose])
+
+  console.log({sequence})
 
   return (
     <Layout>
@@ -38,8 +49,15 @@ const IndexPage = ({ fetchPool, dialogueIsOpen, closeDialogue }) => {
   )
 }
 
-const mapDispatch = dispatch => ({
-  fetchPool: () => dispatch(fetchRandomApi()),
+const mapState = state => ({
+  sequence: state.game.sequence,
+  playerWin: state.game.playerWin,
+  playerLose: state.game.playerLose,
 })
 
-export default connect(null, mapDispatch)(IndexPage)
+const mapDispatch = dispatch => ({
+  fetchPool: () => dispatch(fetchRandomApi()),
+  openDialogue: (open, name) => dispatch(openDialogue(open, name)),
+})
+
+export default connect(mapState, mapDispatch)(IndexPage)

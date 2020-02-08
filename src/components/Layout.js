@@ -14,8 +14,8 @@ import "../styles/app.scss"
 
 // add fontawesome icons
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBrain, faBars, faInfoCircle, faQuestion, faCogs, faKey, faAward } from '@fortawesome/free-solid-svg-icons'
-library.add(faBrain, faBars, faInfoCircle, faQuestion, faCogs, faKey, faAward)
+import { faBrain, faBars, faInfoCircle, faQuestion, faCogs, faCog, faKey, faAward, faRobot } from '@fortawesome/free-solid-svg-icons'
+library.add(faBrain, faBars, faInfoCircle, faQuestion, faCogs, faCog, faKey, faAward, faRobot )
 
 const Layout = ({ children }) => {
 

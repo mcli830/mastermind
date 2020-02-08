@@ -13,7 +13,7 @@ $z: 0;
     power-shadow($black-d1, 3),
     power-shadow($primary, 4),
     0 0 10rem -4rem $primary;
-  padding: $glyph-size-md $p4 $p2;
+  padding: $glyph-size-md $p2 $p2;
   @extend %flex-column;
 
   .Dialogue-border {
@@ -66,7 +66,7 @@ $z: 0;
     @extend %flex-center;
     text-align: center;
     &, * {
-      @include glow($primary);
+      color: $white;
     }
 
   }
@@ -102,6 +102,12 @@ $z: 0;
   .Dialogue-content {
     position: relative;
     z-index: $z + 2;
+    font-size: 1rem;
+    padding: 0 $p1;
+
+    & > * {
+      margin-bottom: $p2;
+    }
 
     .dark-text {
       @include letterpress($black-d1);
@@ -115,15 +121,59 @@ $z: 0;
   }
 
   .Dialogue-action {
+    margin-top: $p2;
     min-height: $p4;
     padding-left: $glyph-size-md;
-    font-size: 1.5rem;
+    font-size: 0.8rem;
     @extend %flex-row;
     justify-content: flex-end;
-    align-items: center;
-    .Dialogue-button:not(:first-child) {
-      margin-left: $p2;
-      padding: $p1 $p2;
+    .Dialogue-button {
+      $c: rgba($white, 0.5);
+      @extend %glyph-surface-texture;
+      border-radius: $glyph-radius;
+      @include glow($c);
+      box-shadow:
+        $emboss,
+        power-shadow($black-d1, 2),
+        power-shadow($c, 3);
+      white-space: nowrap;
+      padding: .5em 1em;
+      &:not(:first-child) {
+        margin-left: $p2;
+      }
+      &:last-child {
+        @include glow($primary);
+        box-shadow:
+          $emboss,
+          power-shadow($black-d1, 2),
+          power-shadow($primary, 3);
+      }
+      &:hover {
+        transform: translate(-1px, -1px);
+        box-shadow:
+          $emboss,
+          power-shadow($black-d1, 2),
+          power-shadow($c, 4);
+        &:last-child {
+          box-shadow:
+            $emboss,
+            power-shadow($black-d1, 2),
+            power-shadow($primary, 4);
+        }
+      }
+      &:active {
+        transform: none;
+        box-shadow:
+          $emboss,
+          power-shadow($black-d1, 2),
+          power-shadow($c, 3);
+        &:last-child {
+          box-shadow:
+            $emboss,
+            power-shadow($black-d1, 2),
+            power-shadow($primary, 3);
+        }
+      }
     }
   }
 

@@ -13,7 +13,6 @@
 
   .Glyph-underlay {
     @extend %overlay;
-    z-index: 1;
     border-radius: inherit;
     background-color: $alpha-black-sm;
     box-shadow: $inset-shadow-lg;
@@ -22,7 +21,6 @@
   .Glyph-content {
     font-weight: bold;
     position: relative;
-    z-index: 2;
     @extend %flex-center;
     @include square-glyph($glyph-size-sm, $glyph-font-fac);
     @extend %glyph-surface-texture;
@@ -63,6 +61,10 @@
       box-shadow: inset 0 0 .4em -.1em $primary, $inset-shadow-lg;
     }
     &:not(.hide) {
+      box-shadow:
+        $emboss,
+        power-shadow($black-d1, 3),
+        power-shadow(rgba($primary, 0.5), 4);
       @each $color, $hex in $glyph-colors {
         &.#{$color} {
           box-shadow:

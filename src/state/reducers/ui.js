@@ -6,6 +6,7 @@ const initialState = {
   infoIsOpen: false,
   menuIsOpen: false,
   dialogueIsOpen: false,
+  currentDialogue: null,
 }
 
 export default function uiReducer(state = initialState, action) {
@@ -13,19 +14,20 @@ export default function uiReducer(state = initialState, action) {
     case OPEN_INFO:
       return {
         ...initialState,
-        infoIsOpen: action.payload.toggle,
+        infoIsOpen: action.payload.open,
       }
 
     case OPEN_MENU:
       return {
         ...initialState,
-        menuIsOpen: action.payload.toggle,
+        menuIsOpen: action.payload.open,
       }
 
     case OPEN_DIALOGUE:
       return {
         ...initialState,
-        dialogueIsOpen: action.payload.toggle,
+        dialogueIsOpen: action.payload.open,
+        currentDialogue: action.payload.name,
       }
 
     default:
