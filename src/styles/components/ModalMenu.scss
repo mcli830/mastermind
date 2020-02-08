@@ -8,6 +8,7 @@ $vertical-padding: $p2;
   width: 12rem;
   padding-bottom: $vertical-padding;
   @extend %flex-column;
+  overflow-x: hidden;
   overflow-y: auto;
   &::-webkit-scrollbar {
     display: none;
@@ -88,9 +89,18 @@ $vertical-padding: $p2;
     left: auto;
   }
 
+  .column {
+    &:first-of-type {
+      padding-right: 0;
+    }
+    &:not(:first-of-type) {
+      padding-left: 0;
+    }
+  }
+
   @include desktop {
     height: auto;
-    width: 16rem;
+    width: 18rem;
     max-height: 80vh;
     &::-webkit-scrollbar {
       display: initial;

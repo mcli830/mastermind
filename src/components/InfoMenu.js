@@ -25,16 +25,22 @@ const InfoMenu = ({ closeInfo }) => {
         </a>
 
         <li className="subsection noclick">Glyphs</li>
-        {glyphDictionary.map((item, i) => (
-          <a key={i} href={item.href} target="_blank" rel="noopener noreferrer">
-            <li>
-              <span className="subheader">
-                <strong style={{textTransform: 'none'}}>{item.char}</strong>
-              </span>
-              <span>{item.name}</span>
-            </li>
-          </a>
-        ))}
+        <div className='columns'>
+          {Array.chunk(glyphDictionary).map((col, i) => (
+            <div key={i} className='column'>
+              {col.map((item, ii) => (
+                <a key={ii} href={item.href} target="_blank" rel="noopener noreferrer">
+                  <li>
+                    <span className="subheader">
+                      <strong style={{textTransform: 'none'}}>{item.char}</strong>
+                    </span>
+                    <span>{item.name}</span>
+                  </li>
+                </a>
+              ))}
+            </div>
+          ))}
+        </div>
 
       </ModalMenu>
     </Modal>
