@@ -3,12 +3,16 @@ import { ADD_GLYPH, REMOVE_GLYPH, CHANGE_TARGET, CLEAR_SELECTION, SUBMIT_SEQUENC
 import { cycleIndex } from '../../lib/array'
 import { validSelection } from '../../lib/glyph'
 
+const newSelection = () => {
+  return Array(4).fill(null)
+}
+
 const initialState = {
   loading: false,
   error: null,
   pool: [],
   sequence: [],
-  selection: Array(4).fill(null),
+  selection: newSelection(),
   target: 0,
   history: [],
   playerWin: false,
@@ -87,9 +91,9 @@ export default function gameReducer(state = initialState, action) {
 
     case FETCH_SUCCESS:
       return {
-        ...state,
-        loading: false,
+        ...initialState,
         sequence: action.payload.sequence,
+        selection: newSelection(),
         pool: action.payload.pool.map((n,i) => ({
           id: i,
           value: n,
