@@ -24,17 +24,6 @@ const InfoMenu = ({ closeInfo }) => {
           </li>
         </a>
 
-        <li className="subsection noclick">Controls</li>
-        {[
-          ['Click/Tap', 'Add/Select Glyph'],
-          ['Right Click/Hold', 'Remove Glyph'],
-        ].map(([action, func], i) => (
-          <li className="noclick">
-            <span className='subheader'>{action}</span>
-            <span>{func}</span>
-          </li>
-        ))}
-
         <li className="subsection noclick">Glyphs</li>
         {glyphDictionary.map((item, i) => (
           <a href={item.href} target="_blank" rel="noopener noreferrer">

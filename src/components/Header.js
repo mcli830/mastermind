@@ -19,7 +19,7 @@ const Header = ({ infoIsOpen, openInfo, menuIsOpen, openMenu }) => {
         MASTERMiND
       </h1>
       <button onClick={openMenu}>
-        <FA icon="bars" />
+        <FA icon="cogs" />
       </button>
 
       <ReactCSSTransitionGroup

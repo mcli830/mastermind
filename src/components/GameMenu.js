@@ -32,6 +32,17 @@ const GameMenu = ({ glyphsOn, colorsOn, closeMenu, viewGlyphs, viewColors, fetch
         <li role="button" onClick={handler.viewColors} className={colorsOn ? 'on' : ''}>
           Colors {colorsOn ? 'on' : 'off'}
         </li>
+
+        <li className="subsection noclick">Controls</li>
+        {[
+          ['Click/Tap', 'Add/Select Glyph'],
+          ['Right Click/Hold', 'Remove Glyph'],
+        ].map(([action, func], i) => (
+          <li className="noclick">
+            <span className='subheader'>{action}</span>
+            <span>{func}</span>
+          </li>
+        ))}
       </ModalMenu>
     </Modal>
   )

@@ -25,6 +25,8 @@ $vertical-padding: $p2;
     box-shadow: $emboss, power-shadow($black, 1), $shadow;
     margin-bottom: $vertical-padding;
     @include glow($white-d4);
+    position: sticky;
+    top: 0;
     * {
       display: inline-block;
       &:not(:first-child) {
