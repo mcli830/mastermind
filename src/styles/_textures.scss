@@ -74,3 +74,6 @@
     url("https://www.transparenttextures.com/patterns/light-honeycomb-dark.png"),
     linear-gradient($black-l1, $black-d2);
 }
+%footer-texture {
+  @extend %header-texture;
+}

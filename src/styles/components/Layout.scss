@@ -17,19 +17,9 @@
   .Layout-footer {
     position: relative;
     z-index: 1;
-    flex: 0 0 auto;
-    text-align: center;
-    background-color: $black;
-    box-shadow: $shadow-top;
-    padding: 0.3rem;
-    text-transform: uppercase;
-    font-size: 0.5rem;
-    font-weight: bold;
-    &, a {
-      color: $black-l3;
-    }
-    a:hover {
-      color: $primary;
-    }
+    flex: 0 0 $p1;
+    box-shadow: $emboss, $shadow-top;
+    width: 100%;
+    @extend %footer-texture;
   }
 }

@@ -28,9 +28,7 @@ const Layout = ({ children }) => {
         <main className="Layout-main">
           {children}
         </main>
-        <footer className="Layout-footer">
-          Made by <a href="https://github.com/mcli830">mcli830</a>
-        </footer>
+        <footer className="Layout-footer" />
       </div>
     </>
   )
