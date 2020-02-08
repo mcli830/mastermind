@@ -5,14 +5,11 @@ import SEO from "../components/SEO"
 import Header from '../components/Header'
 import GameDisplay from '../components/GameDisplay'
 import GameBoard from '../components/GameBoard'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import Modal from '../components/Modal'
-import Dialogue from '../components/Dialogue'
-import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
+import AllDialogues from '../components/AllDialogues'
 
 import { fetchRandomApi } from '../state/actions/random'
 
-const IndexPage = ({ fetchPool }) => {
+const IndexPage = ({ fetchPool, dialogueIsOpen, closeDialogue }) => {
 
   // function stabilizer
   const stableFetchPool = React.useCallback(fetchPool, [])
@@ -35,20 +32,7 @@ const IndexPage = ({ fetchPool }) => {
         </div>
       </div>
 
-      <ReactCSSTransitionGroup
-        className="ModalTransitionGroup"
-        transitionName="Dialogue"
-        transitionEnterTimeout={300}
-        transitionLeaveTimeout={300}
-      >
-        <Modal center>
-          <Dialogue icon={<FA icon="award" />}>
-            <div className="glow-text">Congratulations!</div>
-            <div className="light-text">You win!</div>
-            <div className="dark-text">but only this time....</div>
-          </Dialogue>
-        </Modal>
-      </ReactCSSTransitionGroup>
+      <AllDialogues />
 
     </Layout>
   )

@@ -127,5 +127,37 @@ $z: 0;
     }
   }
 
+}
 
+// React CSS Transition Group
+.Dialogue-enter {
+  opacity: 0;
+  .Dialogue {
+    transform: scale(0) translate(0, 25%);
+  }
+
+  &.Dialogue-enter-active {
+    opacity: 1;
+    transition: $transition-default;
+    .Dialogue {
+      transform: scale(1) translate(0, 0);
+      transition: $transition-bounce;
+    }
+  }
+}
+
+.Dialogue-leave {
+  opacity: 1;
+  .Dialogue {
+    transform: scale(1), translate(0, 0);
+  }
+
+  &.Dialogue-leave-active {
+    opacity: 0;
+    transition: $transition-default;
+    .Dialogue {
+      transform: scale(0) translate(0, 25%);
+      transition: $transition-bounce;
+    }
+  }
 }

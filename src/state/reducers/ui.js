@@ -1,9 +1,11 @@
 import { OPEN_MENU } from '../actions/ui'
 import { OPEN_INFO } from '../actions/ui'
+import { OPEN_DIALOGUE } from '../actions/ui'
 
 const initialState = {
   infoIsOpen: false,
   menuIsOpen: false,
+  dialogueIsOpen: false,
 }
 
 export default function uiReducer(state = initialState, action) {
@@ -18,6 +20,12 @@ export default function uiReducer(state = initialState, action) {
       return {
         ...initialState,
         menuIsOpen: action.payload.toggle,
+      }
+
+    case OPEN_DIALOGUE:
+      return {
+        ...initialState,
+        dialogueIsOpen: action.payload.toggle,
       }
 
     default:
