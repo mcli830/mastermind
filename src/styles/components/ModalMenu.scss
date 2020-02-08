@@ -27,6 +27,7 @@ $vertical-padding: $p2;
     @include glow($white-d4);
     position: sticky;
     top: 0;
+    font-family: $family-display;
     * {
       display: inline-block;
       &:not(:first-child) {
@@ -53,13 +54,8 @@ $vertical-padding: $p2;
 
     &.subsection {
       font-weight: bold;
-      margin-top: $p1;
-      &:before {
-        content: '— ';
-      }
-      &:after {
-        content: ' —';
-      }
+      margin-top: $p2;
+      font-family: $family-display;
     }
 
     &.on {

@@ -26,8 +26,8 @@ const InfoMenu = ({ closeInfo }) => {
 
         <li className="subsection noclick">Glyphs</li>
         {glyphDictionary.map((item, i) => (
-          <a href={item.href} target="_blank" rel="noopener noreferrer">
-            <li key={i}>
+          <a key={i} href={item.href} target="_blank" rel="noopener noreferrer">
+            <li>
               <span className="subheader">
                 <strong style={{textTransform: 'none'}}>{item.char}</strong>
               </span>

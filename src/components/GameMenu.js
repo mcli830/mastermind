@@ -38,7 +38,7 @@ const GameMenu = ({ glyphsOn, colorsOn, closeMenu, viewGlyphs, viewColors, fetch
           ['Click/Tap', 'Add/Select Glyph'],
           ['Right Click/Hold', 'Remove Glyph'],
         ].map(([action, func], i) => (
-          <li className="noclick">
+          <li key={i} className="noclick">
             <span className='subheader'>{action}</span>
             <span>{func}</span>
           </li>
