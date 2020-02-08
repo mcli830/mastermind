@@ -54,8 +54,12 @@ export function createRecord(state, submission) {
   i = 0;
   while( i < key.length ) {
     if (key.includes(player[i])) {
+      // get key's index of player value
+      let index = key.indexOf(player[i])
+      // splice player value
       player.splice(i,1)
-      key.splice(i,1)
+      // splice key at index
+      key.splice(index,1)
       result.push(1)
     } else {
       i++
