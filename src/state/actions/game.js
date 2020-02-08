@@ -34,7 +34,10 @@ export const submitSequence = (submission) => ({
 // 2: correct number and position
 
 export function createRecord(state, submission) {
-  const result = []
+  const result = {
+    perfect: 0,
+    near: 0,
+  }
   const sequence = submission.map(id => state.pool[id].value)
   // data copies
   const player = sequence.slice()
@@ -45,7 +48,7 @@ export function createRecord(state, submission) {
     if(player[i] === key[i]) {
       player.splice(i,1)
       key.splice(i,1)
-      result.push(2)
+      result.perfect += 1
     } else {
       i++
     }
@@ -60,14 +63,10 @@ export function createRecord(state, submission) {
       player.splice(i,1)
       // splice key at index
       key.splice(index,1)
-      result.push(1)
+      result.near += 1
     } else {
       i++
     }
-  }
-  // fill result with zeros until max size 4
-  while (result.length < 4) {
-    result.push(0)
   }
   // return record object formatted for state
   return {

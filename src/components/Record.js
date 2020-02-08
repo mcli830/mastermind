@@ -2,6 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Glyph from './Glyph'
 
+const Bars = ({ perfect, near }) => (
+  <span className='result-bar'>
+    {Array(4).fill(0).map((n,i) => {
+      const type = perfect > i ? 'perfect' : perfect + near > i ? 'near' : null
+      return (
+        <figure className={`result-tick ${type}`} key={i} />
+      )
+    })}
+  </span>
+)
+
 const Record = ({ sequence, result }) => {
 
   return (
@@ -14,16 +25,7 @@ const Record = ({ sequence, result }) => {
         ))}
       </div>
       <div className="Record-result">
-        {result.map((val, i) => (
-          <div
-            key={i}
-            className={`result-node ${
-              val > 1
-              ? 'correct-position' : val > 0
-              ? 'correct-number' : ''
-            }`}
-          />
-        ))}
+        <Bars perfect={result.perfect} near={result.near} />
       </div>
     </div>
   )
@@ -31,7 +33,7 @@ const Record = ({ sequence, result }) => {
 
 Record.propTypes = {
   code: PropTypes.arrayOf(PropTypes.number),
-  result: PropTypes.arrayOf(PropTypes.number),
+  result: PropTypes.object,
 }
 
 export default Record

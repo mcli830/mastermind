@@ -67,7 +67,7 @@ export default function gameReducer(state = initialState, action) {
     case SUBMIT_SEQUENCE:
       const newRecord = createRecord({...state}, action.payload.submission)
       // player wins if result is all perfect (2: matching number and position)
-      const playerWin = newRecord.result.every(n => n === 2)
+      const playerWin = newRecord.result.perfect === 4
       // player loses if this attempt is #10 without correct sequence
       const playerLose = playerWin ? false : state.history.length >= 9
       const keepSelection = playerWin || playerLose

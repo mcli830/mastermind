@@ -13,7 +13,7 @@ export const glyphDictionary = [
     href: 'https://en.wikipedia.org/wiki/Beta',
   }, {
     char: 'Ϩ',
-    color: 'red',
+    color: 'pink',
     name: 'hori',
     origin: 'coptic',
     href: 'https://en.wikipedia.org/wiki/Coptic_alphabet',
