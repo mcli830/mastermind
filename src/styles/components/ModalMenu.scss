@@ -107,7 +107,7 @@
     height: auto;
     width: 18rem;
     max-height: 80vh;
-    border-radius: 4px;
+    border-radius: $glyph-radius;
     &::-webkit-scrollbar {
       display: initial;
     }

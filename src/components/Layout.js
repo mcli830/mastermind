@@ -8,8 +8,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import Header from '../components/Header'
-
 // import local files
 import '../lib/prototype.js'
 import "../styles/app.scss"
@@ -24,7 +22,6 @@ const Layout = ({ children }) => {
   return (
     <>
       <div className="Layout container">
-        <Header />
         <main className="Layout-main">
           {children}
         </main>

@@ -22,7 +22,7 @@ const Modal = ({ children, className, center, top, left, right, bottom, onClose 
   const clickHandler = (e) => {
     e.preventDefault()
     e.stopPropagation()
-    onClose()
+    if (onClose) onClose()
   }
 
   return (
@@ -43,7 +43,7 @@ Modal.propTypes = {
   right: PropTypes.bool,
   bottom: PropTypes.bool,
   center: PropTypes.bool,
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func,
 }
 
 Modal.defaultProps = {
