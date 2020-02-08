@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Modal = ({ children, className, center, top, left, right, bottom, onClose }) => {
+const Modal = ({ children, containerClass, className, center, top, left, right, bottom, onClose }) => {
 
   if (top) bottom = false
   if (left) right = false
@@ -17,7 +17,8 @@ const Modal = ({ children, className, center, top, left, right, bottom, onClose 
     (left ? ' left' : '') +
     (right ? ' right' : '') +
     (bottom ? ' bottom' : '') +
-    (center ? ' center' : '')
+    (center ? ' center' : '') + 
+    ' ' + containerClass
 
   const clickHandler = (e) => {
     e.preventDefault()
@@ -37,6 +38,7 @@ const Modal = ({ children, className, center, top, left, right, bottom, onClose 
 
 Modal.propTypes = {
   children: PropTypes.node.isRequired,
+  containerClass: PropTypes.string,
   className: PropTypes.string,
   top: PropTypes.bool,
   left: PropTypes.bool,
@@ -47,6 +49,7 @@ Modal.propTypes = {
 }
 
 Modal.defaultProps = {
+  containerClass: '',
   className: '',
   top: false,
   left: false,

@@ -6,6 +6,7 @@ import Header from '../components/Header'
 import GameDisplay from '../components/GameDisplay'
 import GameBoard from '../components/GameBoard'
 import AllDialogues from '../components/AllDialogues'
+import LoadingScreen from '../components/LoadingScreen'
 import { openDialogue } from '../state/actions/ui'
 import { fetchRandomApi } from '../state/actions/random'
 
@@ -44,6 +45,7 @@ const IndexPage = ({ sequence, fetchPool, playerWin, playerLose, openDialogue })
       </div>
 
       <AllDialogues />
+      <LoadingScreen />
 
     </Layout>
   )
