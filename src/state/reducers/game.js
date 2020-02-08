@@ -70,14 +70,15 @@ export default function gameReducer(state = initialState, action) {
       const playerWin = newRecord.result.every(n => n === 2)
       // player loses if this attempt is #10 without correct sequence
       const playerLose = playerWin ? false : state.history.length >= 9
+      const keepSelection = playerWin || playerLose
       return {
         ...state,
         history: [
           ...state.history,
           newRecord,
         ],
-        selection: Array(4).fill(null),
-        target: 0,
+        selection: keepSelection ? state.selection : Array(4).fill(null),
+        target: keepSelection ? state.target : 0,
         playerWin,
         playerLose,
       }
