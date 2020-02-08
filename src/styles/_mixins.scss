@@ -116,6 +116,11 @@
     $offset $offset 0 rgba(white,$alpha);
 }
 
+@mixin glow-box($color) {
+  background-color: $color;
+  box-shadow: 0 0 $p2 -$p1 $color;
+}
+
 @mixin engrave($color, $bg) {
     background-color: rgba($color,0.4);
     box-shadow:
@@ -137,4 +142,12 @@
 @function power-shadow($color, $d: 1) {
   $offset: $d * .05em;
   @return $offset $offset 0 $color;
+}
+
+// effects
+
+@mixin border-top-edge($s, $c) {
+  border-top: $s solid $c;
+  border-left: $s solid transparent;
+  border-right: $s solid transparent;
 }

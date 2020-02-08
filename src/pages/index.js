@@ -8,6 +8,7 @@ import GameBoard from '../components/GameBoard'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Modal from '../components/Modal'
 import Dialogue from '../components/Dialogue'
+import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
 
 import { fetchRandomApi } from '../state/actions/random'
 
@@ -26,7 +27,7 @@ const IndexPage = ({ fetchPool }) => {
     <Layout>
       <SEO title="Home" />
       <Header />
-      
+
       <div className="Index">
         <GameDisplay />
         <div className='Index-gameboard'>
@@ -41,7 +42,11 @@ const IndexPage = ({ fetchPool }) => {
         transitionLeaveTimeout={300}
       >
         <Modal center>
-          <Dialogue />
+          <Dialogue icon={<FA icon="award" />}>
+            <div className="glow-text">Congratulations!</div>
+            <div className="light-text">You win!</div>
+            <div className="dark-text">but only this time....</div>
+          </Dialogue>
         </Modal>
       </ReactCSSTransitionGroup>
 

@@ -39,3 +39,13 @@ Array.sample = function(arr, n = 1, contiguous = false) {
     }
   }
 }
+
+Array.shuffle = function(arr) {
+  const shuffle = []
+  const copy = arr.slice()
+  while(copy.length > 0) {
+    const i = Math.floor(Math.random()*copy.length)
+    shuffle.push(copy.splice(i,1)[0])
+  }
+  return shuffle
+}
