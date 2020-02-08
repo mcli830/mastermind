@@ -38,23 +38,60 @@ export function fetchRandomApi() {
   return dispatch => {
     dispatch(fetchBegin());
 
-    return fetch(endpoint)
-      .then(handleErrors)
-      .then(res => res.text())
-      .then(text => {
-        const numbers = text.split(/\n+/).filter(str => !!str).map(str => parseInt(str, 10))
-        const sequence = numbers.slice(0,4)
-        const pool = []
-        while(numbers.length > 0) {
-          let next = Math.floor(Math.random()*numbers.length)
-          pool.push(numbers.splice(next, 1)[0])
+    return Promise.all([
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('done')
+        }, 1700)
+      }),
+      new Promise((resolve, reject) => {
+
+        function processData(numbers) {
+          const sequence = numbers.slice(0,4)
+          const pool = []
+          while(numbers.length > 0) {
+            let next = Math.floor(Math.random()*numbers.length)
+            pool.push(numbers.splice(next, 1)[0])
+          }
+          return ({ pool, sequence })
         }
-        dispatch(fetchSuccess({
-          pool,
-          sequence
-        }))
-        return { pool, sequence }
+
+        fetch(endpoint)
+          .then(handleErrors)
+          .then(res => res.text())
+          .then(text => {
+            const numbers = text.split(/\n+/).filter(str => !!str).map(str => parseInt(str, 10))
+            resolve(processData(numbers))
+          })
+          .catch(error => {
+            console.error(error)
+            console.warn('Random API fetch failed. Falling back to manually generated sequence...')
+            const numbers = Array(8).fill(0).map(n => Math.floor(Math.random()*8))
+            const data = processData(numbers)
+            resolve(processData(numbers))
+          })
       })
-      .catch(error => dispatch(fetchError(error)))
+    ]).then(([timer, fetchData]) => {
+      dispatch(fetchSuccess({ ...fetchData }))
+    })
+
+    // return fetch(endpoint)
+    //   .then(handleErrors)
+    //   .then(res => res.text())
+    //   .then(text => {
+    //     const numbers = text.split(/\n+/).filter(str => !!str).map(str => parseInt(str, 10))
+    //     const sequence = numbers.slice(0,4)
+    //     const pool = []
+    //     while(numbers.length > 0) {
+    //       let next = Math.floor(Math.random()*numbers.length)
+    //       pool.push(numbers.splice(next, 1)[0])
+    //     }
+    //     dispatch(fetchSuccess({
+    //       pool,
+    //       sequence
+    //     }))
+    //     return { pool, sequence }
+    //   })
+    //   .catch(error => dispatch(fetchError(error)))
   }
 }
