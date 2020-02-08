@@ -9,7 +9,7 @@ const Glyph = ({ value, round, size, hide, highlight, free, onClick, onHold, gly
 
   const glyphData = { char: null, color: 'primary' }
   if (hasGlyph) {
-    glyphData.char = glyphsOn ? glyphDictionary[value].char : value
+    glyphData.char = glyphsOn ? glyphDictionary[value].char : value + 1
     if (colorsOn) glyphData.color = glyphDictionary[value].color
   }
 
