@@ -32,19 +32,31 @@ $vertical-padding: $p2;
   li {
     font-size: 1rem;
     padding: $p1 $p3;
-    @include letterpress($black-d1);
     cursor: pointer;
+    @include letterpress($black-d1);
 
-    &:hover, &:focus {
+    span {
+      display: block;
       @include letterpress($alpha-white);
-    }
-
-    &:active {
-      background-color: $alpha-white-xs;
+      &:first-child {
+        text-align: left;
+        font-size: .8em;
+        @include letterpress($black-d1);
+      }
     }
 
     &.on {
       @include glow($primary);
+    }
+
+    &:hover, &:focus {
+      &, * {
+        @include glow($alpha-white);
+      }
+    }
+
+    &:active {
+      background-color: $alpha-white-xs;
     }
   }
 
@@ -60,7 +72,6 @@ $vertical-padding: $p2;
 
   @include desktop {
     height: auto;
-    transform: translate(0, -30%);
     width: 16rem;
   }
 }

@@ -1,17 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import InfoMenu from './InfoMenu'
 import GameMenu from './GameMenu'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
-import { openMenu } from '../state/actions/ui'
+import { openInfo, openMenu } from '../state/actions/ui'
 import { viewGlyphs, viewColors } from '../state/actions/settings'
 import { fetchRandomApi } from '../state/actions/random'
 
-const Header = ({ menuIsOpen, openMenu }) => {
+const Header = ({ infoIsOpen, openInfo, menuIsOpen, openMenu }) => {
 
   return (
     <div className="Header">
-      <button>
+      <button onClick={openInfo}>
         <FA icon="info" />
       </button>
       <h1>
@@ -20,6 +21,16 @@ const Header = ({ menuIsOpen, openMenu }) => {
       <button onClick={openMenu}>
         <FA icon="bars" />
       </button>
+
+      <ReactCSSTransitionGroup
+        className="ModalTransitionGroup"
+        transitionName="InfoMenu"
+        transitionEnterTimeout={300}
+        transitionLeaveTimeout={300}
+      >
+        {infoIsOpen && <InfoMenu />}
+      </ReactCSSTransitionGroup>
+
       <ReactCSSTransitionGroup
         className="ModalTransitionGroup"
         transitionName="GameMenu"
@@ -33,10 +44,12 @@ const Header = ({ menuIsOpen, openMenu }) => {
 }
 
 const mapState = state => ({
-  menuIsOpen: state.ui.menuOpen,
+  infoIsOpen: state.ui.infoIsOpen,
+  menuIsOpen: state.ui.menuIsOpen,
 })
 
 const mapDispatch = dispatch => ({
+  openInfo: () => dispatch(openInfo(true)),
   openMenu: () => dispatch(openMenu(true)),
 })
 

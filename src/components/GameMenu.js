@@ -1,6 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import Modal from './Modal'
 import ModalMenu from './ModalMenu'
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
@@ -25,16 +24,12 @@ const GameMenu = ({ glyphsOn, colorsOn, closeMenu, viewGlyphs, viewColors, fetch
         <li role="button" onClick={handler.restart}>
           Restart
         </li>
-        <li role="button"
-          onClick={handler.viewGlyphs}
-          className={glyphsOn ? 'on' : ''}
-        >
+
+        <li role="button" onClick={handler.viewGlyphs} className={glyphsOn ? 'on' : ''}>
           Glyphs {glyphsOn ? 'on' : 'off'}
         </li>
-        <li role="button"
-          onClick={handler.viewColors}
-          className={colorsOn ? 'on' : ''}
-        >
+
+        <li role="button" onClick={handler.viewColors} className={colorsOn ? 'on' : ''}>
           Colors {colorsOn ? 'on' : 'off'}
         </li>
       </ModalMenu>

@@ -7,17 +7,17 @@ const Modal = ({ children, className, center, top, left, right, bottom, onClose 
   if (left) right = false
   if (right) left = false
   if (bottom) top = false
+  if (!(top || left || right || bottom)) center = true
   if (center) {
     top = left = right = bottom = false
   }
-  if (!(top || left || right || bottom)) center = true
 
   const rootClass = 'Modal' +
     (top ? ' top' : '') +
-    (center ? ' center' : '') +
     (left ? ' left' : '') +
     (right ? ' right' : '') +
-    (bottom ? ' bottom' : '')
+    (bottom ? ' bottom' : '') +
+    (center ? ' center' : '')
 
   const clickHandler = (e) => {
     e.preventDefault()

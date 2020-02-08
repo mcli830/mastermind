@@ -1,28 +1,52 @@
 export const glyphDictionary = [
   {
-    char: 'Ω', // omega
+    char: 'Ω',
     color: 'white',
+    name: 'omega',
+    origin: 'greek',
+    href: 'https://en.wikipedia.org/wiki/Omega',
   }, {
-    char: 'β', // beta
+    char: 'β',
     color: 'green',
+    name: 'beta',
+    origin: 'greek',
+    href: 'https://en.wikipedia.org/wiki/Beta',
   }, {
-    char: 'Ϩ', // coptic hori
+    char: 'Ϩ',
     color: 'red',
+    name: 'hori',
+    origin: 'coptic',
+    href: 'https://en.wikipedia.org/wiki/Coptic_alphabet',
   }, {
-    char: 'Ϫ', // coptic gangia
+    char: 'Ϫ',
     color: 'blue',
+    name: 'gangia',
+    origin: 'coptic',
+    href: 'https://en.wikipedia.org/wiki/Coptic_alphabet',
   }, {
-    char: 'Ψ', // psi
+    char: 'Ψ',
     color: 'purple',
+    name: 'psi',
+    origin: 'greek',
+    href: 'https://en.wikipedia.org/wiki/Psi_(Greek)',
   }, {
-    char: 'Ϟ', // koppa
+    char: 'Ϟ',
     color: 'yellow',
+    name: 'koppa',
+    origin: 'greek',
+    href: 'https://en.wikipedia.org/wiki/Koppa_(letter)',
   }, {
-    char: 'λ', // lambda
+    char: 'λ',
     color: 'orange',
+    name: 'lambda',
+    origin: 'greek',
+    href: 'https://en.wikipedia.org/wiki/Lambda',
   }, {
-    char: 'ξ', // xi
+    char: 'ξ',
     color: 'cyan',
+    name: 'xi',
+    origin: 'greek',
+    href: 'https://en.wiktionary.org/wiki/%CE%BE%CE%B9#Greek',
   },
 ]
 
