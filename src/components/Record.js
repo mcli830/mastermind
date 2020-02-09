@@ -1,17 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Glyph from './Glyph'
-
-const Bars = ({ perfect, near }) => (
-  <span className='result-bar'>
-    {Array(4).fill(0).map((n,i) => {
-      const type = perfect > i ? 'perfect' : perfect + near > i ? 'near' : null
-      return (
-        <figure className={`result-tick ${type}`} key={i} />
-      )
-    })}
-  </span>
-)
+import RecordBar from './RecordBar'
 
 const Record = ({ sequence, result }) => {
 
@@ -25,7 +15,7 @@ const Record = ({ sequence, result }) => {
         ))}
       </div>
       <div className="Record-result">
-        <Bars perfect={result.perfect} near={result.near} />
+        <RecordBar perfect={result.perfect} near={result.near} />
       </div>
     </div>
   )

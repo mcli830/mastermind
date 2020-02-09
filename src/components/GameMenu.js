@@ -26,11 +26,14 @@ const GameMenu = ({ glyphSet, changeGlyphSet, colorsOn, viewColors, lefty, setLe
   return (
     <Modal onClose={closeMenu} right>
       <ModalMenu icon={<FA icon="cogs" />} title="Options">
+
+        <li className="subsection noclick">Game</li>
+
         <li role="button" onClick={handler.restart}>
           Restart
         </li>
 
-        <div className="menu-row">
+        <div className="menu-row split">
           <li role="button" onClick={lefty ? null : handler.setLefty} className={lefty ? 'on' : ''}>
             Lefty
           </li>
