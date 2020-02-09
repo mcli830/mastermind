@@ -1,6 +1,7 @@
 var globImporter = require('node-sass-glob-importer')
 
 module.exports = {
+  pathPrefix: "/mastermind",
   siteMetadata: {
     title: `Mastermind`,
     description: `Decipher a randomly generated sequence of glyphs.`,
