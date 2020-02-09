@@ -3,18 +3,15 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { glyphDictionary, validGlyph } from '../lib/glyph'
 
-const Glyph = ({ value, round, size, hide, highlight, free, onClick, onHold, glyphsOn, colorsOn }) => {
+const Glyph = ({ value, round, size, hide, highlight, free, onClick, onHold, glyphSet, colorsOn }) => {
 
   const hasGlyph = validGlyph(value)
 
-  const glyphData = { char: null, color: 'primary' }
-  if (hasGlyph) {
-    glyphData.char = glyphsOn ? glyphDictionary[value].char : value + 1
-    if (colorsOn) glyphData.color = glyphDictionary[value].color
-  }
+  const glyphChar = hasGlyph ? glyphDictionary[value][glyphSet] : null
+  const glyphColor = hasGlyph && colorsOn ? glyphDictionary[value].color : null
 
   const rootClass = `Glyph ${size} `
-    + glyphData.color
+    + glyphColor
     + (round ? ' round' : '')
     + (hide || !hasGlyph ? ' hide' : '')
     + (highlight ? ' highlight' : '')
@@ -35,7 +32,7 @@ const Glyph = ({ value, round, size, hide, highlight, free, onClick, onHold, gly
       <div className="Glyph-underlay" />
       <div className="Glyph-content">
         <span className="hax-text-centered">
-          {glyphData.char}
+          {glyphChar}
         </span>
       </div>
     </button>
@@ -62,8 +59,8 @@ Glyph.defaultProps = {
 }
 
 const mapState = state => ({
-  glyphsOn: state.settings.glyphsOn,
   colorsOn: state.settings.colorsOn,
+  glyphSet: state.settings.glyphSet,
 })
 
 export default connect(mapState)(Glyph)

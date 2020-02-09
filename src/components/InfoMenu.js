@@ -24,23 +24,16 @@ const InfoMenu = ({ closeInfo }) => {
           </li>
         </a>
 
-        <li className="subsection noclick">Glyphs</li>
-        <div className='columns'>
-          {Array.chunk(glyphDictionary).map((col, i) => (
-            <div key={i} className='column'>
-              {col.map((item, ii) => (
-                <a key={ii} href={item.href} target="_blank" rel="noopener noreferrer">
-                  <li>
-                    <span className="subheader">
-                      <strong style={{textTransform: 'none'}}>{item.char}</strong>
-                    </span>
-                    <span>{item.name}</span>
-                  </li>
-                </a>
-              ))}
-            </div>
-          ))}
-        </div>
+        <li className="subsection noclick">Controls</li>
+        {[
+          ['Click/Tap', 'Add/Select Glyph'],
+          ['Right Click/Hold', 'Remove Glyph'],
+        ].map(([action, func], i) => (
+          <li key={i} className="noclick">
+            <span className='subheader'>{action}</span>
+            <span>{func}</span>
+          </li>
+        ))}
 
       </ModalMenu>
     </Modal>

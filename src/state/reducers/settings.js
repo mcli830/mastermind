@@ -1,10 +1,10 @@
 import { SET_LEFTY } from '../actions/settings'
-import { VIEW_GLYPHS } from '../actions/settings'
+import { CHANGE_GLYPHSET } from '../actions/settings'
 import { VIEW_COLORS } from '../actions/settings'
 
 const initialState = {
   lefty: false,
-  glyphsOn: true,
+  glyphSet: 'greek',
   colorsOn: false,
 }
 
@@ -15,10 +15,10 @@ export default function gameReducer(state = initialState, action) {
         ...state,
         lefty: action.payload.toggle,
       }
-    case VIEW_GLYPHS:
+    case CHANGE_GLYPHSET:
       return {
         ...state,
-        glyphsOn: action.payload.toggle,
+        glyphSet: action.payload.set,
       }
     case VIEW_COLORS:
       return {

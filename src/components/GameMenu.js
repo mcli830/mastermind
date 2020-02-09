@@ -4,13 +4,16 @@ import Modal from './Modal'
 import ModalMenu from './ModalMenu'
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
 import { openMenu } from '../state/actions/ui'
-import { viewGlyphs, viewColors } from '../state/actions/settings'
+import { changeGlyphSet, viewColors } from '../state/actions/settings'
 import { fetchRandomApi } from '../state/actions/random'
 
-const GameMenu = ({ glyphsOn, colorsOn, closeMenu, viewGlyphs, viewColors, fetchPool }) => {
+const GameMenu = ({ glyphSet, changeGlyphSet, colorsOn, viewColors, closeMenu,fetchPool }) => {
 
   const handler = {
-    viewGlyphs: () => viewGlyphs(!glyphsOn),
+    setNumberGlyphs: () => changeGlyphSet('number'),
+    setGreekGlyphs: () => changeGlyphSet('greek'),
+    setEgyptianGlyphs: () => changeGlyphSet('egyptian'),
+    setAnimalGlyphs: () => changeGlyphSet('animal'),
     viewColors: () => viewColors(!colorsOn),
     restart: () => {
       closeMenu()
@@ -24,38 +27,39 @@ const GameMenu = ({ glyphsOn, colorsOn, closeMenu, viewGlyphs, viewColors, fetch
         <li role="button" onClick={handler.restart}>
           Restart
         </li>
-
-        <li role="button" onClick={handler.viewGlyphs} className={glyphsOn ? 'on' : ''}>
-          Glyphs {glyphsOn ? 'on' : 'off'}
-        </li>
-
+        
         <li role="button" onClick={handler.viewColors} className={colorsOn ? 'on' : ''}>
           Colors {colorsOn ? 'on' : 'off'}
         </li>
 
-        <li className="subsection noclick">Controls</li>
-        {[
-          ['Click/Tap', 'Add/Select Glyph'],
-          ['Right Click/Hold', 'Remove Glyph'],
-        ].map(([action, func], i) => (
-          <li key={i} className="noclick">
-            <span className='subheader'>{action}</span>
-            <span>{func}</span>
-          </li>
-        ))}
+        <li className="subsection noclick">Glyphs</li>
+
+        <li role="button" onClick={handler.setNumberGlyphs} className={glyphSet === 'number' ? 'on' : ''}>
+          Numbers
+        </li>
+        <li role="button" onClick={handler.setGreekGlyphs} className={glyphSet === 'greek' ? 'on' : ''}>
+          Greek
+        </li>
+        <li role="button" onClick={handler.setEgyptianGlyphs} className={glyphSet === 'egyptian' ? 'on' : ''}>
+          Egyptian
+        </li>
+        <li role="button" onClick={handler.setAnimalGlyphs} className={glyphSet === 'animal' ? 'on' : ''}>
+          Animal
+        </li>
+
       </ModalMenu>
     </Modal>
   )
 }
 
 const mapState = state => ({
-  glyphsOn: state.settings.glyphsOn,
+  glyphSet: state.settings.glyphSet,
   colorsOn: state.settings.colorsOn,
 })
 
 const mapDispatch = dispatch => ({
   closeMenu: () => dispatch(openMenu(false)),
-  viewGlyphs: (toggle) => dispatch(viewGlyphs(toggle)),
+  changeGlyphSet: (set) => dispatch(changeGlyphSet(set)),
   viewColors: (toggle) => dispatch(viewColors(toggle)),
   fetchPool: () => dispatch(fetchRandomApi()),
 })
