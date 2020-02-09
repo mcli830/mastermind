@@ -46,9 +46,9 @@
   @include carbon-fiber($black);
 }
 %header-texture {
-  @include gunmetal($black);
+  @include gunmetal($black-d1);
 }
-%boardmenu-texture {
+%boardtop-texture {
   @include gunmetal($black-l2);
 }
 %pool-texture {

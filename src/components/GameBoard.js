@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import BoardMenu from './BoardMenu'
+import BoardTop from './BoardTop'
 import History from './History'
 import Pool from './Pool'
 
@@ -8,8 +8,8 @@ const GameBoard = ({lefty}) => {
   return (
     <div className="GameBoard">
 
-      <div className='GameBoard-actions'>
-        <BoardMenu />
+      <div className='GameBoard-top'>
+        <BoardTop />
       </div>
 
       <div className='Gameboard-board' style={{

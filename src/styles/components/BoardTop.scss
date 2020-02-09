@@ -1,0 +1,49 @@
+.BoardTop {
+  width: 100%;
+  padding: 0;
+  height: $p2;
+  box-shadow: $emboss, $shadow-top, $shadow;
+  width: 100%;
+  @extend %footer-texture;
+  overflow: visible;
+  position: relative;
+
+  .BoardTop-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    button {
+      @extend %keybutton-off-texture;
+      @include letterpress($black-l3);
+      @include square-glyph($glyph-size-sm + $p2, $glyph-font-fac);
+      border-radius: 50%;
+      text-align: center;
+      box-shadow:
+        $emboss,
+        power-shadow($black-d1, 1);
+      transition: $transition-bounce;
+
+      &.on {
+        @include letterpress($alpha-white);
+        transform: translate(0, -1px);
+        box-shadow:
+          $emboss,
+          power-shadow($black-d1, 1),
+          power-shadow($alpha-white, 1.5);
+        &:hover {
+          @include letterpress($white);
+        }
+        &:active {
+          transform: translate(0,0);
+          box-shadow:
+            $emboss,
+            power-shadow($black-d1, 1.5);
+          transition: 50ms ease-out;
+        }
+      }
+
+    }
+  }
+}

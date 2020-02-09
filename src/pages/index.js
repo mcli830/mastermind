@@ -39,9 +39,7 @@ const IndexPage = ({ sequence, fetchPool, playerWin, playerLose, openDialogue })
 
       <div className="Index">
         <GameDisplay />
-        <div className='Index-gameboard'>
-          <GameBoard />
-        </div>
+        <GameBoard />
       </div>
 
       <AllDialogues />

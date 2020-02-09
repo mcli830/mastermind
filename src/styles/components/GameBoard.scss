@@ -1,12 +1,13 @@
 .GameBoard {
-  @extend %fill;
   @extend %flex-column;
+  flex: 0 0 60%;
+  box-shadow: $shadow-top;
+  border-top: 1px solid $black-l2;
 
-  .GameBoard-actions {
+  .GameBoard-top {
     flex: 0 0 auto;
     position: relative;
     z-index: 1;
-    // box-shadow: 0 0 1em -.2em $alpha-black;
   }
 
   .Gameboard-board {

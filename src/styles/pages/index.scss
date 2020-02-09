@@ -2,11 +2,4 @@
   flex: 1 1 auto;
   @extend %flex-column;
 
-  .Index-gameboard {
-    flex: 0 0 50%;
-    overflow: hidden;
-    box-shadow: $shadow-top;
-    border-top: 1px solid $black-l2;
-  }
-
 }
