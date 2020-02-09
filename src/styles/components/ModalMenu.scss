@@ -1,0 +1,136 @@
+.ModalMenu {
+  color: $white-d2;
+  top: 0;
+  height: 100vh;
+  width: 12rem;
+  @extend %flex-column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  h3, li {
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    padding: $p2 $p3;
+    @extend %header-texture;
+    box-shadow: $emboss, power-shadow($black, 1), $shadow;
+    @include glow($white-d4);
+    position: sticky;
+    top: 0;
+    font-family: $family-display;
+    * {
+      display: inline-block;
+      &:not(:first-child) {
+        margin-left: $p2;
+      }
+    }
+  }
+
+  .ModalMenu-content {
+    padding: $p2 0;
+    @extend %menu-texture;
+    flex: 1 1 auto;
+
+    .menu-row {
+      @extend %flex-row;
+      align-items: center;
+      &.split > * {
+        flex: 1 1 auto;
+      }
+      &:not(.split) > *:not(:first-child) {
+        margin-left: $p1;
+      }
+    }
+
+    .recordbar-wrapper {
+      @extend %flex-center;
+      align-items: center;
+    }
+
+    li {
+      font-size: 1rem;
+      padding: $p1 $p3;
+      cursor: pointer;
+      @include letterpress($black-d1);
+
+      span {
+        display: block;
+        font-size: .8em;
+        @include letterpress($alpha-white);
+        &.subheader {
+          text-align: left;
+          margin-bottom: .2rem;
+          @include letterpress($black-d1);
+        }
+        &.icon {
+          border-radius: 50%;
+          border: 2px solid $black;
+          @extend %flex-center;
+          @include square-glyph($p4, .5);
+        }
+      }
+
+      &.subsection {
+        font-weight: bold;
+        margin-top: $p2;
+        font-family: $family-display;
+      }
+
+      &.on {
+        @include glow($primary);
+      }
+
+      @media not all and (pointer: coarse) {
+        &:hover {
+          &:not(.noclick), span:not(.subheader) {
+            @include glow($alpha-white);
+          }
+        }
+      }
+
+      &:active:not(.noclick) {
+        background-color: $alpha-white-xs;
+      }
+
+      &.noclick {
+        pointer-events: none;
+        touch-action: none;
+      }
+    }
+
+    &.left {
+      left: 0;
+      right: auto;
+    }
+
+    &.right {
+      right: 0;
+      left: auto;
+    }
+
+  }
+
+  @include desktop {
+    height: auto;
+    width: 18rem;
+    max-height: 80vh;
+    border-radius: $glyph-radius;
+    &::-webkit-scrollbar {
+      display: initial;
+    }
+    .column {
+      &:first-of-type {
+        padding-right: 0;
+      }
+      &:not(:first-of-type) {
+        padding-left: 0;
+      }
+    }
+  }
+}

@@ -1,1 +1,51 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  user-select: none;
+  @media only screen and (max-width: 349px) {
+    font-size: 12px;
+  }
+  @include tablet {
+    font-size: 18px;
+  }
+  @include desktop {
+    font-size: 20px;
+  }
+}
 
+body {
+  @extend %body-texture;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  ::-webkit-scrollbar {
+    height: 0.2rem;
+    width: 0.2rem;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: $black;
+  }
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-track-piece {
+    background-color: $black-d2;
+  }
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+}
+
+button {
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+// bulma overrides
+
+.container {
+  max-width: $tablet - ($gap * 2);
+}

@@ -2,22 +2,41 @@
 @import "bulma/sass/utilities/functions";
 
 // Typograhy
-// $family-sans-serif: 'Quicksand', sans-serif;
+$family-sans-serif: 'Exo 2', sans-serif;
 // $family-monospace: 'Inconsolata', monospace;
 //
 // $family-primary: $family-sans-serif;
 // $family-secondary: 'Poppins', sans-serif;
 //
 // $family-brand: 'Aclonica', 'Exo 2', serif;
-// $family-display: $family-secondary;
+$family-display: 'Righteous', 'Exo 2', monospace;
 // $family-subdisplay: $family-primary;
 // $family-subheading: $family-primary;
 
 // Update Bulma's global variables
-// $primary: #45BDD8;
-// $secondary: #E88046;
+$primary: #26C485;
+// $secondary: #3df8ff;
+$secondary: #ff2643;
+// $secondary: #28acff;
+// $secondary: #f7ff21;
+// $secondary: red;
 // $widescreen-enabled: true;
 // $fullhd-enabled: true;
+
+// Colors
+$color-increment: 4%;
+$black: #222;
+$black-l1: lighten($black, $color-increment);
+$black-l2: lighten($black, $color-increment * 2);
+$black-l3: lighten($black, $color-increment * 3);
+$black-l4: lighten($black, $color-increment * 4);
+$black-d1: darken($black, $color-increment);
+$black-d2: darken($black, $color-increment * 2);
+$white: #fafafa;
+$white-d1: darken($white, $color-increment);
+$white-d2: darken($white, $color-increment * 2);
+$white-d3: darken($white, $color-increment * 3);
+$white-d4: darken($white, $color-increment * 4);
 
 // Update some of Bulma's component variables
 // base vars
@@ -26,23 +45,15 @@
 // $background-dark: darken($background, 4%);
 // $body-background-color: $background;
 // $body-background-color: $scheme-invert-ter;
-// $text: #BEDFEA;
+$text: $black;
 
 // title
 // $title-color: $text;
 // $title-family: $family-display;
 
-// function colors
-// $info: $secondary;
-
-// forms
-// $control-border-width: 2px;
-// $input-border-color: transparent;
-// $input-shadow: none;
-
 // links, anchors
-// $link: $text;
-// $link-hover: $secondary;
+$link: $text;
+$link-hover: $primary;
 
 // buttons
 // $button-background-color: transparent;

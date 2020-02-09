@@ -8,26 +8,24 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+// import local files
+import '../lib/prototype.js'
 import "../styles/app.scss"
+
+// add fontawesome icons
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faBrain, faBars, faInfo, faInfoCircle, faCogs, faCog, faUnlockAlt, faAward, faRobot, faWifi, faPlug, faUndoAlt } from '@fortawesome/free-solid-svg-icons'
+library.add(faBrain, faBars, faInfo, faInfoCircle, faCogs, faCog, faUnlockAlt, faAward, faRobot, faWifi, faPlug, faUndoAlt )
 
 const Layout = ({ children }) => {
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+      <div className="Layout container">
+        <main className="Layout-main">
+          {children}
+        </main>
+        <footer className="Layout-footer" />
       </div>
     </>
   )

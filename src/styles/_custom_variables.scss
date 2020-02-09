@@ -1,0 +1,70 @@
+// general
+$p1: 0.5rem;
+$p2: $p1 * 2;
+$p3: $p1 * 3;
+$p4: $p1 * 4;
+
+// animation
+$bezier-bounce: cubic-bezier(.21,1.11,.6,1.15);
+$timing-default: 200ms;
+$timing-modal: 300ms;
+$transition-default: $timing-default ease-out;
+$transition-bounce: $timing-default $bezier-bounce;
+
+// glyph colors
+
+$glyph-colors: (
+  white: $white,
+  blue: #0d74f2,
+  cyan: #0df2eb,
+  teal: #0df293,
+  green: #18db25,
+  yellow: #f2d00d,
+  orange: #ff7f35,
+  red: #f21c0d,
+  pink: #ff44bd,
+  purple: #ba37fc,
+);
+
+// more color
+$alpha-level: 0.5;
+$alpha-level-sm: 0.15;
+$alpha-level-xs: 0.04;
+$alpha-black: rgba(black,$alpha-level);
+$alpha-white: rgba(white,$alpha-level);
+$alpha-black-sm: rgba(black,$alpha-level-sm);
+$alpha-white-sm: rgba(white,$alpha-level-sm);
+$alpha-black-xs: rgba(black,$alpha-level-xs);
+$alpha-white-xs: rgba(white,$alpha-level-xs);
+$carbon-fiber: #474747;
+$inset-shadow-base: inset .1em .1em .4em -1px;
+$inset-shadow: inset .1em .1em .4em -1px $alpha-black;
+$inset-shadow-lg:
+  inset -.2em .3em .8em -1px $alpha-black,
+  inset .25em .3em .8em -1px $alpha-black;
+
+$shadow-liner: 0 0 0 1px rgba(black, 0.1);
+$shadow: 0 0.5em 1em -0.3em $alpha-black, $shadow-liner;
+$shadow-top: 0 -.1em .5em -1px $alpha-black;
+$emboss: -.01em -.02em .02em rgba(white, 0.1), .01em .02em .02em rgba(black, 0.9);
+$engrave:
+  inset .15em .15em .2em $alpha-black,
+  inset .05em .05em 1em $alpha-black-sm,
+  .04em .04em .08em $alpha-white;
+
+// components
+$button-torigin: 50% 80%;
+
+$glyph-gap: $p1;
+$glyph-size-sm: 2rem;
+$glyph-size-md: 4rem;
+$glyph-size-lg: 5rem;
+$glyph-font-fac: .5;
+$glyph-radius: 5px;
+
+$display-center-gap: $p3;
+$history-height: 50vh;
+
+// height = (n)(glyph-size) + (n+1)(glyph-margin)
+$gameboard-height-mobile: ($glyph-size-md * 5) + ($glyph-gap * 6);
+$gameboard-height-tablet: ($glyph-size-lg * 5) + ($glyph-gap * 6);

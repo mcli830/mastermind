@@ -1,0 +1,153 @@
+%flex {
+  display: flex;
+}
+
+%flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+%flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+%fill {
+  height: 100%;
+  width: 100%;
+}
+
+%overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @extend %fill;
+}
+
+// sizes
+
+@mixin square($n) {
+  width: $n;
+  height: $n;
+}
+
+@mixin square-glyph($n, $f) {
+  @include square($n);
+  font-size: $n * $f;
+}
+
+%glyph-sized-sm {
+  @include square-glyph($glyph-size-sm, $glyph-font-fac);
+}
+%glyph-sized-md {
+  @include square-glyph($glyph-size-md, $glyph-font-fac);
+}
+%glyph-sized-lg {
+  @include square-glyph($glyph-size-lg, $glyph-font-fac);
+}
+
+@mixin glyph-sm-container-width($n) {
+  width: ($glyph-size-sm * $n) + ($glyph-gap * ($n + 1));
+}
+@mixin glyph-sm-container-height($n) {
+  height: ($glyph-size-sm * $n) + ($glyph-gap * ($n + 1));
+}
+
+@mixin glyph-sm-container($nw, $nh) {
+  @include glyph-container-width($nw);
+  @include glyph-container-height($nh);
+}
+
+@mixin glyph-container-width($n) {
+  width: ($glyph-size-md * $n) + ($glyph-gap * ($n + 1));
+}
+@mixin glyph-container-height($n) {
+  height: ($glyph-size-md * $n) + ($glyph-gap * ($n + 1));
+}
+
+@mixin glyph-container($nw, $nh) {
+  @include glyph-container-width($nw);
+  @include glyph-container-height($nh);
+}
+
+// shadows
+
+%inset-shadow {
+  box-shadow: $inset-shadow;
+}
+
+%raise {
+  border-right: 1px solid $text;
+  border-bottom: 1px solid $text;
+}
+%sink {
+  border-right: 1px solid $black-l3;
+  border-bottom: 1px solid $black-l3;
+}
+
+@mixin letterpress($color) {
+  color: $color;
+  text-shadow:
+    -.02em -.02em .02em rgba(black, 0.8),
+    .02em .02em .02em rgba(white, 0.1);
+}
+
+@mixin letterpress-box($color) {
+  background-color: $color;
+  box-shadow:
+    -.02em -.02em .02em rgba(black, 0.8),
+    .02em .02em .02em rgba(white, 0.1);
+}
+
+@mixin glow($color) {
+  $offset: .006em;
+  $alpha: 0.3;
+  color: $color;
+  text-shadow:
+    0 0 .15em $color,
+    -$offset -$offset 0 rgba(black,$alpha),
+    $offset $offset 0 rgba(white,$alpha);
+}
+
+@mixin glow-box($color) {
+  background-color: $color;
+  box-shadow: 0 0 $p2 -$p1 $color;
+}
+
+@mixin engrave($color, $bg) {
+    background-color: rgba($color,0.4);
+    box-shadow:
+      .02em .04em .02em $bg,
+      0 0 0 #000,
+      .01em .01em .01em lighten($color, 30%);
+}
+
+@mixin inset-clip($color) {
+  $contrast: 30%;
+  background-color: darken($color, $contrast);
+  color: transparent;
+  text-shadow: .008em .014em .01em rgba(lighten($color, $contrast), 0.5);
+  -webkit-background-clip: text;
+     -moz-background-clip: text;
+          background-clip: text;
+}
+
+@function power-shadow($color, $d: 1) {
+  $offset: $d * .05em;
+  @return $offset $offset 0 $color;
+}
+
+// effects
+
+@mixin border-top-edge($s, $c) {
+  border-top: $s solid $c;
+  border-left: $s solid transparent;
+  border-right: $s solid transparent;
+}

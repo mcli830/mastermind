@@ -1,0 +1,25 @@
+.Layout {
+  min-height: 100vh;
+  padding: 0;
+  @extend %flex-column;
+  max-width: $tablet;
+  @extend %layout-texture;
+  box-shadow: $shadow;
+
+  .Layout-main {
+    position: relative;
+    z-index: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    @extend %flex-column;
+  }
+
+  .Layout-footer {
+    position: relative;
+    z-index: 0;
+    flex: 0 0 $p1;
+    box-shadow: $emboss;
+    width: 100%;
+    @extend %footer-texture;
+  }
+}

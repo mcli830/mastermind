@@ -1,0 +1,27 @@
+.History {
+  @extend %fill;
+  min-height: $history-height;
+  max-height: $history-height;
+  max-width: 50vw;
+  @extend %history-texture;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+
+  .overlay {
+    z-index: 0;
+    h2 {
+      @include letterpress($black);
+    }
+  }
+
+  .History-records {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+}

@@ -1,0 +1,39 @@
+.fill, .fill-width {
+  width: 100%;
+}
+.fill, .fill-height {
+  height: 100%;
+}
+
+.flex-row {
+  @extend %flex-row;
+}
+
+.flex-column {
+  @extend %flex-column;
+}
+
+.flex-center {
+  @extend %flex-center;
+}
+
+.flex-fluid {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.has-shadow {
+  box-shadow: $shadow;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.overlay {
+  @extend %overlay;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

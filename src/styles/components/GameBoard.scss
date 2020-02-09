@@ -1,0 +1,30 @@
+.GameBoard {
+  @extend %flex-column;
+  flex: 0 0 60%;
+  box-shadow: $shadow-top;
+  border-top: 1px solid $black-l2;
+
+  .GameBoard-top {
+    flex: 0 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .Gameboard-board {
+    position: relative;
+    z-index: 0;
+    flex: 1 1 auto;
+    @extend %fill;
+    @extend %flex-row;
+
+    .GameBoard-history {
+      @include glyph-sm-container-width(5);
+      flex: 0 1 50%;
+    }
+
+    .GameBoard-pool {
+      flex: 0 0 50%;
+    }
+  }
+
+}

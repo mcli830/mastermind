@@ -1,0 +1,57 @@
+// ReactCSSTransitionGroup classes
+.GameMenu-enter {
+  .Modal-underlay {
+    opacity: 0;
+  }
+  .ModalMenu {
+    transform: translate(100%, 0);
+    @include desktop {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+
+  &.GameMenu-enter-active {
+    .Modal-underlay {
+      opacity: 1;
+      transition: opacity $timing-modal ease-out;
+    }
+    .ModalMenu {
+      transform: translate(0,0);
+      transition: $transition-default;
+      @include desktop {
+        opacity: 1;
+        transform: scale(1);
+        transition: $transition-bounce;
+      }
+    }
+  }
+}
+
+.GameMenu-leave {
+  .Modal-underlay {
+    opacity: 1;
+  }
+  .ModalMenu {
+    transform: translate(0,0);
+    @include desktop {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &.GameMenu-leave-active {
+    .Modal-underlay {
+      opacity: 0;
+      transition: opacity $timing-modal ease-out;
+    }
+    .ModalMenu {
+      transform: translate(100%, 0);
+      transition: $transition-default;
+      @include desktop {
+        opacity: 0;
+        transform: scale(0);
+      }
+    }
+  }
+}
