@@ -2,24 +2,11 @@
 
 The [Mastermind](https://en.wikipedia.org/wiki/Mastermind_(board_game) board game built for the web.
 
-## Installation
+#### Installation
 
 No installation needed! You can find the game on the web at [mcli830.github.io/mastermind](https://mcli830.github.io/mastermind) in your web browser.
 
 You may choose to install the game as a web application for a better experience. Go to your browser settings and select _Add to Home screen_.
-
-#### Local
-
-For running the application on your system locally, your system needs Node.js and Node Package Manager (npm) installed.
-
-1. First clone the repository.
-```
-  git clone git@github.com:mcli830/mastermind.git mastermind
-```
-2. Then install packages.
-```
-  npm install
-```
 
 #### Gameplay
 
