@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Glyph from './Glyph'
-import Spinner from './Spinner'
 import { addGlyph } from '../state/actions/game'
 
 const Pool = ({

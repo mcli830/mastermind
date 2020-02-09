@@ -13,20 +13,21 @@ import { fetchRandomApi } from '../state/actions/random'
 const IndexPage = ({ sequence, fetchPool, playerWin, playerLose, openDialogue }) => {
 
   // function stabilizer
-  const stableFetchPool = React.useCallback(fetchPool, [])
+  const fetchPoolRef = React.useRef(fetchPool)
+  const openDialogueRef = React.useRef(openDialogue)
 
   // fetch initial pool after first load
   React.useEffect(() => {
-    console.log('Fetching pool from random.org')
-    stableFetchPool()
-  }, [stableFetchPool])
+    console.log('Fetching numbers from random.org')
+    fetchPoolRef.current()
+  }, [])
 
   React.useEffect(() => {
     // only do something if win or lose
     if (playerWin) {
-      openDialogue(true, 'win')
+      openDialogueRef.current(true, 'win')
     } else if (playerLose) {
-      openDialogue(true, 'lose')
+      openDialogueRef.current(true, 'lose')
     }
   }, [playerWin, playerLose])
 

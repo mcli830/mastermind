@@ -67,7 +67,6 @@ export function fetchRandomApi() {
             console.error(error)
             console.warn('Random API fetch failed. Falling back to manually generated sequence...')
             const numbers = Array(8).fill(0).map(n => Math.floor(Math.random()*8))
-            const data = processData(numbers)
             resolve(processData(numbers))
           })
       })

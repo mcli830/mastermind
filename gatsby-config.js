@@ -3,7 +3,7 @@ var globImporter = require('node-sass-glob-importer')
 module.exports = {
   siteMetadata: {
     title: `Mastermind`,
-    description: `Guess the right combination of numbers`,
+    description: `Decipher a randomly generated sequence of glyphs.`,
     author: `@mcli830`,
   },
   plugins: [
@@ -32,14 +32,30 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Mastermind`,
+        short_name: `Mastermind`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        background_color: `#222`,
+        theme_color: `#26C485`,
+        display: `standalone`,
+        icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
+    },
+    {
+      resolve: 'gatsby-plugin-favicon',
+      options: {
+        logo: './src/images/logo.png',
+        background: '#222',
+        theme_color: '#26C485',
+        display: 'standalone',
+        orientation: 'portrait',
+        icons: {
+          android: true,
+          appleIcon: true,
+          favicons: true,
+          firefox: true,
+        }
+      }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

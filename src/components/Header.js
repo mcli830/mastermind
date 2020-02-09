@@ -5,8 +5,6 @@ import GameMenu from './GameMenu'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
 import { openInfo, openMenu } from '../state/actions/ui'
-import { viewGlyphs, viewColors } from '../state/actions/settings'
-import { fetchRandomApi } from '../state/actions/random'
 
 const Header = ({ infoIsOpen, openInfo, menuIsOpen, openMenu }) => {
 

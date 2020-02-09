@@ -5,7 +5,6 @@ import ModalMenu from './ModalMenu'
 import RecordBar from './RecordBar'
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
 import { openInfo } from '../state/actions/ui'
-import { glyphDictionary } from '../lib/glyph'
 
 const InfoMenu = ({ closeInfo }) => {
   return (

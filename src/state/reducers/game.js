@@ -1,7 +1,6 @@
 import { FETCH_BEGIN, FETCH_SUCCESS, FETCH_ERROR } from '../actions/random'
 import { ADD_GLYPH, REMOVE_GLYPH, CHANGE_TARGET, CLEAR_SELECTION, SUBMIT_SEQUENCE, createRecord } from '../actions/game'
 import { cycleIndex } from '../../lib/array'
-import { validSelection } from '../../lib/glyph'
 
 const newSelection = () => {
   return Array(4).fill(null)
