@@ -37,6 +37,13 @@
     @extend %menu-texture;
     flex: 1 1 auto;
 
+    .menu-row {
+      @extend %flex-row;
+      & > * {
+        flex: 1 1 auto;
+      }
+    }
+
     li {
       font-size: 1rem;
       padding: $p1 $p3;

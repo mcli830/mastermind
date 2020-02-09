@@ -4,16 +4,18 @@ import Modal from './Modal'
 import ModalMenu from './ModalMenu'
 import { FontAwesomeIcon as FA } from '@fortawesome/react-fontawesome'
 import { openMenu } from '../state/actions/ui'
-import { changeGlyphSet, viewColors } from '../state/actions/settings'
+import { changeGlyphSet, viewColors, setLefty } from '../state/actions/settings'
 import { fetchRandomApi } from '../state/actions/random'
 
-const GameMenu = ({ glyphSet, changeGlyphSet, colorsOn, viewColors, closeMenu,fetchPool }) => {
+const GameMenu = ({ glyphSet, changeGlyphSet, colorsOn, viewColors, lefty, setLefty, closeMenu, fetchPool }) => {
 
   const handler = {
     setNumberGlyphs: () => changeGlyphSet('number'),
     setGreekGlyphs: () => changeGlyphSet('greek'),
     setEgyptianGlyphs: () => changeGlyphSet('egyptian'),
     setAnimalGlyphs: () => changeGlyphSet('animal'),
+    setLefty: () => setLefty(true),
+    setRighty: () => setLefty(false),
     viewColors: () => viewColors(!colorsOn),
     restart: () => {
       closeMenu()
@@ -27,7 +29,16 @@ const GameMenu = ({ glyphSet, changeGlyphSet, colorsOn, viewColors, closeMenu,fe
         <li role="button" onClick={handler.restart}>
           Restart
         </li>
-        
+
+        <div className="menu-row">
+          <li role="button" onClick={lefty ? null : handler.setLefty} className={lefty ? 'on' : ''}>
+            Lefty
+          </li>
+          <li role="button" onClick={lefty ? handler.setRighty : null} className={lefty ? '' : 'on'}>
+            Righty
+          </li>
+        </div>
+
         <li role="button" onClick={handler.viewColors} className={colorsOn ? 'on' : ''}>
           Colors {colorsOn ? 'on' : 'off'}
         </li>
@@ -55,11 +66,13 @@ const GameMenu = ({ glyphSet, changeGlyphSet, colorsOn, viewColors, closeMenu,fe
 const mapState = state => ({
   glyphSet: state.settings.glyphSet,
   colorsOn: state.settings.colorsOn,
+  lefty: state.settings.lefty,
 })
 
 const mapDispatch = dispatch => ({
   closeMenu: () => dispatch(openMenu(false)),
   changeGlyphSet: (set) => dispatch(changeGlyphSet(set)),
+  setLefty: (bool) => dispatch(setLefty(bool)),
   viewColors: (toggle) => dispatch(viewColors(toggle)),
   fetchPool: () => dispatch(fetchRandomApi()),
 })
