@@ -2,13 +2,13 @@
 
 The [Mastermind](https://en.wikipedia.org/wiki/Mastermind_(board_game) board game built for the web.
 
-#### Installation
+### Installation
 
 No installation needed! You can find the game on the web at [mcli830.github.io/mastermind](https://mcli830.github.io/mastermind) in your web browser.
 
 You may choose to install the game as a web application for a better experience. Go to your browser settings and select _Add to Home screen_.
 
-#### Gameplay
+### Gameplay
 
 The computer will generate a secret sequence of glyphs. It's your job to find out what the sequence is by submitting your own sequences that you make from a limited set of glyphs.
 
@@ -26,7 +26,7 @@ Mastermind can be played on mobile or desktop.
 | Select   | Tap        | Left Click  |
 | Remove   | Long Press | Right Click |
 
-#### Customization
+### Customization
 
 Make sure to check out the game options menu denoted by the cog ⚙️ icon. You can customize the appearance of the game as well as your hand orientation for easier one-handed play.
 
@@ -34,11 +34,11 @@ Make sure to check out the game options menu denoted by the cog ⚙️ icon. You
 
 This web application was developed using the Gatsby.js static website generator with React and Redux. True random numbers were generated using the [random.org](https://www.random.org/clients/http/api/) API.
 
-##### Generating random sequences
+#### Generating random sequences
 
 For each secret sequence generated in the game, a series of eight random integers from 0-7 were requested from the random.org API. To both preserve the true randomness of the sequence and minimize API calls, the first four integers received from the request will become the next secret sequence for the player to guess against. The entire list of eight integers is then scrambled on the client side to be rendered for the player. Since the randomness of the render is less important than the sequence, producing randomness with JavaScript's built-in random function is good enough.
 
-##### Validating user submissions
+#### Validating user submissions
 
 The secret and player sequences are stored in the game state as 4-index arrays of integer values. Once the player submits their sequence, the two sequences are compared for exact matches and close matches.
 
