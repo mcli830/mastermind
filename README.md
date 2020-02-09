@@ -1,97 +1,87 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
-<p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby's default starter
-</h1>
+# Mastermind
 
-Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+The [Mastermind](https://en.wikipedia.org/wiki/Mastermind_(board_game) board game built for the web.
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+## Installation
 
-## 🚀 Quick start
+No installation needed! You can find the game on the web at [mcli830.github.io/mastermind](https://mcli830.github.io/mastermind) in your web browser.
 
-1.  **Create a Gatsby site.**
+You may choose to install the game as a web application for a better experience. Go to your browser settings and select _Add to Home screen_.
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+#### Local
 
-    ```shell
-    # create a new Gatsby site using the default starter
-    gatsby new my-default-starter https://github.com/gatsbyjs/gatsby-starter-default
-    ```
+For running the application on your system locally, your system needs Node.js and Node Package Manager (npm) installed.
 
-1.  **Start developing.**
+1. First clone the repository.
+```
+  git clone git@github.com:mcli830/mastermind.git mastermind
+```
+2. Then install packages.
+```
+  npm install
+```
 
-    Navigate into your new site’s directory and start it up.
+#### Gameplay
 
-    ```shell
-    cd my-default-starter/
-    gatsby develop
-    ```
+The computer will generate a secret sequence of glyphs. It's your job to find out what the sequence is by submitting your own sequences that you make from a limited set of glyphs.
 
-1.  **Open the source code and start editing!**
+Once you submit a sequence, you will be given feedback describing how your sequence compares to the computer's sequence.
 
-    Your site is now running at `http://localhost:8000`!
+ - Each red mark indicates a perfect match with one glyph somewhere in your sequence.
+ - Each white mark indicates a correct glyph in your sequence that is in the incorrect position.
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+**_Note:_** There may be duplicate glyphs in your set. Each mark will only account for one instance of the glyph's value e.g. if the secret sequence is [1,1,2,2] and you submit [1,2,1,1], you will receive 1 red mark and 2 white marks.
 
-    Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+Mastermind can be played on mobile or desktop.
 
-## 🧐 What's inside?
+| Controls | Mobile     | Desktop     |
+|----------|------------|-------------|
+| Select   | Tap        | Left Click  |
+| Remove   | Long Press | Right Click |
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+#### Customization
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+Make sure to check out the game options menu denoted by the cog ⚙️ icon. You can customize the appearance of the game as well as your hand orientation for easier one-handed play.
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+## Methodology
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+This web application was developed using the Gatsby.js static website generator with React and Redux. True random numbers were generated using the [random.org](https://www.random.org/clients/http/api/) API.
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+##### Generating random sequences
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+For each secret sequence generated in the game, a series of eight random integers from 0-7 were requested from the random.org API. To both preserve the true randomness of the sequence and minimize API calls, the first four integers received from the request will become the next secret sequence for the player to guess against. The entire list of eight integers is then scrambled on the client side to be rendered for the player. Since the randomness of the render is less important than the sequence, producing randomness with JavaScript's built-in random function is good enough.
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+##### Validating user submissions
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+The secret and player sequences are stored in the game state as 4-index arrays of integer values. Once the player submits their sequence, the two sequences are compared for exact matches and close matches.
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+For exact matches, an iterator checks for exact equality for both sequences' corresponding indices. When there is a match, both arrays are spliced at that index position and a counter is incremented for exact matches.
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+```javascript
+var secret = [1,3,3,4]
+var player = [5,3,1,1]
 
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+compareExact(secret, player)
+// match at index 2 -> splice both arrays at 0
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+// secret = [1,3,4]
+// player = [5,1,1]
+// exactMatches = 1
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+```
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+For close matches, where a correct integer value was provided, but was not in the correct position in sequence, the secret sequence is iterated. At each index, the user's sequence is searched for the first instance of the same value. If there is a match, the secret sequence is spliced at the current iteration index, and the user sequence is spliced at the matched index with the same value.
 
-## 🎓 Learning Gatsby
+```javascript
+secret = [1,3,4]
+player = [5,1,1]
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+compareClose(secret, player)
+// match at secret[0] and player[2] -> splice
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+// secret = [2,4]
+// player = [5,3]
+// closeMatches = 1
+```
+This method of splicing ensures that no duplicates are counted when comparing the sequences. In the example, even though the player submitted an extra 1 value, it does not get counted toward the number of close matches.
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
-
-## 💫 Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
-
-<!-- AUTO-GENERATED-CONTENT:END -->
