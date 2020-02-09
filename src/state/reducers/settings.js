@@ -5,7 +5,7 @@ import { VIEW_COLORS } from '../actions/settings'
 const initialState = {
   lefty: false,
   glyphSet: 'greek',
-  colorsOn: false,
+  colorsOn: true,
 }
 
 export default function gameReducer(state = initialState, action) {
